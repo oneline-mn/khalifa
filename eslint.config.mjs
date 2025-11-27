@@ -1,6 +1,9 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import perfectionist from "eslint-plugin-perfectionist";
+import { defineConfig, globalIgnores } from "eslint/config";
+import { importX } from "eslint-plugin-import-x";
+import js from "@eslint/js";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -12,7 +15,40 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".open-next/**",
   ]),
+
+  {
+    ...js.configs.recommended,
+    ...importX.flatConfigs.recommended,
+    ...importX.flatConfigs.typescript,
+  },
+
+  {
+    files: ["app/**/*.{js,jsx,ts,tsx}"],
+    ...perfectionist.configs["recommended-natural"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["error"],
+      "func-style": [
+        "error",
+        "declaration",
+        {
+          allowArrowFunctions: false,
+        },
+      ],
+      "import-x/no-restricted-paths": [
+        "error",
+        {
+          zones: [
+            {
+              target: ["**/*.{ts,tsx}"],
+              from: ["app/**/page.tsx", "app/**/layout.tsx"],
+            },
+          ],
+        },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;
