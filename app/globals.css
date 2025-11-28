@@ -146,10 +146,18 @@
   }
 
   .hover-float {
-    @apply duration-150 hover:-translate-y-1 hover:translate-x-1
+    @apply duration-150 hover:-translate-y-1 hover:translate-x-1;
   }
 
   .group-hover-float {
-    @apply duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5
+    @apply duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5;
   }
+}
+
+.custom-bullet {
+  @apply size-4! rounded-full;
+}
+
+.swiper-pagination-bullet-active.custom-bullet {
+  @apply bg-white;
 }
