@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -135,5 +136,20 @@
 @layer utilities {
   .max-w-2k {
     @apply max-w-[1440px];
+  }
+
+  .font-manrope {
+    font-family: "Manrope", sans-serif;
+    font-weight: normal;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .hover-float {
+    @apply duration-150 hover:-translate-y-1 hover:translate-x-1
+  }
+
+  .group-hover-float {
+    @apply duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5
   }
 }

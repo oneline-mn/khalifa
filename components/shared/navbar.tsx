@@ -2,10 +2,11 @@
 
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import Link from "next/link";
-import { CartIcon, FacebookIcon, HeartIcon, InstagramIcon, MenuIcon, UserIcon, XIcon } from "./icons";
+import { BagIcon, CloseIcon, FacebookIcon, HeartIcon, InstagramIcon, MenuIcon, UserIcon } from "./icons";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { NAV_ITEMS } from "@/constants";
+import Image from "next/image";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -19,8 +20,8 @@ export default function Navbar() {
   return (
     <nav className="sticky inset-x-0 top-0 z-30 text-white">
       <div className="bg-primary">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-7 lg:px-10">
-          <div>Image</div>
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
+          <Image src={"/"} alt="Khalifa logo" width={200} height={100} className="h-12 object-contain bg-white/10" />
           <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
             <ul className="flex font-semibold justify-center items-center">
               {NAV_ITEMS.map((item, i) => (
@@ -36,24 +37,24 @@ export default function Navbar() {
             <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex">
               <span className="relative">
                 <HeartIcon className="size-5" />
-                <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-2 -right-2 rounded-full">
+                <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">
                   <p className="text-[10px] font-bold leading-none">2</p>
                 </span>
               </span>
               <span>Хадгалсан</span>
             </Link>
-            
+
             {/* Cart drawer */}
             <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
               <DrawerTrigger asChild>
-                <Button className="flex flex-col items-center px-4 gap-0.5">
+                <Button className="flex flex-col items-center px-4 py-0 gap-0.5">
                   <span className="relative">
-                    <CartIcon className="size-5" />
-                    <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-2 -right-2 rounded-full">
+                    <BagIcon className="size-5 stroke-2" />
+                    <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">
                       <p className="text-[10px] font-bold leading-none">2</p>
                     </span>
                   </span>
-                  <span className="hidden sm:block">Сагс</span>
+                  <span className="hidden sm:block font-bold">Сагс</span>
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
@@ -81,7 +82,7 @@ export default function Navbar() {
                     <DrawerTitle>Navbar</DrawerTitle>
                   </DrawerHeader>
                   <Button variant={"naked"} size={"icon"}>
-                    <XIcon className="stroke-primary" />
+                    <CloseIcon className="stroke-primary" />
                   </Button>
                 </div>
 
@@ -93,7 +94,7 @@ export default function Navbar() {
                       </Link>
                     ))}
                   </div>
-                  
+
                   {/* Menu mobile actions */}
                   <div className="border-t border-brand-orange space-y-6 py-10">
                     <Link href={"/"} className="flex items-center justify-between">
@@ -109,7 +110,7 @@ export default function Navbar() {
                       <DrawerTrigger asChild onClick={handleOpenCart}>
                         <Button variant={"naked"} className="flex items-center justify-between w-full px-0 font-bold">
                           <span className="flex items-center gap-2">
-                            <CartIcon className="size-5 fill-primary" />
+                            <BagIcon className="size-5 stroke-primary" />
                             <span className="text-2xl">Сагс</span>
                           </span>
                           <span className="bg-brand text-white rounded-full px-3 text-base">2</span>
