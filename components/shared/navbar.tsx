@@ -1,8 +1,21 @@
+"use client";
+
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import Link from "next/link";
-import { CartIcon, HeartIcon, UserIcon } from "./icons";
+import { CartIcon, FacebookIcon, HeartIcon, InstagramIcon, MenuIcon, UserIcon, XIcon } from "./icons";
+import { Button } from "../ui/button";
+import { useState } from "react";
+import { NAV_ITEMS } from "@/constants";
 
 export default function Navbar() {
+  const [openCart, setOpenCart] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
+
+  const handleOpenCart = () => {
+    setOpenCart(true);
+    setOpenNav(false);
+  };
+
   return (
     <nav className="sticky inset-x-0 top-0 z-30 text-white">
       <div className="bg-primary">
@@ -10,48 +23,125 @@ export default function Navbar() {
           <div>Image</div>
           <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
             <ul className="flex font-semibold justify-center items-center">
-              <li>
-                <Link href="/" className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
-                  <span className="text-center">Онцлох брэндүүд</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/" className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
-                  <span className="text-center">Бүтээгдэхүүн</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/about/" className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
-                  <span className="text-center">Бидний тухай</span>
-                </Link>
-              </li>
+              {NAV_ITEMS.map((item, i) => (
+                <li key={i}>
+                  <Link href="/" className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
+                    <span className="text-center">{item.label}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="flex items-center text-sm font-semibold">
-            <Link href={"/"} className="flex flex-col items-center px-4 gap-0.5">
-              <HeartIcon className="size-5" />
-              <h1>Хадгалсан</h1>
+            <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex">
+              <span className="relative">
+                <HeartIcon className="size-5" />
+                <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-2 -right-2 rounded-full">
+                  <p className="text-[10px] font-bold leading-none">2</p>
+                </span>
+              </span>
+              <span>Хадгалсан</span>
             </Link>
-            <Link href={"/"} className="flex flex-col items-center px-4 gap-0.5">
-              <CartIcon className="size-5" />
-              <h1>Хадгалсан</h1>
-            </Link>
-            <Link href={"/"} className="flex flex-col items-center px-4 gap-0.5">
+            
+            {/* Cart drawer */}
+            <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
+              <DrawerTrigger asChild>
+                <Button className="flex flex-col items-center px-4 gap-0.5">
+                  <span className="relative">
+                    <CartIcon className="size-5" />
+                    <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-2 -right-2 rounded-full">
+                      <p className="text-[10px] font-bold leading-none">2</p>
+                    </span>
+                  </span>
+                  <span className="hidden sm:block">Сагс</span>
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <DrawerHeader>
+                  <DrawerTitle>Cart</DrawerTitle>
+                  <DrawerDescription>lorem</DrawerDescription>
+                </DrawerHeader>
+                <DrawerFooter>Cart footer</DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+
+            <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex">
               <UserIcon className="size-5" />
-              <h1>Хадгалсан</h1>
+              <span>Миний бүртгэл</span>
             </Link>
+            <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
+              <DrawerTrigger asChild className="block sm:hidden">
+                <Button className="flex flex-col items-center px-4 gap-0.5">
+                  <MenuIcon />
+                </Button>
+              </DrawerTrigger>
+              <DrawerContent>
+                <div className="flex items-center justify-between">
+                  <DrawerHeader>
+                    <DrawerTitle>Navbar</DrawerTitle>
+                  </DrawerHeader>
+                  <Button variant={"naked"} size={"icon"}>
+                    <XIcon className="stroke-primary" />
+                  </Button>
+                </div>
+
+                <div className="flex flex-col justify-start font-bold text-2xl">
+                  <div className="flex flex-col py-10">
+                    {NAV_ITEMS.map((item, i) => (
+                      <Link href="/" key={i} className="py-2">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                  
+                  {/* Menu mobile actions */}
+                  <div className="border-t border-brand-orange space-y-6 py-10">
+                    <Link href={"/"} className="flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <HeartIcon className="size-5 fill-primary" />
+                        <span>Хадгалсан</span>
+                      </span>
+                      <span className="bg-brand text-white rounded-full px-3 text-base">2</span>
+                    </Link>
+
+                    {/* Cart handle on mobile */}
+                    <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
+                      <DrawerTrigger asChild onClick={handleOpenCart}>
+                        <Button variant={"naked"} className="flex items-center justify-between w-full px-0 font-bold">
+                          <span className="flex items-center gap-2">
+                            <CartIcon className="size-5 fill-primary" />
+                            <span className="text-2xl">Сагс</span>
+                          </span>
+                          <span className="bg-brand text-white rounded-full px-3 text-base">2</span>
+                        </Button>
+                      </DrawerTrigger>
+                    </Drawer>
+
+                    <Link href={"/"} className="flex items-center justify-between">
+                      <span className="flex items-center gap-2">
+                        <UserIcon className="size-5 fill-primary" />
+                        <span>Миний бүртгэл</span>
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+                <DrawerFooter>
+                  <div className="flex justify-between">
+                    <span>mgl</span>
+                    <div className="flex items-center gap-2">
+                      <FacebookIcon />
+                      <InstagramIcon />
+                    </div>
+                  </div>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
           </div>
-          <Drawer direction="right">
-            <DrawerTrigger className="hidden">Open</DrawerTrigger>
-            <DrawerContent>
-              <DrawerHeader>
-                <DrawerTitle>Navbar</DrawerTitle>
-                <DrawerDescription>lorem</DrawerDescription>
-              </DrawerHeader>
-              <DrawerFooter>Navbar footer</DrawerFooter>
-            </DrawerContent>
-          </Drawer>
         </div>
+      </div>
+      <div className="flex items-center justify-center bg-black gap-3 font-semibold py-1">
+        <span className="size-7 rounded-full flex items-center justify-center border border-white text-xs leading-none">21+</span>
+        <p className="text-sm">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>
   );

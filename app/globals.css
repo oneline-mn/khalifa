@@ -5,6 +5,7 @@
 
 @theme inline {
   --color-brand: var(--brand);
+  --color-brand-orange: var(--brand-orange);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -48,6 +49,7 @@
 
 :root {
   --brand: #d82336;
+  --brand-orange: #fb7600;
 
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -86,6 +88,7 @@
 
 .dark {
   --brand: #d82336;
+  --brand-orange: #fb7600;
 
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
