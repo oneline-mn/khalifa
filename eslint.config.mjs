@@ -27,6 +27,10 @@ const eslintConfig = defineConfig([
   {
     files: ["app/**/*.{js,jsx,ts,tsx}"],
     ...perfectionist.configs["recommended-natural"],
+  },
+
+  {
+    files: ["app/**/*.{js,jsx,ts,tsx}"],
     rules: {
       "@typescript-eslint/no-unused-vars": ["error"],
       "func-style": [
