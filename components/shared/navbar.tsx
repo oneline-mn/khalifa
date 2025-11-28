@@ -2,11 +2,14 @@
 
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import Link from "next/link";
-import { BagIcon, CloseIcon, FacebookIcon, HeartIcon, InstagramIcon, MenuIcon, UserIcon } from "./icons";
+import { CloseIcon, FacebookIcon, InstagramIcon, MenuIcon } from "./icons";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { NAV_ITEMS } from "@/constants";
 import Image from "next/image";
+
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ClipboardMinus, Handbag, Heart, Star, User, UserRound } from "lucide-react";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -22,6 +25,7 @@ export default function Navbar() {
       <div className="bg-primary">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
           <Image src={"/"} alt="Khalifa logo" width={200} height={100} className="h-12 object-contain bg-white/10" />
+          <Star fill="" strokeWidth={0} />
           <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
             <ul className="flex font-semibold justify-center items-center">
               {NAV_ITEMS.map((item, i) => (
@@ -34,27 +38,15 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="flex items-center text-sm font-semibold">
-            <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex">
-              <span className="relative">
-                <HeartIcon className="size-5" />
-                <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">
-                  <p className="text-[10px] font-bold leading-none">2</p>
-                </span>
-              </span>
-              <span>Хадгалсан</span>
+            <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+              <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
             </Link>
 
             {/* Cart drawer */}
             <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
               <DrawerTrigger asChild>
-                <Button className="flex flex-col items-center px-4 py-0 gap-0.5">
-                  <span className="relative">
-                    <BagIcon className="size-5 stroke-2" />
-                    <span className="bg-brand w-4 size-3 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">
-                      <p className="text-[10px] font-bold leading-none">2</p>
-                    </span>
-                  </span>
-                  <span className="hidden sm:block font-bold">Сагс</span>
+                <Button className="flex flex-col items-center px-4 py-0 gap-0.5 group">
+                  <NavCountItem label="Сагс" icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />} />
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
@@ -66,10 +58,31 @@ export default function Navbar() {
               </DrawerContent>
             </Drawer>
 
-            <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex">
-              <UserIcon className="size-5" />
-              <span>Миний бүртгэл</span>
-            </Link>
+            {/* TODO: Dropdown color */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+                  <UserRound className="size-5 duration-150 group-hover:scale-120" />
+                  <span>Миний бүртгэл</span>
+                </Link>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="min-w-48" align="center">
+                <DropdownMenuLabel>Signed in as</DropdownMenuLabel>
+                <DropdownMenuItem className="pointer-events-none">soko.bbz.4@gmail.com</DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <DropdownMenuItem>
+                    <User /> Хувийн мэдээлэл
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <ClipboardMinus /> Захиалгын мэдээлэл
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Log out</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
               <DrawerTrigger asChild className="block sm:hidden">
                 <Button className="flex flex-col items-center px-4 gap-0.5">
@@ -98,29 +111,21 @@ export default function Navbar() {
                   {/* Menu mobile actions */}
                   <div className="border-t border-brand-orange space-y-6 py-10">
                     <Link href={"/"} className="flex items-center justify-between">
-                      <span className="flex items-center gap-2">
-                        <HeartIcon className="size-5 fill-primary" />
-                        <span>Хадгалсан</span>
-                      </span>
-                      <span className="bg-brand text-white rounded-full px-3 text-base">2</span>
+                      <NavCountItem label="Хадгалсан" icon={<Heart className="size-6" />} isMobile />
                     </Link>
 
                     {/* Cart handle on mobile */}
                     <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
                       <DrawerTrigger asChild onClick={handleOpenCart}>
                         <Button variant={"naked"} className="flex items-center justify-between w-full px-0 font-bold">
-                          <span className="flex items-center gap-2">
-                            <BagIcon className="size-5 stroke-primary" />
-                            <span className="text-2xl">Сагс</span>
-                          </span>
-                          <span className="bg-brand text-white rounded-full px-3 text-base">2</span>
+                          <NavCountItem label="Сагс" count={2} icon={<Handbag className="size-6" />} isMobile />
                         </Button>
                       </DrawerTrigger>
                     </Drawer>
 
                     <Link href={"/"} className="flex items-center justify-between">
                       <span className="flex items-center gap-2">
-                        <UserIcon className="size-5 fill-primary" />
+                        <User className="size-6" />
                         <span>Миний бүртгэл</span>
                       </span>
                     </Link>
@@ -145,5 +150,29 @@ export default function Navbar() {
         <p className="text-sm">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>
+  );
+}
+
+function NavCountItem({ label, icon, count = 2, isMobile = false }: { label: string; icon: React.ReactNode; count?: number; isMobile?: boolean }) {
+  return (
+    <>
+      {isMobile ? (
+        <>
+          <span className="flex items-center gap-2">
+            {icon}
+            <span className="text-2xl">{label}</span>
+          </span>
+          <span className="bg-brand text-white rounded-full px-3 text-base">{count}</span>
+        </>
+      ) : (
+        <>
+          <div className="relative">
+            {icon}
+            <span className="bg-brand w-4 h-3 group-hover:scale-110 duration-150 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">{count && <span className="text-[10px] font-bold leading-none">2</span>}</span>
+          </div>
+          <span className="hidden sm:block font-bold">{label}</span>
+        </>
+      )}
+    </>
   );
 }
