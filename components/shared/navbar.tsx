@@ -2,14 +2,14 @@
 
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import Link from "next/link";
-import { CloseIcon, FacebookIcon, InstagramIcon, MenuIcon } from "./icons";
+import { FacebookIcon, InstagramIcon } from "./icons";
 import { Button } from "../ui/button";
 import { useState } from "react";
 import { NAV_ITEMS } from "@/constants";
 import Image from "next/image";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { ClipboardMinus, Handbag, Heart, Star, User, UserRound } from "lucide-react";
+import { ClipboardMinus, Handbag, Heart, Star, TextAlignJustify, User, UserRound, X } from "lucide-react";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -86,7 +86,7 @@ export default function Navbar() {
             <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
               <DrawerTrigger asChild className="block sm:hidden">
                 <Button className="flex flex-col items-center px-4 gap-0.5">
-                  <MenuIcon />
+                  <TextAlignJustify className="size-6" />
                 </Button>
               </DrawerTrigger>
               <DrawerContent>
@@ -95,7 +95,7 @@ export default function Navbar() {
                     <DrawerTitle>Navbar</DrawerTitle>
                   </DrawerHeader>
                   <Button variant={"naked"} size={"icon"}>
-                    <CloseIcon className="stroke-primary" />
+                    <X className="stroke-primary size-7" />
                   </Button>
                 </div>
 

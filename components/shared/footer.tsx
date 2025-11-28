@@ -1,8 +1,8 @@
 import { FOOTER_ITEMS, NAV_ITEMS, SOCIALS } from "@/constants";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
-import { MailIcon, PhoneIcon } from "./icons";
 import Image from "next/image";
+import { Mail, Smartphone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -25,11 +25,11 @@ export default function Footer() {
         <div className="grid grid-cols-4 md:grid-cols-7 text-sm lg:text-base font-semibold font-manrope gap-y-6">
           <div className="col-span-full md:col-span-2 flex flex-col">
             <Link href={"tel:+97675990007"} className="flex items-center gap-2 group py-2.5">
-              <PhoneIcon className="size-5" />
+              <Smartphone className="size-5" />
               <span className="text-white/60 group-hover-float">+976 7599-0007</span>
             </Link>
             <Link href={"mailto:contact@khalifa.mn"} className="flex items-center gap-2 group py-0.5">
-              <MailIcon className="size-5" />
+              <Mail className="size-5" />
               <span className="text-white/60 group-hover-float">contact@khalifa.mn</span>
             </Link>
           </div>

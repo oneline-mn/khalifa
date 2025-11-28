@@ -1,21 +1,5 @@
 import { cn } from "@/lib/utils";
 
-export function MenuIcon({ size, className }: { size?: string; color?: string; className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className={cn("fill-white size-6", className, size)}>
-      <path fillRule="evenodd" d="M2 3.75A.75.75 0 0 1 2.75 3h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 3.75M2 8a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 8m0 4.25a.75.75 0 0 1 .75-.75h10.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75" clipRule="evenodd" />
-    </svg>
-  );
-}
-
-export function CloseIcon({ size, className }: { size?: string; color?: string; className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={cn("stroke-white size-6", className, size)} fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  );
-}
-
 export function FacebookIcon({ size, className }: { size?: string; color?: string; className?: string }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={cn("fill-primary size-6", className, size)}>
@@ -32,24 +16,6 @@ export function XIcon({ size, className }: { size?: string; color?: string; clas
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className={cn("fill-primary size-6", className, size)} viewBox="0 0 1200 1227">
       <path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="white"></path>
-    </svg>
-  );
-}
-
-export function PhoneIcon({ size, className }: { size?: string; color?: string; className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={cn("fill-white size-6", className, size)}>
-      <path d="M10.5 18.75a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5z" />
-      <path fillRule="evenodd" d="M8.625.75A3.375 3.375 0 0 0 5.25 4.125v15.75a3.375 3.375 0 0 0 3.375 3.375h6.75a3.375 3.375 0 0 0 3.375-3.375V4.125A3.375 3.375 0 0 0 15.375.75zM7.5 4.125C7.5 3.504 8.004 3 8.625 3H9.75v.375c0 .621.504 1.125 1.125 1.125h2.25c.621 0 1.125-.504 1.125-1.125V3h1.125c.621 0 1.125.504 1.125 1.125v15.75c0 .621-.504 1.125-1.125 1.125h-6.75A1.125 1.125 0 0 1 7.5 19.875z" clipRule="evenodd" />
-    </svg>
-  );
-}
-
-export function MailIcon({ size, className }: { size?: string; color?: string; className?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className={cn("fill-white size-6", className, size)}>
-      <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793q.039.014.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185l.076-.032V4.5A1.5 1.5 0 0 0 13.5 3z" />
-      <path d="M15 6.954L8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5z" />
     </svg>
   );
 }
