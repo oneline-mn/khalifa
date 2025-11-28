@@ -23,5 +23,8 @@
   "editor.tabSize": 1,
   "editor.quickSuggestions": {
     "strings": "on"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

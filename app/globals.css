@@ -1,11 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-brand: var(--brand);
+  --color-brand-orange: var(--brand-orange);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -44,14 +49,18 @@
 }
 
 :root {
+  --brand: #d82336;
+  --brand-orange: #fb7600;
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
+  --primary: #08121c;
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
@@ -79,6 +88,9 @@
 }
 
 .dark {
+  --brand: #d82336;
+  --brand-orange: #fb7600;
+
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
@@ -118,5 +130,26 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .max-w-2k {
+    @apply max-w-[1440px];
+  }
+
+  .font-manrope {
+    font-family: "Manrope", sans-serif;
+    font-weight: normal;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .hover-float {
+    @apply duration-150 hover:-translate-y-1 hover:translate-x-1
+  }
+
+  .group-hover-float {
+    @apply duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5
   }
 }
