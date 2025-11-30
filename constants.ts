@@ -41,7 +41,7 @@ export const FOOTER_ITEMS: FooterItem[] = [
 export interface FeaturedProduct {
   id: number;
   title: string;
-  description: string;
+  description?: string;
   image: string;
   url: string;
 }
@@ -123,7 +123,7 @@ export const FEATURED_BRAND: FeaturedBrand[] = [
 export interface Product {
   id: number;
   name: string;
-  category_id?: number;
+  category_id: number;
   description: string;
   price?: number;
   image: string;

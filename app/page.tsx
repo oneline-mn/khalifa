@@ -47,7 +47,6 @@ export default function Home() {
 }
 
 function getCategoryTitle(categoryId?: number) {
-  if (categoryId === undefined) return "";
   const category = CATEGORIES.find((c) => c.id === categoryId);
   return category ? category.title : "";
 }
