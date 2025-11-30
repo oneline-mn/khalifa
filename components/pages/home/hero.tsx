@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import useHydration from "@/lib/use-hydration";
+import Image from "next/image";
 
 export default function Hero() {
   const isHydrated = useHydration();
@@ -26,10 +27,12 @@ export default function Hero() {
           autoplay={{
             delay: 5000,
           }}
-          loop={true}
-        >
-          <SwiperSlide className="bg-red-200"> Slide 1</SwiperSlide>
-          <SwiperSlide className="bg-green-200"> Slide 1</SwiperSlide>
+          loop={true}>
+          {["1", "2", "3"].map((image) => (
+            <SwiperSlide key={image}>
+              <Image src={`/hero/hero-${image}.png`} alt="hero image" width={1400} height={700} className="size-full object-cover" />
+            </SwiperSlide>
+          ))}
         </Swiper>
       )}
     </div>

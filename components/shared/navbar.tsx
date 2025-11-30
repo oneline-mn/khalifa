@@ -9,7 +9,7 @@ import { NAV_ITEMS } from "@/constants";
 import Image from "next/image";
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { ClipboardMinus, Handbag, Heart, Star, TextAlignJustify, User, UserRound, X } from "lucide-react";
+import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 
 export default function Navbar() {
@@ -29,7 +29,6 @@ export default function Navbar() {
         <div className="bg-primary">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
             <Image src={"/"} alt="Khalifa logo" width={200} height={100} className="h-12 object-contain bg-white/10" />
-            <Star fill="" strokeWidth={0} />
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
@@ -49,7 +48,7 @@ export default function Navbar() {
               {/* Cart drawer */}
               <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
                 <DrawerTrigger asChild>
-                  <Button className="flex flex-col items-center px-4 py-0 gap-0.5 group">
+                  <Button className="flex flex-col items-center px-4 py-0 gap-0.5 group w-fit">
                     <NavCountItem label="Сагс" icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />} />
                   </Button>
                 </DrawerTrigger>
@@ -150,9 +149,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="flex items-center justify-center bg-black gap-3 font-semibold py-1">
-        <span className="size-7 rounded-full flex items-center justify-center border border-white text-xs leading-none">21+</span>
-        <p className="text-sm">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
+      <div className="flex items-center justify-center bg-black gap-3 font-semibold py-2">
+        <span className="size-7 rounded-full flex items-center justify-center border border-white text-xs leading-none font-bold">21+</span>
+        <p className="">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>
   );
@@ -171,10 +170,12 @@ function NavCountItem({ label, icon, count = 2, isMobile = false }: { label: str
         </>
       ) : (
         <>
-          <div className="relative">
+          <span className="relative">
             {icon}
-            <span className="bg-brand w-4 h-3 group-hover:scale-110 duration-150 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">{count && <span className="text-[10px] font-bold leading-none">2</span>}</span>
-          </div>
+            <span className="bg-brand w-4 h-3 group-hover:scale-110 duration-150 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">
+              {count && <span className="text-[10px] font-bold leading-none">2</span>}
+            </span>
+          </span>
           <span className="hidden sm:block font-bold">{label}</span>
         </>
       )}
