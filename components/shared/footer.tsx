@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-2k w-full mx-auto py-7 md:py-8 px-5 lg:px-10 gap-8 flex flex-col">
         <Separator />
         <div className="flex items-center justify-between">
-          <Image src={'/'} alt='Khalifa logo' width={200} height={100} className="h-12 object-contain bg-white/10" />
+          <Image src={"/"} alt="Khalifa logo" width={200} height={100} className="h-12 object-contain bg-white/10" />
           <div className="flex items-center gap-3 lg:hidden">
             {SOCIALS.map((social, i) => {
               const Icon = social.icon;
