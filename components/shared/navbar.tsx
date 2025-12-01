@@ -35,7 +35,7 @@ export default function Navbar() {
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
                   <li key={i}>
-                    <Link href={item.href} className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
+                    <Link href={item.href} className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4" scroll={true}>
                       <span className="text-center">{item.label}</span>
                     </Link>
                   </li>
@@ -43,7 +43,7 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="flex items-center text-sm font-semibold">
-              <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+              <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group" scroll={true}>
                 <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
               </Link>
 
@@ -66,7 +66,7 @@ export default function Navbar() {
               {/* TODO: Dropdown color */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+                  <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group" scroll={true}>
                     <UserRound className="size-5 duration-150 group-hover:scale-120" />
                     <span>Миний бүртгэл</span>
                   </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
                   <div className="flex flex-col justify-start font-bold text-2xl">
                     <div className="flex flex-col py-10">
                       {NAV_ITEMS.map((item, i) => (
-                        <Link href={item.href} key={i} className="py-2">
+                        <Link href={item.href} key={i} className="py-2" scroll={true}>
                           {item.label}
                         </Link>
                       ))}
@@ -115,7 +115,7 @@ export default function Navbar() {
 
                     {/* Menu mobile actions */}
                     <div className="border-t border-brand-orange space-y-6 py-10">
-                      <Link href={"/"} className="flex items-center justify-between">
+                      <Link href={"/"} className="flex items-center justify-between" scroll={true}>
                         <NavCountItem label="Хадгалсан" icon={<Heart className="size-6" />} isMobile />
                       </Link>
 
@@ -128,7 +128,7 @@ export default function Navbar() {
                         </DrawerTrigger>
                       </Drawer>
 
-                      <Link href={"/"} className="flex items-center justify-between">
+                      <Link href={"/"} className="flex items-center justify-between" scroll={true}>
                         <span className="flex items-center gap-2">
                           <User className="size-6" />
                           <span>Миний бүртгэл</span>
