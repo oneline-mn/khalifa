@@ -33,7 +33,7 @@ export default function Navbar() {
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
                   <li key={i}>
-                    <Link href="/" className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
+                    <Link href={item.href} className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
                       <span className="text-center">{item.label}</span>
                     </Link>
                   </li>
@@ -41,7 +41,7 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="flex items-center text-sm font-semibold">
-              <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+              <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
                 <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
               </Link>
 
@@ -87,7 +87,7 @@ export default function Navbar() {
               </DropdownMenu>
 
               <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
-                <DrawerTrigger asChild className="block sm:hidden">
+                <DrawerTrigger asChild className="block lg:hidden">
                   <Button className="flex flex-col items-center px-4 gap-0.5">
                     <TextAlignJustify className="size-6" />
                   </Button>
@@ -97,7 +97,7 @@ export default function Navbar() {
                     <DrawerHeader>
                       <DrawerTitle>Navbar</DrawerTitle>
                     </DrawerHeader>
-                    <Button variant={"naked"} size={"icon"}>
+                    <Button variant={"naked"} size={"icon"} onClick={()=> setOpenNav(false)}>
                       <X className="stroke-primary size-7" />
                     </Button>
                   </div>
@@ -149,8 +149,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="flex items-center justify-center bg-black gap-3 font-semibold py-2">
-        <span className="size-7 rounded-full flex items-center justify-center border border-white text-xs leading-none font-bold">21+</span>
+      <div className="flex-center bg-black gap-3 font-semibold py-2">
+        <span className="size-7 rounded-full flex-center border border-white text-xs leading-none font-bold">21+</span>
         <p className="">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>

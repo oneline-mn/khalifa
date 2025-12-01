@@ -131,8 +131,26 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* ============================ */
+  /* Custom Swiper Pagination */
+  /* ============================ */
+  .swiper-pagination {
+    @apply flex! items-center justify-center pb-2!;
+  }
+
+  .custom-bullet {
+    @apply size-3! rounded-full my-auto;
+  }
+
+  .swiper-pagination-bullet-active.custom-bullet {
+    @apply bg-white!;
   }
 }
 
@@ -142,7 +160,7 @@
   }
 
   .container {
-    @apply max-w-[1440px] mx-auto py-[42px] px-6 md:py-20 md:px-[38px] text-white;
+    @apply max-w-[1440px] mx-auto py-[42px] px-6 md:py-20 md:px-[38px];
   }
 
   .font-manrope {
@@ -158,14 +176,34 @@
   }
 }
 
-.swiper-pagination {
-  @apply flex! items-center justify-center pb-2!;
+/* ============================ */
+/* Utility classes */
+/* ============================ */
+@utility flex-center {
+  @apply flex items-center justify-center;
 }
 
-.custom-bullet {
-  @apply size-3! rounded-full my-auto;
+/* ============================ */
+/* About section */
+/* ============================ */
+
+/* Barag l dynamic dot classes */
+@utility flow-dot-utility {
+  @apply flex flex-col gap-5 pl-14 lg:pl-20 relative;
 }
 
-.swiper-pagination-bullet-active.custom-bullet {
-  @apply bg-white;
+@utility flow-dot-before {
+  @apply before:absolute before:box-content before:left-[17px] lg:before:left-[33px] before:h-full before:w-1 before:border-x before:border-x-orange-200/50 before:self-start before:translate-y-5;
+}
+
+@utility flow-dot-after {
+  @apply after:absolute after:left-2 lg:after:left-5 after:size-3 lg:after:size-4 after:bg-brand-orange after:border-8 after:box-content after:border-primary after:rounded-full after:translate-y-2;
+}
+
+.flow-dot {
+  @apply flow-dot-utility flow-dot-before flow-dot-after;
+}
+
+.flow-dot-last {
+  @apply flow-dot-utility flow-dot-after;
 }
