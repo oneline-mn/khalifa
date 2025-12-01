@@ -12,7 +12,7 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
     <section className="bg-primary">
       <div className="relative">
         <Image src={featured.banner.image} width={1200} height={600} alt={featured.title} className="w-full h-auto min-h-[180px] object-center object-cover" />
-        <Image src={featured.banner.logo} width={180} height={90} alt={featured.title} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[180px] w-auto object-contain" />
+        <Image src={featured.banner.logo} width={180} height={90} alt={featured.title} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-18 md:h-45 w-auto object-contain" />
       </div>
       <div className="container text-white">
         <div className="grid lg:grid-cols-3 gap-x-20 gap-y-8">
@@ -37,7 +37,7 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
 function FeaturedProductCard({ url, image, title, description }: FeaturedProduct) {
   return (
     <div className="flex flex-col gap-6">
-      <Link href={url} className="relative">
+      <Link href={url} className="relative" scroll={true}>
         <Image src={image} width={900} height={900} alt={title} className="w-full aspect-9/10" />
       </Link>
       <div className="flex flex-col gap-4 text-white justify-between h-full">
@@ -45,7 +45,7 @@ function FeaturedProductCard({ url, image, title, description }: FeaturedProduct
           <h1 className="font-bold text-xl md:text-[32px] leading-normal">{title}</h1>
           <p className="text md:text-xl leading-normal mb-6">{description}</p>
         </div>
-        <Link href={url}>
+        <Link href={url} scroll={true}>
           <Button className="hover:bg-gray-200 hover:text-primary rounded font-bold text-sm px-10 py-5 border">Дэлгэрэнгүй</Button>
         </Link>
       </div>
