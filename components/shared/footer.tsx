@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="col-span-2 flex flex-col mt-auto text-white/60">
             {FOOTER_ITEMS.map((item, i) => {
               return (
-                <Link key={i} href={"/"} className="text-inherit hover:text-white hover-float py-2.5">
+                <Link key={i} href={item.href} className="text-inherit hover:text-white hover-float py-2.5">
                   {item.label}
                 </Link>
               );
