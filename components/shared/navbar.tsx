@@ -8,6 +8,8 @@ import { useState } from "react";
 import { NAV_ITEMS } from "@/constants";
 import Image from "next/image";
 
+import { usePathname } from "next/navigation";
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
@@ -22,7 +24,7 @@ export default function Navbar() {
   };
 
   const isHydrated = useHydration();
-
+  const pathname = usePathname();
   return (
     <nav className="sticky inset-x-0 top-0 z-30 text-white">
       {isHydrated && (
@@ -64,7 +66,7 @@ export default function Navbar() {
               {/* TODO: Dropdown color */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Link href={"/"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+                  <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
                     <UserRound className="size-5 duration-150 group-hover:scale-120" />
                     <span>Миний бүртгэл</span>
                   </Link>
@@ -97,7 +99,7 @@ export default function Navbar() {
                     <DrawerHeader>
                       <DrawerTitle>Navbar</DrawerTitle>
                     </DrawerHeader>
-                    <Button variant={"naked"} size={"icon"} onClick={()=> setOpenNav(false)}>
+                    <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
                       <X className="stroke-primary size-7" />
                     </Button>
                   </div>
@@ -105,7 +107,7 @@ export default function Navbar() {
                   <div className="flex flex-col justify-start font-bold text-2xl">
                     <div className="flex flex-col py-10">
                       {NAV_ITEMS.map((item, i) => (
-                        <Link href="/" key={i} className="py-2">
+                        <Link href={item.href} key={i} className="py-2">
                           {item.label}
                         </Link>
                       ))}
@@ -149,9 +151,9 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="flex-center bg-black gap-3 font-semibold py-2">
-        <span className="size-7 rounded-full flex-center border border-white text-xs leading-none font-bold">21+</span>
-        <p className="">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
+      <div className={pathname === "/products" ? "hidden" :'flex-center bg-black gap-3 font-semibold py-2'}>
+        <span className={ "size-7 rounded-full flex-center border border-white text-xs leading-none font-bold"}>21+</span>
+        <p className="text-xs md:text-sm lg:text-base">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>
   );

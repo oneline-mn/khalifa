@@ -12,7 +12,7 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
     <section className="bg-primary">
       <div className="relative">
         <Image src={featured.banner.image} width={1200} height={600} alt={featured.title} className="w-full h-auto min-h-[180px] object-center object-cover" />
-        <Image src={featured.banner.logo} width={180} height={90} alt={featured.title} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[180px] w-auto object-contain" />
+        <Image src={featured.banner.logo} width={180} height={90} alt={featured.title} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-18 md:h-45 w-auto object-contain" />
       </div>
       <div className="container text-white">
         <div className="grid lg:grid-cols-3 gap-x-20 gap-y-8">
