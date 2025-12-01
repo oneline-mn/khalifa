@@ -35,7 +35,7 @@ export default function Page() {
           <div className="container">
             <div className="grid grid-cols-2 gap-x-4 md:gap-x-5 gap-y-5 md:gap-y-10 lg:gap-y-20 md:grid-cols-3 lg:gap-x-7 xl:grid-cols-4">
               {PRODUCTS_LIST.slice(0, 4).map((product: Product) => {
-                return <ProductCard category={getCategoryTitle(product.category_id)} image={product.image} key={product.id} price={product.price ?? 0} title={product.name} url={product.url}>
+                return <ProductCard category={getCategoryTitle(product.category_id)} image={product.image} key={product.id} price={product.price ?? 0} quantity={product.quantity} title={product.name} url={product.url}>
                   <div className="flex gap-2">
                     <Button className="md:text-xl font-bold flex items-center gap-2 h-11" size={'lg'} variant={'secondary'}>
                       <Handbag className="size-5 hidden" strokeWidth={2} />
@@ -46,7 +46,7 @@ export default function Page() {
                 </ProductCard>;
               })}
               {PRODUCTS_LIST.slice(0, 4).map((product: Product) => {
-                return <ProductCard category={getCategoryTitle(product.category_id)} image={product.image} key={product.id} price={product.price ?? 0} title={product.name} url={product.url} />;
+                return <ProductCard category={getCategoryTitle(product.category_id)} image={product.image} key={product.id} price={product.price ?? 0} quantity={product.quantity} title={product.name} url={product.url} />;
               })}
             </div>
           </div>

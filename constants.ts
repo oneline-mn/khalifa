@@ -124,6 +124,7 @@ export interface Product {
   name: string;
   category_id: number;
   description: string;
+  quantity: number;
   price?: number;
   image: string;
   url: string;
@@ -135,6 +136,7 @@ export const PRODUCTS_LIST: Product[] = [
     name: "Signature Candle",
     category_id: 1,
     description: "",
+    quantity: 2,
     price: 55000,
     image: "/wine/wine-2.png",
     url: "#",
@@ -144,6 +146,7 @@ export const PRODUCTS_LIST: Product[] = [
     name: "Glen Talloch Blended Whisky Rare & Old",
     category_id: 5,
     description: "",
+    quantity: 0,
     price: 95000,
     image: "/wine/wine-2.png",
     url: "#",
@@ -153,6 +156,7 @@ export const PRODUCTS_LIST: Product[] = [
     name: "Sierra Silver",
     category_id: 7,
     description: "",
+    quantity: 0,
     price: 82000,
     image: "/wine/wine-2.png",
     url: "#",
@@ -162,6 +166,7 @@ export const PRODUCTS_LIST: Product[] = [
     name: "Grand Marnier Gordon Rouge",
     category_id: 4,
     description: "",
+    quantity: 2,
     price: 138000,
     image: "/wine/wine-2.png",
     url: "#",

@@ -11,9 +11,10 @@ interface ProductCardProps {
   price: number;
   children?: React.ReactNode;
   shadow?: "dark" | "light";
+  quantity: number;
 }
 
-export default function ProductCard({ image, title, category, url, price, children, shadow = "dark" }: ProductCardProps) {
+export default function ProductCard({ image, title, category, url, price, children, shadow = "dark", quantity }: ProductCardProps) {
   return (
     <div className="flex flex-col">
       <Link href={url} className="flex flex-col rounded-lg relative lg:gap-6 h-full">
@@ -27,6 +28,7 @@ export default function ProductCard({ image, title, category, url, price, childr
             className="h-[88%] mx-auto rotate-x-180 absolute top-[88%] w-auto object-contain left-[50%] -translate-x-[50%] object-center blur-[2px] z-0"
           />
           <div className={cn("absolute inset-x-0 top-[60%] bottom-0 bg-linear-to-b", shadow === "dark" ? "from-primary/0 to-primary" : "from-white/0 to-white")}></div>
+          {quantity === 0 && <div className="bg-brand-orange px-4 py-2 rounded-l-lg absolute top-3 right-0 lg:top-5 text-white font-semibold">Нөөц дууссан</div>}
         </div>
         <div className="flex flex-col gap-2 my-2 md:my-4 text-left justify-between max-h-35 h-full">
           <div className="space-y-2">

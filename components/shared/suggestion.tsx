@@ -18,6 +18,7 @@ export default function Suggestion() {
                 image={product.image}
                 key={product.id}
                 price={product.price ?? 0}
+                quantity={product.quantity}
                 title={product.name}
                 url={product.url}
                 shadow='light'
