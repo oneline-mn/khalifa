@@ -14,7 +14,7 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
         <Image src={featured.banner.image} width={1200} height={600} alt={featured.title} className="w-full h-auto min-h-[180px] object-center object-cover" />
         <Image src={featured.banner.logo} width={180} height={90} alt={featured.title} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[180px] w-auto object-contain" />
       </div>
-      <div className="container">
+      <div className="container text-white">
         <div className="grid lg:grid-cols-3 gap-x-20 gap-y-8">
           <div className="col-span-3 lg:col-span-1">
             <h1 className="font-serif text-2xl leading-snug lg:text-5xl font-bold w-full">{featured.title}</h1>

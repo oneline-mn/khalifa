@@ -5,7 +5,7 @@ import { FacebookIcon, InstagramIcon, XIcon } from "./components/shared/icons";
 // ============================
 export const NAV_ITEMS = [
   { label: "Онцлох брэндүүд", href: "/" },
-  { label: "Бүтээгдэхүүн", href: "/product" },
+  { label: "Бүтээгдэхүүн", href: "/products" },
   { label: "Бидний тухай", href: "/about" },
 ];
 export interface SocialItem {
@@ -32,10 +32,9 @@ export interface FooterItem {
 }
 
 export const FOOTER_ITEMS: FooterItem[] = [
-  { label: "Түгээмэл асуулт, хариулт", href: "/" },
+  { label: "Түгээмэл асуулт, хариулт", href: "/faq" },
   { label: "Нээлттэй ажлын байр", href: "/" },
-  { label: "Нууцлалын бодлого", href: "/" },
-  { label: "Нээлттэй ажлын байр", href: "/" },
+  { label: "Нууцлалын бодлого", href: "/privacy-policy" },
 ];
 
 export interface FeaturedProduct {
@@ -186,3 +185,21 @@ export const CATEGORIES: Category[] = [
   { id: 6, title: "champagne" },
   { id: 7, title: "tequila" },
 ];
+
+export const ABOUT = [
+  {
+    id: 1,
+    title: 'Эрхэм зорилго',
+    description: 'Дэлхийн тансаг зэрэглэлийн шингэн бүтээгдэхүүнийг Монголдоо хямд үнээр, албан ёсны баталгаат үйлдвэрээс нь худалдан борлуулж үйлчлүүлэгч хэрэглэгч нартаа хамгийн хялбар үйлчилгээг санал болгох юм.'
+  },
+  {
+    id: 2,
+    title: 'Алсын хараа',
+    description: 'Бараа бүтээгдэхүүнийхээ төрлийн нэмэгдүүлж илүү хялбар аргаар бусдаас хямд үнээр премиум зэрэглэлийн бараа бүтээгдэхүүнийг хэрэглэгчдэд нийлүүлэх болон шингэн хүнсийг зохистой хэрэглэх соёлыг дэлгэрүүлэхэд оршино.'
+  },
+  {
+    id: 3,
+    title: 'Үнэт зүйл',
+    description: 'Чанарыг эрхэмлэж, соёлыг түгээж, ёс зүйг баримтална.'
+  },
+]
