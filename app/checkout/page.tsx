@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CheckoutSummary from "@/components/pages/cart/checkout-summary";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Separator } from "@/components/ui/separator";
 
 export default function Page() {
-  const delivery = 0;
-
   return (
     <section className="max-w-2k mx-auto py-0! relative">
       <div className="grid grid-cols-2  md:grid-cols-5 top-20 gap-5">
@@ -59,64 +57,31 @@ export default function Page() {
           <h1 className="text-2xl font-bold">Захиалга баталгаажуулалт</h1>
 
           <div className="flex flex-col divide-y">
-            <div className="flex items-start gap-4 py-7">
-              <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
-              <div className="flex flex-col grow-0 items-start gap-2">
-                <a href="/13/">
-                  <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
-                </a>
-                <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
-                <div className="mt-1 flex"></div>
-                <Label>1 ширхэг</Label>
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div className="flex items-start gap-4 py-7" key={i}>
+                <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
+                <div className="flex flex-col grow-0 items-start gap-2">
+                  <a href="/13/">
+                    <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
+                  </a>
+                  <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
+                  <div className="mt-1 flex"></div>
+                  <Label>1 ширхэг</Label>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-4 py-7">
-              <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
-              <div className="flex flex-col grow-0 items-start gap-2">
-                <a href="/13/">
-                  <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
-                </a>
-                <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
-                <div className="mt-1 flex"></div>
-                <Label>1 ширхэг</Label>
-              </div>
-            </div>
-            <div className="flex items-start gap-4 py-7">
-              <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
-              <div className="flex flex-col grow-0 items-start gap-2">
-                <a href="/13/">
-                  <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
-                </a>
-                <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
-                <div className="mt-1 flex"></div>
-                <Label>1 ширхэг</Label>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="mt-10 rounded-lg bg-primary/5 px-6 py-5 text-primary font-bold space-y-8">
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <h1 className="opacity-60">Үнийн дүн</h1>
-                <h1 className="text-xl">{(50000).toLocaleString()} ₮</h1>
-              </div>
-              <Separator className="bg-border" />
-              <div className="flex justify-between items-center">
-                <h1 className="opacity-60">Хүргэлт</h1>
-                <h1 className="text-xl">{delivery === 0 ? "Үнэгүй" : delivery + "₮"}</h1>
-              </div>
-              <Separator className="bg-border" />
-              <div className="flex justify-between items-center text-brand-orange">
-                <h1>Нийт дүн</h1>
-                <h1 className="text-xl">{(50000 + delivery).toLocaleString()}₮</h1>
-              </div>
-            </div>
-            <Link href="/checkout">
-              <Button className="w-full" size={"xl"} variant={"orange"}>
-                Төлбөр төлөх
-              </Button>
-            </Link>
-          </div>
+          <CheckoutSummary
+            action={
+              <Link href="/checkout">
+                <Button className="w-full" size={"xl"} variant={"orange"}>
+                  Төлбөр төлөх
+                </Button>
+              </Link>
+            }
+            totalPrice={5000}
+          />
         </div>
       </div>
     </section>

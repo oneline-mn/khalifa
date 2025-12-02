@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { X, Handbag } from "lucide-react";
 import QuantityButton from "./quantity-button";
 
-import { Separator } from "@/components/ui/separator";
 import { NavCountItem } from "./nav-product-count";
 import Link from "next/link";
+import CheckoutSummary from "../pages/cart/checkout-summary";
 
 type CartProps = {
   openCart: boolean;
@@ -14,7 +14,6 @@ type CartProps = {
 };
 
 export default function Cart({ openCart, setOpenCart }: CartProps) {
-  const delivery: number = 0;
   return (
     <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
       <DrawerTrigger asChild>
@@ -35,27 +34,16 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
           <CartItem />
         </div>
         <DrawerFooter className="border-t">
-          <div className="mt-10 rounded-lg bg-accent px-6 py-5 text-primary font-bold space-y-8">
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <h1 className="opacity-60">Үнийн дүн</h1>
-                <h1 className="text-xl">{(50000).toLocaleString()} ₮</h1>
-              </div>
-              <Separator className="bg-border" />
-              <div className="flex justify-between items-center">
-                <h1 className="opacity-60">Хүргэлт</h1>
-                <h1 className="text-xl">{delivery === 0 ? "Үнэгүй" : delivery + "₮"}</h1>
-              </div>
-              <Separator className="bg-border" />
-              <div className="flex justify-between items-center text-brand-orange">
-                <h1>Нийт дүн</h1>
-                <h1 className="text-xl">{(50000 + delivery).toLocaleString()}₮</h1>
-              </div>
-            </div>
-            <Link href="/checkout">
-              <Button variant={"orange"} size={"xl"} className="w-full" onClick={() => setOpenCart(false)}>Үргэлжүүлэх</Button>
-            </Link>
-          </div>
+          <CheckoutSummary
+            action={
+              <Link href="/checkout" onClick={() => setOpenCart(false)}>
+                <Button className="w-full" size={"xl"} variant={"orange"}>
+                  Үргэлжлүүлэх
+                </Button>
+              </Link>
+            }
+            totalPrice={5000}
+          />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
