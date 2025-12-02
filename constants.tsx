@@ -1,6 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { FacebookIcon, InstagramIcon, XIcon } from "./components/shared/icons";
 import { Minus } from "lucide-react";
+import Hero1 from './public/hero/hero-1.png'
+import Hero2 from './public/hero/hero-2.png'
+import Hero3 from './public/hero/hero-3.png'
 
 // ============================
 // NAVIGATION ITEMS
@@ -24,6 +27,19 @@ export const SOCIALS: SocialItem[] = [
   { label: "khalifamongolia", href: "fb.com", icon: InstagramIcon },
   { label: "Khalifa Mongolia", href: "fb.com", icon: XIcon },
 ];
+
+
+// ============================
+// HERO ITEMS
+// ============================
+export const HERO_LIST: Hero[] = [
+  { src: Hero1 },
+  { src: Hero2 },
+  { src: Hero3 },
+];
+export interface Hero {
+  src: StaticImageData;
+}
 
 // ============================
 // FOOTER ITEMS
