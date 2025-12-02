@@ -133,6 +133,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 200px;
   }
   body {
     @apply bg-background text-foreground;
@@ -176,7 +177,7 @@
   }
 
   .sticky-bottom-nav {
-    @apply sticky top-[76px] md:top-[88px] z-10
+    @apply sticky top-[76px] md:top-[88px] z-10;
   }
 }
 

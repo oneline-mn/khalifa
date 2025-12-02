@@ -17,7 +17,7 @@ interface ProductCardProps {
 export default function ProductCard({ image, title, category, url, price, children, shadow = "dark", quantity }: ProductCardProps) {
   return (
     <div className="flex flex-col">
-      <Link href={url} className="flex flex-col rounded-lg relative lg:gap-6 h-full" scroll={true}>
+      <Link href={url} className="flex flex-col rounded-lg relative lg:gap-6 h-full">
         <div className="aspect-1 relative w-full overflow-hidden rounded-lg">
           <Image src={image} width={900} height={900} alt="wine" className="h-[88%] mx-auto w-auto object-contain object-center" />
           <Image

@@ -37,7 +37,7 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
 function FeaturedProductCard({ url, image, title, description }: FeaturedProduct) {
   return (
     <div className="flex flex-col gap-6">
-      <Link href={url} className="relative" scroll={true}>
+      <Link href={url} className="relative">
         <Image src={image} width={900} height={900} alt={title} className="w-full aspect-9/10" />
       </Link>
       <div className="flex flex-col gap-4 text-white justify-between h-full">
@@ -45,7 +45,7 @@ function FeaturedProductCard({ url, image, title, description }: FeaturedProduct
           <h1 className="font-bold text-xl md:text-[32px] leading-normal">{title}</h1>
           <p className="text md:text-xl leading-normal mb-6">{description}</p>
         </div>
-        <Link href={url} scroll={true}>
+        <Link href={url}>
           <Button className="hover:bg-gray-200 hover:text-primary rounded font-bold text-sm px-10 py-5 border">Дэлгэрэнгүй</Button>
         </Link>
       </div>
