@@ -16,7 +16,6 @@ import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
 import { NavCountItem } from "./nav-product-count";
 import Cart from "./cart";
-import { Separator } from "../ui/separator";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -26,8 +25,6 @@ export default function Navbar() {
     setOpenCart(true);
     setOpenNav(false);
   };
-
-  const delivery: number = 0;
 
   const isHydrated = useHydration();
   const pathname = usePathname();
@@ -56,45 +53,7 @@ export default function Navbar() {
               </Link>
 
               {/* Cart drawer */}
-              <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
-                <DrawerTrigger asChild>
-                  <Button className="flex flex-col items-center px-4 py-0 gap-0.5 group w-fit">
-                    <NavCountItem label="Сагс" icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />} />
-                  </Button>
-                </DrawerTrigger>
-                <DrawerContent className="h-sreen overflow-y-scroll overflow-x-hidden">
-                  <DrawerHeader className="flex flex-row w-full justify-between p-0 border-b py-6 sticky top-0 bg-white">
-                    <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
-                    <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
-                      <X className="stroke-primary size-7" />
-                    </Button>
-                  </DrawerHeader>
-                  <Cart />
-                  <DrawerFooter>
-                    <div className="mt-10 rounded-lg bg-primary/5 px-6 py-5 text-primary font-bold space-y-8">
-                      <div className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <h1 className="opacity-60">Үнийн дүн</h1>
-                          <h1 className="text-xl">{(50000).toLocaleString()} ₮</h1>
-                        </div>
-                        <Separator className="bg-border" />
-                        <div className="flex justify-between items-center">
-                          <h1 className="opacity-60">Хүргэлт</h1>
-                          <h1 className="text-xl">{delivery === 0 ? "Үнэгүй" : delivery + "₮"}</h1>
-                        </div>
-                        <Separator className="bg-border" />
-                        <div className="flex justify-between items-center text-brand-orange">
-                          <h1>Нийт дүн</h1>
-                          <h1 className="text-xl">{(50000 + delivery).toLocaleString()}₮</h1>
-                        </div>
-                      </div>
-                      <Button variant={"orange"} size={"xl"} className="w-full">
-                        Үргэлжлүүлэх
-                      </Button>
-                    </div>
-                  </DrawerFooter>
-                </DrawerContent>
-              </Drawer>
+               <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
               {/* TODO: Dropdown color */}
               <DropdownMenu>
@@ -133,7 +92,7 @@ export default function Navbar() {
                 </DrawerTrigger>
                 <DrawerContent>
                   <div className="flex items-center justify-between">
-                    <DrawerHeader className="flex flex-row w-full justify-between p-0">
+                    <DrawerHeader className="flex flex-row w-full justify-between p-0 py-6">
                       <DrawerTitle>
                         <Image src={"/logo/logo-dark.svg"} width={200} height={50} className="object-contain h-9 object-left" alt="logo" />
                       </DrawerTitle>

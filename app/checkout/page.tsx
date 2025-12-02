@@ -1,0 +1,124 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Separator } from "@/components/ui/separator";
+
+export default function Page() {
+  const delivery = 0;
+
+  return (
+    <section className="max-w-2k mx-auto py-0! relative">
+      <div className="grid grid-cols-2  md:grid-cols-5 top-20 gap-5">
+        <div className="col-span-2 relative md:pb-15 md:pl-5">
+          <div className="border bg-[#fafafb] md:rounded-xl flex flex-col gap-8 container-half w-full md:sticky top-30 shadow">
+            <h1 className="text-2xl font-bold">Захиалга баталгаажуулалт</h1>
+            <div className="space-y-4">
+              <div className="space-y-2 col-span-2 xl:col-span-1">
+                <Label className="text-xl text-primary/80">Нэр</Label>
+                <Input className="text-base! font-medium! bg-white border-primary/15" />
+              </div>
+              <div className="space-y-2 col-span-2 xl:col-span-1">
+                <Label className="text-xl text-primary/80">Утасны дугаар </Label>
+                <Input className="text-base! font-medium! bg-white border-primary/15" />
+              </div>
+              <div className="space-y-2 col-span-2">
+                <Label className="text-xl text-primary/80">Хаяг</Label>
+                <Input className="text-base! font-medium! bg-white border-primary/15" />
+              </div>
+              <div className="space-y-3 col-span-full">
+                <Label className="text-xl font-bold">И-баримт</Label>
+                <RadioGroup className="flex flex-col  gap-x-10 gap-y-4" defaultValue="option-one">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem id="person" value="person" />
+                    <Label className="text-sm" htmlFor="person">
+                      Хувь хүн
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem id="company" value="company" />
+                    <Label className="text-sm" htmlFor="company">
+                      Албан байгууллага
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem id="residence" value="residence" />
+                    <Label className="text-sm" htmlFor="residence">
+                      Татвар төлөгч иргэн
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-3 flex flex-col container-half border-l">
+          <h1 className="text-2xl font-bold">Захиалга баталгаажуулалт</h1>
+
+          <div className="flex flex-col divide-y">
+            <div className="flex items-start gap-4 py-7">
+              <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
+              <div className="flex flex-col grow-0 items-start gap-2">
+                <a href="/13/">
+                  <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
+                </a>
+                <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
+                <div className="mt-1 flex"></div>
+                <Label>1 ширхэг</Label>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 py-7">
+              <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
+              <div className="flex flex-col grow-0 items-start gap-2">
+                <a href="/13/">
+                  <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
+                </a>
+                <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
+                <div className="mt-1 flex"></div>
+                <Label>1 ширхэг</Label>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 py-7">
+              <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
+              <div className="flex flex-col grow-0 items-start gap-2">
+                <a href="/13/">
+                  <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
+                </a>
+                <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
+                <div className="mt-1 flex"></div>
+                <Label>1 ширхэг</Label>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-lg bg-primary/5 px-6 py-5 text-primary font-bold space-y-8">
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <h1 className="opacity-60">Үнийн дүн</h1>
+                <h1 className="text-xl">{(50000).toLocaleString()} ₮</h1>
+              </div>
+              <Separator className="bg-border" />
+              <div className="flex justify-between items-center">
+                <h1 className="opacity-60">Хүргэлт</h1>
+                <h1 className="text-xl">{delivery === 0 ? "Үнэгүй" : delivery + "₮"}</h1>
+              </div>
+              <Separator className="bg-border" />
+              <div className="flex justify-between items-center text-brand-orange">
+                <h1>Нийт дүн</h1>
+                <h1 className="text-xl">{(50000 + delivery).toLocaleString()}₮</h1>
+              </div>
+            </div>
+            <Link href="/checkout">
+              <Button className="w-full" size={"xl"} variant={"orange"}>
+                Төлбөр төлөх
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
