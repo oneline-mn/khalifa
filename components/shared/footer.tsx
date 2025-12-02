@@ -2,7 +2,7 @@ import { FOOTER_ITEMS, NAV_ITEMS, SOCIALS } from "@/constants";
 import { Separator } from "../ui/separator";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Smartphone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="grid grid-cols-4 md:grid-cols-7 text-sm lg:text-base font-semibold font-manrope gap-y-6">
           <div className="col-span-full md:col-span-2 flex flex-col">
             <Link href={"tel:+97675990007"} className="flex items-center gap-2 group py-2.5">
-              <Smartphone className="size-5" />
+              <Phone className="size-5" />
               <span className="text-white/60 group-hover-float">+976 7599-0007</span>
             </Link>
             <Link href={"mailto:contact@khalifa.mn"} className="flex items-center gap-2 group py-0.5">
@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="col-span-2 flex flex-col text-nowrap text-white/60">
             {NAV_ITEMS.map((item, i) => {
               return (
-                <Link key={i} href={item.href} className="text-inherit hover:text-white hover-float py-2.5" scroll={true}>
+                <Link key={i} href={item.href} className="text-inherit hover:text-white hover-float py-2.5">
                   <span>{item.label}</span>
                 </Link>
               );

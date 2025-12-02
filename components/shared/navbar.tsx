@@ -31,14 +31,14 @@ export default function Navbar() {
       {isHydrated && (
         <div className="bg-primary">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
-            <Link href={"/"} scroll={true}>
+            <Link href={"/"}>
               <Image src={"/logo/logo-white.svg"} alt="Khalifa logo" width={200} height={100} className="h-9 md:h-12 object-contain" />
             </Link>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
                   <li key={i}>
-                    <Link href={item.href} className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4" scroll={true}>
+                    <Link href={item.href} className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
                       <span className="text-center">{item.label}</span>
                     </Link>
                   </li>
@@ -46,7 +46,7 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="flex items-center text-sm font-semibold">
-              <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group" scroll={true}>
+              <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
                 <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
               </Link>
 
@@ -69,7 +69,7 @@ export default function Navbar() {
               {/* TODO: Dropdown color */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group" scroll={true}>
+                  <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
                     <UserRound className="size-5 duration-150 group-hover:scale-120" />
                     <span>Миний бүртгэл</span>
                   </Link>
@@ -105,19 +105,18 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                     <DrawerHeader className="flex flex-row w-full justify-between p-0">
                       <DrawerTitle>
-                        <Image src={'/logo/logo-dark.svg'} width={200} height={50} className="object-contain h-9 object-left" alt="logo" />
+                        <Image src={"/logo/logo-dark.svg"} width={200} height={50} className="object-contain h-9 object-left" alt="logo" />
                       </DrawerTitle>
-                           <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
-                      <X className="stroke-primary size-7" />
-                    </Button>
+                      <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
+                        <X className="stroke-primary size-7" />
+                      </Button>
                     </DrawerHeader>
-               
                   </div>
 
                   <div className="flex flex-col justify-start font-bold text-2xl">
                     <div className="flex flex-col py-10">
                       {NAV_ITEMS.map((item, i) => (
-                        <Link href={item.href} key={i} className="py-2" scroll={true}>
+                        <Link href={item.href} key={i} className="py-2">
                           {item.label}
                         </Link>
                       ))}
@@ -125,7 +124,7 @@ export default function Navbar() {
 
                     {/* Menu mobile actions */}
                     <div className="border-t border-brand-orange space-y-6 py-10">
-                      <Link href={"/"} className="flex items-center justify-between" scroll={true}>
+                      <Link href={"/"} className="flex items-center justify-between">
                         <NavCountItem label="Хадгалсан" icon={<Heart className="size-6" />} isMobile />
                       </Link>
 
@@ -138,7 +137,7 @@ export default function Navbar() {
                         </DrawerTrigger>
                       </Drawer>
 
-                      <Link href={"/"} className="flex items-center justify-between" scroll={true}>
+                      <Link href={"/"} className="flex items-center justify-between">
                         <span className="flex items-center gap-2">
                           <User className="size-6" />
                           <span>Миний бүртгэл</span>

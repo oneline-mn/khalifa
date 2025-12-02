@@ -26,7 +26,7 @@ export default function Suggestion() {
         })}
       </div>
       <div className="flex justify-center w-full mt-16">
-        <Link href="/products" scroll={true}>
+        <Link href="/products">
           <Button className="font-bold" size={"xl"} variant={"orange"}>
             Бүх бүтээгдэхүүн харах
           </Button>
