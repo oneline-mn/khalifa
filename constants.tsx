@@ -39,7 +39,7 @@ export const FOOTER_ITEMS: FooterItem[] = [
     label: "Нээлттэй ажлын байр",
     href: "https://docs.google.com/forms/d/e/1FAIpQLSeA9dSYVFCcR9LzDHdSuVadQpuBCIl1glI-G6wpazdpreYq5w/viewform?fbclid=IwY2xjawFeEJNleHRuA2FlbQIxMAABHUUbjBRCjOMKOTP8oH5HmgUbAR0bDEvqU7_8G-8GQ6HhxXmBV39WdsI0pA_aem_bS5s7qA0AX2Xeg-HNNSoQw",
   },
-  { label: "Нууцлалын бодлого", href: "/privacy-policy" },
+  { label: "Нууцлалын бодлого", href: "/privacy_policy" },
   { label: "Ерөнхий үйлчилгээний нөхцөл", href: "/terms_and_conditions" },
 ];
 
