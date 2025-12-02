@@ -1,9 +1,9 @@
 import Image, { StaticImageData } from "next/image";
 import { FacebookIcon, InstagramIcon, XIcon } from "./components/shared/icons";
 import { Minus } from "lucide-react";
-import Hero1 from './public/hero/hero-1.png'
-import Hero2 from './public/hero/hero-2.png'
-import Hero3 from './public/hero/hero-3.png'
+import Hero1 from "./public/hero/hero-1.png";
+import Hero2 from "./public/hero/hero-2.png";
+import Hero3 from "./public/hero/hero-3.png";
 
 // ============================
 // NAVIGATION ITEMS
@@ -28,15 +28,10 @@ export const SOCIALS: SocialItem[] = [
   { label: "Khalifa Mongolia", href: "fb.com", icon: XIcon },
 ];
 
-
 // ============================
 // HERO ITEMS
 // ============================
-export const HERO_LIST: Hero[] = [
-  { src: Hero1 },
-  { src: Hero2 },
-  { src: Hero3 },
-];
+export const HERO_LIST: Hero[] = [{ src: Hero1 }, { src: Hero2 }, { src: Hero3 }];
 export interface Hero {
   src: StaticImageData;
 }
@@ -319,4 +314,30 @@ export const FAQ_LIST: FAQ[] = [
     type: "ordered",
     answer: ["Худалдан авсан бараагаа буцаах болон солих боломжгүй тул та сонголтоо зөв хийнэ үү"],
   },
+];
+
+export interface Bank {
+  name: string;
+  image: string;
+}
+
+export const PAYMENT_LIST: Bank[] = [
+  { name: "qPay wallet", image: "/bank/qpay.svg" },
+  { name: "Khan bank", image: "/bank/khan.svg" },
+  { name: "State bank 3.0", image: "/bank/state.svg" },
+  { name: "Xac bank", image: "/bank/xac.svg" },
+  { name: "Trade and Development bank", image: "/bank/tdb.svg" },
+  { name: "Social Pay", image: "/bank/socialpay.svg" },
+  { name: "Most money", image: "/bank/mostmoney.svg" },
+  { name: "National investment bank", image: "/bank/nib.svg" },
+  { name: "Chinggis khaan bank", image: "/bank/ckb.svg" },
+  { name: "Capitron bank", image: "/bank/capitron.svg" },
+  { name: "Bogd bank", image: "/bank/bogd.svg" },
+  { name: "Trans bank", image: "/bank/trans.svg" },
+  { name: "M bank", image: "/bank/mbank.svg" },
+  { name: "Ard App", image: "/bank/ardapp.svg" },
+  { name: "Toki App", image: "/bank/toki.svg" },
+  { name: "Arig bank", image: "/bank/arig.svg" },
+  { name: "Monpay", image: "/bank/monpay.svg" },
+  { name: "Hipay", image: "/bank/hipay-logo.svg" },
 ];
