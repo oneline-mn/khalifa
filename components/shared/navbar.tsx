@@ -27,7 +27,7 @@ export default function Navbar() {
   const isHydrated = useHydration();
   const pathname = usePathname();
   return (
-    <nav id="nav" className="sticky inset-x-0 top-0 z-30 text-white">
+    <nav className="sticky inset-x-0 top-0 z-30 text-white">
       {isHydrated && (
         <div className="bg-primary">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
