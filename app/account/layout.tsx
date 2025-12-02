@@ -15,9 +15,9 @@ export default function ProfileLayout({ children }: { children: React.ReactNode 
   const pathname = usePathname();
 
   return (
-    <section>
-      <div className="bg-dark text-white">
-        <div className="flex gap-3 w-full max-w-2k mx-auto px-5 overflow-x-auto overflow-y-visible lg:px-10 leading-6 lg:text-xl lg:leading-6 font-bold">
+    <section className="relative">
+      <div className="bg-dark text-white sticky-bottom-nav">
+        <div className="flex gap-3 w-full max-w-2k mx-auto px-5 overflow-x-auto overflow-y-visible lg:px-10 leading-6 lg:text-xl lg:leading-6 font-bold sticky top-0">
           {tabs.map((tab) => {
             const isActive = pathname === tab.href || (tab.href !== "/profile" && pathname.startsWith(tab.href));
 

@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <section>
       <section className="relative">
-        <div className="sticky top-[76px] md:top-[88px] z-10">
+        <div className="sticky-bottom-nav">
           <div className="flex w-full justify-between md:hidden px-5 py-3 bg-dark text-white font-bold text-xl">
             <h1>Ангилал:</h1>
             <DropdownMenu>

@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -30,7 +31,9 @@ export default function Navbar() {
       {isHydrated && (
         <div className="bg-primary">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
-            <Image src={"/"} alt="Khalifa logo" width={200} height={100} className="h-9 md:h-12 object-contain bg-white/10" />
+            <Link href={"/"} scroll={true}>
+              <Image src={"/logo/logo-white.svg"} alt="Khalifa logo" width={200} height={100} className="h-9 md:h-12 object-contain" />
+            </Link>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
@@ -100,12 +103,15 @@ export default function Navbar() {
                 </DrawerTrigger>
                 <DrawerContent>
                   <div className="flex items-center justify-between">
-                    <DrawerHeader>
-                      <DrawerTitle>Navbar</DrawerTitle>
-                    </DrawerHeader>
-                    <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
+                    <DrawerHeader className="flex flex-row w-full justify-between p-0">
+                      <DrawerTitle>
+                        <Image src={'/logo/logo-dark.svg'} width={200} height={50} className="object-contain h-9 object-left" alt="logo" />
+                      </DrawerTitle>
+                           <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
                       <X className="stroke-primary size-7" />
                     </Button>
+                    </DrawerHeader>
+               
                   </div>
 
                   <div className="flex flex-col justify-start font-bold text-2xl">
@@ -155,7 +161,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className={pathname === "/products" || '/account/**' ? "hidden" : "flex-center bg-black gap-3 font-semibold py-2"}>
+      <div className={cn(pathname === "/" || pathname === "/about" ? "flex-center bg-black gap-3 font-semibold py-2" : "hidden")}>
         <span className={"size-7 rounded-full flex-center border border-white text-xs leading-none font-bold"}>21+</span>
         <p className="text-xs md:text-sm lg:text-base">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
