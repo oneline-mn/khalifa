@@ -164,6 +164,10 @@
     @apply max-w-[1440px] mx-auto py-[42px] px-6 md:py-20 md:px-[38px];
   }
 
+  .container-half {
+    @apply px-5 py-5 md:py-[60px] md:px-10
+  }
+
   .font-manrope {
     font-family: "Manrope", sans-serif;
   }
