@@ -72,19 +72,23 @@ export default function Navbar() {
                   </Link>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="min-w-48" align="center">
-                  <DropdownMenuLabel>Signed in as</DropdownMenuLabel>
+                  <DropdownMenuLabel>Орсон бүртгэл</DropdownMenuLabel>
                   <DropdownMenuItem className="pointer-events-none">soko.bbz.4@gmail.com</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
-                    <DropdownMenuItem>
-                      <User /> Хувийн мэдээлэл
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <ClipboardMinus /> Захиалгын мэдээлэл
-                    </DropdownMenuItem>
+                    <Link href={"/account/profile"}>
+                      <DropdownMenuItem>
+                        <User /> Хувийн мэдээлэл
+                      </DropdownMenuItem>
+                    </Link>
+                    <Link href={"/account/orders"}>
+                      <DropdownMenuItem>
+                        <ClipboardMinus /> Захиалгын мэдээлэл
+                      </DropdownMenuItem>
+                    </Link>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Log out</DropdownMenuItem>
+                  <DropdownMenuItem>Гарах</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
 
@@ -151,8 +155,8 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className={pathname === "/products" ? "hidden" :'flex-center bg-black gap-3 font-semibold py-2'}>
-        <span className={ "size-7 rounded-full flex-center border border-white text-xs leading-none font-bold"}>21+</span>
+      <div className={pathname === "/products" || '/account/**' ? "hidden" : "flex-center bg-black gap-3 font-semibold py-2"}>
+        <span className={"size-7 rounded-full flex-center border border-white text-xs leading-none font-bold"}>21+</span>
         <p className="text-xs md:text-sm lg:text-base">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>
