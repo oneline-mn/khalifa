@@ -136,7 +136,7 @@
     scroll-padding-top: 200px;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground min-h-screen;
   }
 
   /* ============================ */
