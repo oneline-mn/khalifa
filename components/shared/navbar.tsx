@@ -1,6 +1,6 @@
 "use client";
 
-import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import Link from "next/link";
 import { FacebookIcon, InstagramIcon } from "./icons";
 import { Button } from "../ui/button";
@@ -14,6 +14,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
+import { NavCountItem } from "./nav-product-count";
+import Cart from "./cart";
+import { Separator } from "../ui/separator";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -23,6 +26,8 @@ export default function Navbar() {
     setOpenCart(true);
     setOpenNav(false);
   };
+
+  const delivery: number = 0;
 
   const isHydrated = useHydration();
   const pathname = usePathname();
@@ -57,12 +62,37 @@ export default function Navbar() {
                     <NavCountItem label="Сагс" icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />} />
                   </Button>
                 </DrawerTrigger>
-                <DrawerContent>
-                  <DrawerHeader>
-                    <DrawerTitle>Cart</DrawerTitle>
-                    <DrawerDescription>lorem</DrawerDescription>
+                <DrawerContent className="h-sreen overflow-y-scroll overflow-x-hidden">
+                  <DrawerHeader className="flex flex-row w-full justify-between p-0 border-b py-6 sticky top-0 bg-white">
+                    <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
+                    <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
+                      <X className="stroke-primary size-7" />
+                    </Button>
                   </DrawerHeader>
-                  <DrawerFooter>Cart footer</DrawerFooter>
+                  <Cart />
+                  <DrawerFooter>
+                    <div className="mt-10 rounded-lg bg-primary/5 px-6 py-5 text-primary font-bold space-y-8">
+                      <div className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <h1 className="opacity-60">Үнийн дүн</h1>
+                          <h1 className="text-xl">{(50000).toLocaleString()} ₮</h1>
+                        </div>
+                        <Separator className="bg-border" />
+                        <div className="flex justify-between items-center">
+                          <h1 className="opacity-60">Хүргэлт</h1>
+                          <h1 className="text-xl">{delivery === 0 ? "Үнэгүй" : delivery + "₮"}</h1>
+                        </div>
+                        <Separator className="bg-border" />
+                        <div className="flex justify-between items-center text-brand-orange">
+                          <h1>Нийт дүн</h1>
+                          <h1 className="text-xl">{(50000 + delivery).toLocaleString()}₮</h1>
+                        </div>
+                      </div>
+                      <Button variant={"orange"} size={"xl"} className="w-full">
+                        Үргэлжлүүлэх
+                      </Button>
+                    </div>
+                  </DrawerFooter>
                 </DrawerContent>
               </Drawer>
 
@@ -132,7 +162,7 @@ export default function Navbar() {
                       <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
                         <DrawerTrigger asChild onClick={handleOpenCart}>
                           <Button variant={"naked"} className="flex items-center justify-between w-full px-0 font-bold">
-                            <NavCountItem label="Сагс" count={2} icon={<Handbag className="size-6" />} isMobile />
+                            <NavCountItem label="Сагс" icon={<Handbag className="size-6" />} isMobile />
                           </Button>
                         </DrawerTrigger>
                       </Drawer>
@@ -165,31 +195,5 @@ export default function Navbar() {
         <p className="text-xs md:text-sm lg:text-base">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
       </div>
     </nav>
-  );
-}
-
-function NavCountItem({ label, icon, count = 2, isMobile = false }: { label: string; icon: React.ReactNode; count?: number; isMobile?: boolean }) {
-  return (
-    <>
-      {isMobile ? (
-        <>
-          <span className="flex items-center gap-2">
-            {icon}
-            <span className="text-2xl">{label}</span>
-          </span>
-          <span className="bg-brand text-white rounded-full px-3 text-base">{count}</span>
-        </>
-      ) : (
-        <>
-          <span className="relative">
-            {icon}
-            <span className="bg-brand w-4 h-3 group-hover:scale-110 duration-150 flex items-center justify-center absolute -top-1 -right-2.5 rounded-full">
-              {count && <span className="text-[10px] font-bold leading-none">2</span>}
-            </span>
-          </span>
-          <span className="hidden sm:block font-bold">{label}</span>
-        </>
-      )}
-    </>
   );
 }

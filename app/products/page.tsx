@@ -1,10 +1,11 @@
 "use client";
 
-import { ChevronDown, Handbag, Heart } from "lucide-react";
+import { ChevronDown, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 import ProductCard from "@/components/shared/product-card";
+import QuantityButton from "@/components/shared/quantity-button";
 import Suggestion from "@/components/shared/suggestion";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -68,10 +69,7 @@ export default function Page() {
                       title={product.name}
                       url={product.url}>
                       <div className="flex gap-2">
-                        <Button className="sm:text-xl font-bold flex items-center gap-2 h-11" size={"lg"} variant={"secondary"}>
-                          <Handbag className="size-5 hidden" strokeWidth={2} />
-                          <span>Сагсанд нэмэх</span>
-                        </Button>
+                        <QuantityButton variant="secondary" />
                         <Button className="p-0 h-full aspect-square group" onClick={() => showToast("success", "Таны сонгосон бүтээгдэхүүн амжилттай хадгалсан цэсэд нэмэгдлээ")} variant={"secondary"}>
                           <Heart className="group-hover:fill-brand group-hover:stroke-brand size-5" />
                         </Button>
