@@ -6,7 +6,7 @@ export default function Page() {
       <div>
         <h1 className="text-2xl lg:text-4xl mb-4 lg:mb-7 font-semibold leading-7 text-white">Миний захиалга</h1>
       </div>
-      <div className="col-span-2">{orders.length === 0 ? <div>Захиалга байхгүй байна</div> : <div>Захиалга</div>}</div>
+      <div className="col-span-2 min-h-[20vh]">{orders.length === 0 ? <div>Захиалга байхгүй байна</div> : <div>Захиалга</div>}</div>
     </div>
   );
 }
