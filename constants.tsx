@@ -40,6 +40,7 @@ export const FOOTER_ITEMS: FooterItem[] = [
     href: "https://docs.google.com/forms/d/e/1FAIpQLSeA9dSYVFCcR9LzDHdSuVadQpuBCIl1glI-G6wpazdpreYq5w/viewform?fbclid=IwY2xjawFeEJNleHRuA2FlbQIxMAABHUUbjBRCjOMKOTP8oH5HmgUbAR0bDEvqU7_8G-8GQ6HhxXmBV39WdsI0pA_aem_bS5s7qA0AX2Xeg-HNNSoQw",
   },
   { label: "Нууцлалын бодлого", href: "/privacy-policy" },
+  { label: "Ерөнхий үйлчилгээний нөхцөл", href: "/terms_and_conditions" },
 ];
 
 export interface FeaturedProduct {
@@ -288,9 +289,7 @@ export const FAQ_LIST: FAQ[] = [
     id: 6,
     question: "6. Захиалгаас нэг барааг нь хасах гэж байгаад мартсан бол?",
     type: "ordered",
-    answer: [
-      "• Захиалга хүргэлтэнд гараагүй байгаа тохиолдолд лавлах утсанд хандаж мэдэгдэнэ.", 
-      "• Хүргэлтэд гарсан тохиолдолд барааг жолоочид буцаан явуулах боломжтой."],
+    answer: ["• Захиалга хүргэлтэнд гараагүй байгаа тохиолдолд лавлах утсанд хандаж мэдэгдэнэ.", "• Хүргэлтэд гарсан тохиолдолд барааг жолоочид буцаан явуулах боломжтой."],
   },
   {
     id: 7,
