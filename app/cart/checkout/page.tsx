@@ -74,7 +74,7 @@ export default function Page() {
 
           <CheckoutSummary
             action={
-              <Link href="/checkout">
+              <Link href="/cart/payment">
                 <Button className="w-full" size={"xl"} variant={"orange"}>
                   Төлбөр төлөх
                 </Button>

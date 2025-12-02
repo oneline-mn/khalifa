@@ -35,7 +35,7 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
         <DrawerFooter className="border-t">
           <CheckoutSummary
             action={
-              <Link href="/checkout" onClick={() => setOpenCart(false)}>
+              <Link href="/cart/checkout" onClick={() => setOpenCart(false)}>
                 <Button className="w-full" size={"xl"} variant={"orange"}>
                   Үргэлжлүүлэх
                 </Button>

@@ -1,5 +1,4 @@
 import { Product, PRODUCTS_LIST } from "@/constants";
-import React from "react";
 import ProductCard from "./product-card";
 import { getCategoryTitle } from "@/lib/func";
 import { Button } from "../ui/button";
