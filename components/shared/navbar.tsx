@@ -10,12 +10,12 @@ import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 
-import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
+import { Handbag, Heart, TextAlignJustify, User, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
 import { NavCountItem } from "./nav-product-count";
 import Cart from "./cart";
+import ProfileDropDown from "./profile-dropdown";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -53,36 +53,10 @@ export default function Navbar() {
               </Link>
 
               {/* Cart drawer */}
-               <Cart openCart={openCart} setOpenCart={setOpenCart} />
+              <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
-              {/* TODO: Dropdown color */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
-                    <UserRound className="size-5 duration-150 group-hover:scale-120" />
-                    <span>Миний бүртгэл</span>
-                  </Link>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="min-w-48" align="center">
-                  <DropdownMenuLabel>Орсон бүртгэл</DropdownMenuLabel>
-                  <DropdownMenuItem className="pointer-events-none">soko.bbz.4@gmail.com</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuGroup>
-                    <Link href={"/account/profile"}>
-                      <DropdownMenuItem>
-                        <User /> Хувийн мэдээлэл
-                      </DropdownMenuItem>
-                    </Link>
-                    <Link href={"/account/orders"}>
-                      <DropdownMenuItem>
-                        <ClipboardMinus /> Захиалгын мэдээлэл
-                      </DropdownMenuItem>
-                    </Link>
-                  </DropdownMenuGroup>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>Гарах</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {/* Profile dropdown */}
+              <ProfileDropDown />
 
               <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
                 <DrawerTrigger asChild className="block lg:hidden">
