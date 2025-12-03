@@ -1,0 +1,47 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+
+import PasswordInput from "@/components/shared/password-input";
+import SignContainer from "@/components/shared/sign-container";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+export default function Page() {
+  return (
+    <SignContainer>
+      <Link className="absolute top-6 left-6" href={"/"}>
+        <Image alt="logo" className="h-12 object-contain" height={48} src={"/logo/logo-dark.svg"} width={300} />
+      </Link>
+      <div className="flex flex-col h-full items-center justify-center text-base font-medium">
+        {/* Form */}
+        <form action={""} className="w-full space-y-5 max-w-md">
+          <h1 className="text-3xl mb-10 font-bold text-center">Нэвтрэх</h1>
+
+          {/* Email */}
+          <div className="space-y-3">
+            <Label className="text-base">Имэйл хаяг</Label>
+            <Input className="sign-input" required type="email" />
+          </div>
+
+          {/* Password */}
+          <div className="space-y-3">
+            <Label className="text-base">Нууц үг</Label>
+            <PasswordInput />
+          </div>
+          <Button className="w-full text-base" size={"xl"} type="submit" variant={"orange"}>
+            Нэвтрэх
+          </Button>
+        </form>
+        <div className="flex justify-center gap-4 mt-10">
+          <h1>Бүртгүүлээгүй бол?</h1>
+          <Link className="text-brand-orange font-bold" href={"/signup"}>
+            Бүртгэл үүсгэх
+          </Link>
+        </div>
+      </div>
+    </SignContainer>
+  );
+}

@@ -5,9 +5,6 @@ import { Ysabeau_Infant } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 
-import Footer from "@/components/shared/footer";
-import Navbar from "@/components/shared/navbar";
-
 const ysabeauInfant = Ysabeau_Infant({
   subsets: ["latin"],
   variable: "--font-ysabeau-infant",
@@ -33,9 +30,7 @@ export default function RootLayout({
         <link href="/icon?<generated>" rel="icon" sizes="<generated>" type="image/<generated>" />
       </head>
       <body className={`${ysabeauInfant.className} antialiased`}>
-        <Navbar />
         {children}
-        <Footer />
         <Toaster />
       </body>
     </html>

@@ -1,16 +1,15 @@
+import PasswordInput from "@/components/shared/password-input";
 import { Button } from "@/components/ui/button";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Eye, EyeOff, UserRound, X } from "lucide-react";
+import { UserRound, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
   const [openSign, setOpenSign] = useState(false);
-  const [show, setShow] = useState(false)
-
   return (
     <Drawer open={openSign} onOpenChange={setOpenSign} direction="right">
       <DrawerTrigger asChild>
@@ -29,29 +28,31 @@ export default function Login() {
             <Image src={"/logo/logo-icon.svg"} width={64} height={64} className="size-16 object-contain" alt="logo" />
             <h1 className="text-3xl font-bold">Нэвтрэх хэсэг</h1>
           </div>
-          <div className="w-full my-14 space-y-7">
+
+          {/* Form */}
+          <form action={""} className="w-full my-14 space-y-7">
+            {/* Email */}
             <div className="space-y-3">
               <Label className="text-base">Имэйл хаяг</Label>
-              <Input type="email" className="bg-white border-input/30 h-12 text-base! font-medium!" />
+              <Input type="email" className="sign-input" required />
             </div>
+
             <div className="space-y-3">
+              {/* Forgot password */}
               <div className="flex items-center justify-between">
                 <Label className="text-base">Нууц үг</Label>
                 <Link href={"/profile/password_reset"} className="text-brand-orange font-semibold">
                   Нууц үгээ мартсан уу?
                 </Link>
               </div>
-             <div className="relative h-12">
-               <Input type={show ? "text" : "password"} className="bg-white border-input/30 size-full text-base! font-medium!" />
-               <Button variant={'naked'} size={'icon'} className="absolute top-[50%] -translate-y-[50%] right-2" onClick={()=> setShow(!show)}>
-               {show ?  <Eye /> : <EyeOff />}
-               </Button>
-             </div>
+
+              {/* Password */}
+              <PasswordInput />
             </div>
-            <Button size={"xl"} variant={"orange"} className="w-full text-base">
+            <Button type="submit" size={"xl"} variant={"orange"} className="w-full text-base">
               Нэвтрэх
             </Button>
-          </div>
+          </form>
           <div className="flex flex-col size-full justify-between">
             <div className="flex justify-center gap-4 mt-10">
               <h1>Бүртгүүлээгүй бол ?</h1>

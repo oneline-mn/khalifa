@@ -11,26 +11,26 @@ export default function Page() {
         <p className="text-gray-400 text-sm">Энд оруулсан мэдээллээр хүргэлт хийгдэх тул үнэн зөв бөглөнө үү! </p>
       </div>
       <div className="col-span-2">
-        <form className="grid lg:grid-cols-2 gap-y-8 gap-6">
+        <form action={""} className="grid lg:grid-cols-2 gap-y-8 gap-6">
           <div className="space-y-3">
             <Label htmlFor="email">Хэрэглэгчийн цахим шуудан</Label>
-            <Input className="cursor-not-allowed" disabled id="email" type="email" value={'soko.bbz.4@gmail.com'} />
+            <Input className="cursor-not-allowed" disabled id="email" required type="email" value={"soko.bbz.4@gmail.com"} />
           </div>
           <div className="space-y-3">
             <Label htmlFor="tax-number">Утасны дугаар</Label>
-            <Input id="tax-number" type="text" />
+            <Input id="tax-number" required type="text" />
           </div>
           <div className="space-y-3">
             <Label htmlFor="name">Нэр</Label>
-            <Input id="name" type="text" />
+            <Input id="name" required type="text" />
           </div>
           <div className="space-y-3">
             <Label htmlFor="tax-number">Татвар төлөгчийн дугаар</Label>
-            <Input id="tax-number" type="text" />
+            <Input id="tax-number" required type="text" />
           </div>
           <div className="col-span-full space-y-3">
             <Label htmlFor="address">Хаяг </Label>
-            <Input id="address" type="text" />
+            <Input id="address" required type="text" />
           </div>
           <div>
             <Button type="submit" variant={"orange"}>

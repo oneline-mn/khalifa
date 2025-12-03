@@ -235,6 +235,6 @@
   @apply flow-dot-utility flow-dot-after;
 }
 
-.light-input {
-  @apply bg-white border-primary/15;
+.sign-input {
+  @apply bg-white border-input/15 h-12 text-base! font-medium!;
 }
