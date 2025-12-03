@@ -8,6 +8,7 @@
   --color-brand: var(--brand);
   --color-brand-orange: var(--brand-orange);
   --color-dark: var(--dark);
+  --color-tertiary: var(--tertiary);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -53,6 +54,7 @@
   --brand: #d82336;
   --brand-orange: #fb7600;
   --dark: #04070a;
+  --tertiary: #826d61;
 
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -93,6 +95,7 @@
   --brand: #d82336;
   --brand-orange: #fb7600;
   --dark: #04070a;
+  --tertiary: #826d61;
 
   --background: oklch(0.129 0.042 264.695);
   --foreground: oklch(0.984 0.003 247.858);
@@ -153,6 +156,18 @@
   .swiper-pagination-bullet-active.custom-bullet {
     @apply bg-white!;
   }
+
+  /* ============================ */
+  /* Custom Swiper Navigation */
+  /* ============================ */
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply bg-white! rounded-full!;
+  }
+  .swiper-button-next svg,
+  .swiper-button-prev svg {
+    @apply text-primary size-5!;
+  }
 }
 
 @layer utilities {
@@ -165,7 +180,7 @@
   }
 
   .container-half {
-    @apply px-5 py-5 md:py-[60px] md:px-10
+    @apply px-5 py-5 md:py-[60px] md:px-10;
   }
 
   .font-manrope {
