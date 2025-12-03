@@ -28,7 +28,9 @@ export default function Navbar() {
   };
 
   const isHydrated = useHydration();
+
   const pathname = usePathname();
+
   return (
     <nav className="sticky inset-x-0 top-0 z-30 text-white">
       {isHydrated && (
