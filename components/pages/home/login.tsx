@@ -3,15 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Eye, EyeOff, UserRound, X } from "lucide-react";
+import { UserRound, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
   const [openSign, setOpenSign] = useState(false);
-  const [show, setShow] = useState(false);
-
   return (
     <Drawer open={openSign} onOpenChange={setOpenSign} direction="right">
       <DrawerTrigger asChild>
@@ -36,7 +34,7 @@ export default function Login() {
             {/* Email */}
             <div className="space-y-3">
               <Label className="text-base">Имэйл хаяг</Label>
-              <Input type="email" className="bg-white border-input/30 h-12 text-base! font-medium!" required />
+              <Input type="email" className="sign-input" required />
             </div>
 
             <div className="space-y-3">

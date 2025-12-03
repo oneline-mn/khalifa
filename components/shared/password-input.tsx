@@ -7,9 +7,9 @@ export default function PasswordInput({ ...props }) {
 
   return (
     <div className="relative h-12">
-      <Input className="bg-white border-input/30 size-full text-base! font-medium!" type={show ? "text" : "password"} {...props} required />
+      <Input className="sign-input" type={show ? "text" : "password"} {...props} required />
       <div className="absolute top-[50%] -translate-y-[50%] right-2 cursor-pointer p-2 bg-transparent transition rounded-md hover:bg-accent" onClick={() => setShow(!show)}>
-        {show ? <Eye className="size-4" /> : <EyeOff className="size-4" />}
+        {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
       </div>
     </div>
   );
