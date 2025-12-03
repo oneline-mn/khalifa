@@ -51,17 +51,21 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="flex items-center text-sm font-semibold">
-              <LangSwitch />
-              <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
-                <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
-              </Link>
+              <div className="hidden lg:flex items-center">
+                <LangSwitch />
+                <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+                  <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
+                </Link>
+              </div>
 
               {/* Cart drawer */}
               <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
               {/* Profile DropwDown */}
-              <ProfileDropDown login={false} />
+     <div className="items-center hidden lg:flex">
+               <ProfileDropDown login={false} />
               <ProfileDropDown login={true} />
+     </div>
 
               <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
                 <DrawerTrigger asChild className="block lg:hidden">
@@ -92,7 +96,7 @@ export default function Navbar() {
 
                     {/* Menu mobile actions */}
                     <div className="border-t border-brand-orange space-y-6 py-10">
-                      <Link href={"/"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
+                      <Link href={"/bookmark"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
                         <NavCountItem label="Хадгалсан" icon={<Heart className="size-6" />} isMobile />
                       </Link>
 
@@ -115,7 +119,8 @@ export default function Navbar() {
                   </div>
                   <DrawerFooter>
                     <div className="flex justify-between">
-                      <span>mgl</span>
+                      {/* <span>mgl</span> */}
+                      <LangSwitch />
                       <div className="flex items-center gap-2">
                         <FacebookIcon />
                         <InstagramIcon />
