@@ -55,7 +55,7 @@ export default function Navbar() {
               </Link>
 
               {/* Cart drawer */}
-               <Cart openCart={openCart} setOpenCart={setOpenCart} />
+              <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
               {/* Profile DropwDown */}
               <ProfileDropDown />
