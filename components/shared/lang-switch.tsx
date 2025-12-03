@@ -10,7 +10,7 @@ export default function LangSwitch() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="flex-col items-center px-4 gap-0.5 hidden sm:flex group cursor-pointer group">
+        <button className="flex-col items-center px-4 gap-0.5 flex group cursor-pointer group">
           <div className="h-6 flex">
             <Image src={cn("/lang/" + lang + ".png")} width={24} height={20} alt="en" className="object-contain group-hover:scale-110 transition" /> 
           </div>
