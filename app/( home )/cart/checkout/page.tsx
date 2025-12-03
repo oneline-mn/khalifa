@@ -17,15 +17,15 @@ export default function Page() {
             <div className="space-y-4">
               <div className="space-y-2 col-span-2 xl:col-span-1">
                 <Label className="text-xl text-primary/80">Нэр</Label>
-                <Input className="text-base! font-medium! light-input" />
+                <Input className="text-base! font-medium! sign-input" />
               </div>
               <div className="space-y-2 col-span-2 xl:col-span-1">
                 <Label className="text-xl text-primary/80">Утасны дугаар </Label>
-                <Input className="text-base! font-medium! light-input" />
+                <Input className="text-base! font-medium! sign-input" />
               </div>
               <div className="space-y-2 col-span-2">
                 <Label className="text-xl text-primary/80">Хаяг</Label>
-                <Input className="text-base! font-medium! light-input" />
+                <Input className="text-base! font-medium! sign-input" />
               </div>
               <div className="space-y-3 col-span-full">
                 <Label className="text-xl font-bold">И-баримт</Label>
@@ -54,7 +54,7 @@ export default function Page() {
           </div>
         </div>
         <div className="col-span-3 flex flex-col container-half border-l">
-          <h1 className="text-2xl font-bold">Захиалга баталгаажуулалт</h1>
+          <h1 className="text-2xl font-bold">Захиалгын мэдээлэл</h1>
 
           <div className="flex flex-col divide-y">
             {Array.from({ length: 4 }).map((_, i) => (
