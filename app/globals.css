@@ -8,6 +8,7 @@
   --color-brand: var(--brand);
   --color-brand-orange: var(--brand-orange);
   --color-dark: var(--dark);
+  --color-dropdown: var(--dropdown);
   --color-tertiary: var(--tertiary);
 
   --color-background: var(--background);
@@ -54,6 +55,7 @@
   --brand: #d82336;
   --brand-orange: #fb7600;
   --dark: #04070a;
+  --dropdown: #101820;
   --tertiary: #826d61;
 
   --radius: 0.625rem;
@@ -95,6 +97,7 @@
   --brand: #d82336;
   --brand-orange: #fb7600;
   --dark: #04070a;
+  --dropdown: #101820;
   --tertiary: #826d61;
 
   --background: oklch(0.129 0.042 264.695);
