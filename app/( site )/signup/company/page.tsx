@@ -11,10 +11,10 @@ import { Label } from "@/components/ui/label";
 export default function Page() {
   return (
     <SignContainer>
-      <Link className="absolute top-6 left-6" href={"/"}>
+      <Link className="" href={"/"}>
         <Image alt="logo" className="h-12 object-contain" height={48} src={"/logo/logo-dark.svg"} width={300} />
       </Link>
-      <div className="flex flex-col h-full items-center justify-center text-base font-medium">
+      <div className="flex flex-col h-full items-center justify-start text-base font-medium">
         {/* Form */}
         <form action={""} className="w-full space-y-5 max-w-md">
           <h1 className="text-3xl mb-10 font-bold text-center">Албан байгууллагын хүсэлт илгээх</h1>

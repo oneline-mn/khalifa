@@ -13,16 +13,16 @@ export default function Page() {
   return (
     <SignContainer>
       <div className="flex flex-col h-full items-center justify-start text-base font-medium">
-        <div className="flex flex-col items-center gap-10">
-          <Link href={"/"}>
+        <div className="flex flex-col items-center gap-10 w-full">
+          <Link className="w-full" href={"/"}>
             <Image alt="logo" className="h-12 object-contain" height={48} src={"/logo/logo-dark.svg"} width={300} />
           </Link>
-          <h1 className="text-3xl font-bold">Бүртгэл үүсгэх</h1>
         </div>
-
         {/* Form */}
-        <form action={""} className="w-full space-y-5 mt-10">
+        <form action={""} className="w-full space-y-5 mt-10 max-w-md">
           {/* Email */}
+          <h1 className="text-3xl font-bold text-center">Бүртгэл үүсгэх</h1>
+
           <div className="space-y-3">
             <Label className="text-base">Имэйл хаяг</Label>
             <Input className="sign-input" required type="email" />
