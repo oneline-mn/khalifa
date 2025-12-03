@@ -10,7 +10,7 @@ import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 
-import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
+import { Handbag, Heart, TextAlignJustify, User, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
 import { NavCountItem } from "./nav-product-count";
@@ -58,7 +58,8 @@ export default function Navbar() {
               <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
               {/* Profile DropwDown */}
-              <ProfileDropDown />
+              <ProfileDropDown login={false} />
+              <ProfileDropDown login={true} />
 
               <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
                 <DrawerTrigger asChild className="block lg:hidden">
@@ -89,7 +90,7 @@ export default function Navbar() {
 
                     {/* Menu mobile actions */}
                     <div className="border-t border-brand-orange space-y-6 py-10">
-                      <Link href={"/"} className="flex items-center justify-between">
+                      <Link href={"/"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
                         <NavCountItem label="Хадгалсан" icon={<Heart className="size-6" />} isMobile />
                       </Link>
 
@@ -102,7 +103,7 @@ export default function Navbar() {
                         </DrawerTrigger>
                       </Drawer>
 
-                      <Link href={"/"} className="flex items-center justify-between">
+                      <Link href={"/account/profile"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
                         <span className="flex items-center gap-2">
                           <User className="size-6" />
                           <span>Миний бүртгэл</span>

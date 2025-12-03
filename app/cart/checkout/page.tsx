@@ -17,15 +17,15 @@ export default function Page() {
             <div className="space-y-4">
               <div className="space-y-2 col-span-2 xl:col-span-1">
                 <Label className="text-xl text-primary/80">Нэр</Label>
-                <Input className="text-base! font-medium! bg-white border-primary/15" />
+                <Input className="text-base! font-medium! light-input" />
               </div>
               <div className="space-y-2 col-span-2 xl:col-span-1">
                 <Label className="text-xl text-primary/80">Утасны дугаар </Label>
-                <Input className="text-base! font-medium! bg-white border-primary/15" />
+                <Input className="text-base! font-medium! light-input" />
               </div>
               <div className="space-y-2 col-span-2">
                 <Label className="text-xl text-primary/80">Хаяг</Label>
-                <Input className="text-base! font-medium! bg-white border-primary/15" />
+                <Input className="text-base! font-medium! light-input" />
               </div>
               <div className="space-y-3 col-span-full">
                 <Label className="text-xl font-bold">И-баримт</Label>

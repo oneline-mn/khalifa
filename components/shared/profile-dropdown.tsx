@@ -1,16 +1,23 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+
 import { ClipboardMinus, LogOut, User, UserRound } from "lucide-react";
 import Link from "next/link";
+import Login from "../pages/home/login";
 
-export default function ProfileDropDown() {
+export default function ProfileDropDown({ login }: { login: boolean }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
-          <UserRound className="size-5 duration-150 group-hover:scale-120" />
-          <span>Миний бүртгэл</span>
-        </Link>
+        {login ? (
+          <Link href={"/profile"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
+            <UserRound className="size-5 duration-150 group-hover:scale-120" />
+            <span>Миний бүртгэл</span>
+          </Link>
+        ) : (
+          <Login />
+        )}
       </DropdownMenuTrigger>
+
       <DropdownMenuContent className="min-w-48 text-white font-bold" align="center">
         <DropdownMenuLabel>Орсон бүртгэл</DropdownMenuLabel>
         <DropdownMenuItem className="pointer-events-none">soko.bbz.4@gmail.com</DropdownMenuItem>
@@ -28,7 +35,10 @@ export default function ProfileDropDown() {
           </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator className="bg-gray-600" />
-        <DropdownMenuItem className="focus:bg-red-500 group"><LogOut className="text-white group-hover:scale-110 transition" />Гарах</DropdownMenuItem>
+        <DropdownMenuItem className="focus:bg-red-500 group">
+          <LogOut className="text-white group-hover:scale-110 transition" />
+          Гарах
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

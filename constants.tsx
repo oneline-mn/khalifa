@@ -23,9 +23,9 @@ export interface SocialItem {
 // SOCIALS
 // ============================
 export const SOCIALS: SocialItem[] = [
-  { label: "Khalifa Mongolia", href: "fb.com", icon: FacebookIcon },
-  { label: "khalifamongolia", href: "fb.com", icon: InstagramIcon },
-  { label: "Khalifa Mongolia", href: "fb.com", icon: XIcon },
+  { label: "Khalifa Mongolia", href: "https://www.facebook.com/khalifa2024Mongolia", icon: FacebookIcon },
+  { label: "khalifamongolia", href: "https://www.instagram.com/khalifamongolia/", icon: InstagramIcon },
+  { label: "Khalifa Mongolia", href: "https://x.com/KhalifaMongolia", icon: XIcon },
 ];
 
 // ============================

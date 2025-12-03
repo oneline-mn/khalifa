@@ -67,7 +67,7 @@ export default function Page() {
                       price={product.price ?? 2}
                       quantity={product.quantity}
                       title={product.name}
-                      url={product.url}>
+                      url={'/products/test'}>
                       <div className="flex gap-2">
                         <QuantityButton variant="secondary" />
                         <Button className="p-0 h-full aspect-square group" onClick={() => showToast("success", "Таны сонгосон бүтээгдэхүүн амжилттай хадгалсан цэсэд нэмэгдлээ")} variant={"secondary"}>

@@ -234,3 +234,7 @@
 .flow-dot-last {
   @apply flow-dot-utility flow-dot-after;
 }
+
+.light-input {
+  @apply bg-white border-primary/15;
+}

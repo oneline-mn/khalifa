@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { PAYMENT_LIST } from "@/constants";
 import useHydration from "@/lib/use-hydration";
+import { showToast } from "@/lib/use-toast";
 import { cn } from "@/lib/utils";
 
 export default function Page() {
@@ -26,7 +27,9 @@ export default function Page() {
            <div className="size-60 bg-gray-200"></div>
           </div>
 
-          <Button className="w-full mt-10 font-bold text-xl" size={'xl'} variant={'orange'}>Гүйлгээ шалгах</Button>
+          <Button className="w-full mt-10 font-bold text-xl" onClick={()=> {
+            showToast('error','Төлбөр төлөгдөөгүй байна')
+          }} size={'xl'} variant={'orange'}>Гүйлгээ шалгах</Button>
         </div>
         <div className="w-full pt-5 lg:pt-0 lg:pl-16 border-l space-y-10">
           <h1 className="text-center text-2xl font-bold">Банкны апп -р төлөх:</h1>

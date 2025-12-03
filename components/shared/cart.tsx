@@ -20,7 +20,7 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
           <NavCountItem label="Сагс" icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />} />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="h-sreen overflow-y-scroll overflow-x-hidden">
+      <DrawerContent className="overflow-y-scroll overflow-x-hidden">
         <DrawerHeader className="flex flex-row w-full justify-between p-0 border-b py-6! sticky top-0 bg-white">
           <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
           <Button variant={"naked"} size={"icon"} onClick={() => setOpenCart(false)}>
