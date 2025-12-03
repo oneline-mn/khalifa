@@ -4,8 +4,7 @@ import { cn } from "@/lib/utils";
 
 export default function Page() {
   return (
-    <section className="bg-primary text-white">
-      <div className="container space-y-10">
+    <>
         <h1 className="text-center text-4xl font-bold">Түгээмэл асуулт хариулт</h1>
 
         <Accordion collapsible type="single">
@@ -32,7 +31,6 @@ export default function Page() {
             );
           })}
         </Accordion>
-      </div>
-    </section>
+    </>
   );
 }
