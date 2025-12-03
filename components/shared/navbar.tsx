@@ -10,12 +10,13 @@ import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 
-import { Handbag, Heart, TextAlignJustify, User, X } from "lucide-react";
+import { ClipboardMinus, Handbag, Heart, TextAlignJustify, User, UserRound, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
 import { NavCountItem } from "./nav-product-count";
 import Cart from "./cart";
 import ProfileDropDown from "./profile-dropdown";
+import LangSwitch from "./lang-switch";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -48,6 +49,7 @@ export default function Navbar() {
               </ul>
             </div>
             <div className="flex items-center text-sm font-semibold">
+              <LangSwitch />
               <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
                 <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
               </Link>
@@ -55,7 +57,7 @@ export default function Navbar() {
               {/* Cart drawer */}
               <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
-              {/* Profile dropdown */}
+              {/* Profile DropwDown */}
               <ProfileDropDown />
 
               <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>

@@ -11,24 +11,24 @@ export default function ProfileDropDown() {
           <span>Миний бүртгэл</span>
         </Link>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="min-w-48 font-bold" align="center">
+      <DropdownMenuContent className="min-w-48 text-white font-bold" align="center">
         <DropdownMenuLabel>Орсон бүртгэл</DropdownMenuLabel>
         <DropdownMenuItem className="pointer-events-none">soko.bbz.4@gmail.com</DropdownMenuItem>
-        <DropdownMenuSeparator className="bg-slate-600" />
+        <DropdownMenuSeparator className="bg-gray-600" />
         <DropdownMenuGroup>
-          <Link href={"/account/profile"}>
-            <DropdownMenuItem className="font-bold hover:bg-slate-400">
-              <User className="text-white" /> Хувийн мэдээлэл
+          <Link href={"/account/profile"} className="group">
+            <DropdownMenuItem>
+              <User className="text-white group-hover:scale-110 transition" /> Хувийн мэдээлэл
             </DropdownMenuItem>
           </Link>
-          <Link href={"/account/orders"}>
-            <DropdownMenuItem className="font-bold">
-              <ClipboardMinus className="text-white" /> Захиалгын мэдээлэл
+          <Link href={"/account/orders"} className="group">
+            <DropdownMenuItem>
+              <ClipboardMinus className="text-white group-hover:scale-110 transition" /> Захиалгын мэдээлэл
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
-        <DropdownMenuSeparator className="bg-slate-600" />
-        <DropdownMenuItem className="font-bold"><LogOut className="text-white" />Гарах</DropdownMenuItem>
+        <DropdownMenuSeparator className="bg-gray-600" />
+        <DropdownMenuItem className="focus:bg-red-500 group"><LogOut className="text-white group-hover:scale-110 transition" />Гарах</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
