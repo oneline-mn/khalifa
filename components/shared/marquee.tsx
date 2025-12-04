@@ -17,7 +17,7 @@ export default function Marquee({ bg = 'bg-dark' }: MarqueeProps) {
 
   return (
     <div className={cn("w-screen overflow-x-hidden", bg)}>
-      <div className="flex items-center mx-auto h-20 md:h-36 overflow-hidden">
+      <div className="flex items-center mx-auto h-20 md:h-36 overflow-hidden py-4">
         {isHydrated && (
           <Swiper
             className="h-full w-screen pointer-events-none swiper-marquee"
@@ -28,9 +28,9 @@ export default function Marquee({ bg = 'bg-dark' }: MarqueeProps) {
             modules={[Autoplay, FreeMode]}
             slidesPerView={"auto"}
             spaceBetween={30}
-            autoplay={{
-              delay: 0,
-            }}
+            // autoplay={{
+            //   delay: 0,
+            // }}
             loop={true}
             speed={2000}
             style={
@@ -39,8 +39,8 @@ export default function Marquee({ bg = 'bg-dark' }: MarqueeProps) {
               } as React.CSSProperties
             }>
             {Array.from({ length: 10 }).map((_, i) => (
-              <SwiperSlide key={i} className="max-w-64 text-white flex! items-center justify-center w-fit">
-                <Image src={"/banner/banner-logo.png"} alt="brand logo" fill className="h-10 w-full md:h-full object-contain" />
+              <SwiperSlide key={i} className="max-w-32 flex! items-center justify-center">
+                <Image src={"/banner/banner-logo.png"} alt="brand logo" width={500} height={500} className="md:h-full object-contain" />
               </SwiperSlide>
             ))}
           </Swiper>
