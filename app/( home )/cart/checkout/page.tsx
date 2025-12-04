@@ -10,7 +10,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 export default function Page() {
   return (
     <section className="max-w-2k mx-auto py-0! relative">
-      <div className="grid grid-cols-2  md:grid-cols-5 top-20 gap-5">
+      <div className="grid grid-cols-2  md:grid-cols-5 top-20 gap-y-5 md:gap-5">
         <div className="col-span-2 relative md:pb-15 md:pl-5">
           <div className="border bg-[#fafafb] md:rounded-xl flex flex-col gap-8 container-half w-full md:sticky top-30 shadow">
             <h1 className="text-2xl font-bold">Захиалга баталгаажуулалт</h1>

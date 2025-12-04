@@ -17,10 +17,10 @@ export default function Page() {
       <div className="bg-brand-orange/10">
         <div className="container flex items-center gap-4 py-6!">
          <Image alt="qr" className="size-15 aspect-square" height={60} src={'/qr.svg'} width={60} />
-          <h1 className="text-4xl font-bold">Төлбөр төлөх</h1>
+          <h1 className="text-2xl lg:text-4xl font-bold">Төлбөр төлөх</h1>
         </div>
       </div>
-      <div className="container flex py-10!">
+      <div className="container flex-col lg:flex-row flex py-10! ">
         <div className="max-w-md mx-auto pb-5 lg:pb-0 lg:pr-16">
           <h3 className="mb-5 md:mb-10 text-2xl font-semibold text-center">QR код уншуулах:</h3>
           <div className="flex items-center justify-center">
@@ -31,7 +31,7 @@ export default function Page() {
             showToast('error','Төлбөр төлөгдөөгүй байна')
           }} size={'xl'} variant={'orange'}>Гүйлгээ шалгах</Button>
         </div>
-        <div className="w-full pt-5 lg:pt-0 lg:pl-16 border-l space-y-10">
+        <div className="w-full pt-5 lg:pt-0 lg:pl-16 border-t lg:border-l space-y-10">
           <h1 className="text-center text-2xl font-bold">Банкны апп -р төлөх:</h1>
 
           {isHydrated && (
