@@ -40,7 +40,7 @@ export default function Marquee({ bg = 'bg-dark' }: MarqueeProps) {
             }>
             {Array.from({ length: 10 }).map((_, i) => (
               <SwiperSlide key={i} className="max-w-fit flex! items-center justify-center w-fit">
-                <Image src={"/banner/banner-logo.png"} alt="brand logo" width={500} height={500} className="h-12 md:h-full object-contain w-fit" />
+                <Image src={"/banner/banner-logo.png"} alt="brand logo" width={500} height={500} className="h-12 md:h-full object-contain w-auto" />
               </SwiperSlide>
             ))}
           </Swiper>

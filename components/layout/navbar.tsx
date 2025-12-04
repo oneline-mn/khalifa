@@ -35,9 +35,9 @@ export default function Navbar() {
       {isHydrated && (
         <div className="bg-primary">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
-            <Link href={"/"} className="w-fit">
-              <Image src={"/logo/logo-white.svg"} alt="Khalifa logo" width={500} height={500} className="h-8 md:h-12 w-fit object-contain" />
-            </Link>
+              <Link href={"/"}>
+                <Image src={"/logo/logo-white.svg"} alt="Khalifa logo" width={500} height={500} className="h-8 md:h-12 w-auto object-contain" />
+              </Link>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
