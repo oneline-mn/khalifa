@@ -1,4 +1,4 @@
-import QuantityButton from "@/components/shared/quantity-button";
+import QuantityButton from "@/components/features/quantity-button";
 import Image from "next/image";
 
 export function CartItem() {

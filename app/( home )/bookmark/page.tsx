@@ -3,8 +3,8 @@
 import { Heart } from "lucide-react";
 import Image from "next/image";
 
-import ProductCard from "@/components/shared/product-card";
-import QuantityButton from "@/components/shared/quantity-button";
+import ProductCard from "@/components/features/product-card";
+import QuantityButton from "@/components/features/quantity-button";
 import { Button } from "@/components/ui/button";
 import { Product, PRODUCTS_LIST } from "@/constants";
 import { getCategoryTitle } from "@/lib/func";

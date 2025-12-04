@@ -1,5 +1,5 @@
 import { Product, PRODUCTS_LIST } from "@/constants";
-import ProductCard from "./product-card";
+import ProductCard from "../features/product-card";
 import { getCategoryTitle } from "@/lib/func";
 import { Button } from "../ui/button";
 import Link from "next/link";

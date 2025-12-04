@@ -2,21 +2,20 @@
 
 import { Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import Link from "next/link";
-import { FacebookIcon, InstagramIcon } from "./icons";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { NAV_ITEMS } from "@/constants";
+import { NAV_ITEMS, SOCIALS } from "@/constants";
 import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 
-import { Handbag, Heart, TextAlignJustify, User, X } from "lucide-react";
+import { Handbag, Heart, LogOut, TextAlignJustify, User, X } from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
-import { NavCountItem } from "./nav-product-count";
-import Cart from "./cart";
-import ProfileDropDown from "./profile-dropdown";
-import LangSwitch from "./lang-switch";
+import { NavCountItem } from "../features/nav-product-count";
+import Cart from "../pages/cart/cart";
+import ProfileDropDown from "../features/profile-dropdown";
+import LangSwitch from "../shared/lang-switch";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
@@ -62,10 +61,10 @@ export default function Navbar() {
               <Cart openCart={openCart} setOpenCart={setOpenCart} />
 
               {/* Profile DropwDown */}
-     <div className="items-center hidden lg:flex">
-               <ProfileDropDown login={false} />
-              <ProfileDropDown login={true} />
-     </div>
+              <div className="items-center hidden lg:flex">
+                <ProfileDropDown login={false} />
+                <ProfileDropDown login={true} />
+              </div>
 
               <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
                 <DrawerTrigger asChild className="block lg:hidden">
@@ -88,7 +87,7 @@ export default function Navbar() {
                   <div className="flex flex-col justify-start font-bold text-2xl">
                     <div className="flex flex-col py-10">
                       {NAV_ITEMS.map((item, i) => (
-                        <Link href={item.href} key={i} className="py-2">
+                        <Link href={item.href} key={i} className="py-2" onClick={() => setOpenNav(false)}>
                           {item.label}
                         </Link>
                       ))}
@@ -115,15 +114,26 @@ export default function Navbar() {
                           <span>Миний бүртгэл</span>
                         </span>
                       </Link>
+                      <Link href={"/account/profile"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
+                        <span className="flex items-center gap-2">
+                          <LogOut className="size-6" />
+                          <span>Системээс гарах</span>
+                        </span>
+                      </Link>
                     </div>
                   </div>
                   <DrawerFooter>
                     <div className="flex justify-between">
-                      {/* <span>mgl</span> */}
                       <LangSwitch />
                       <div className="flex items-center gap-2">
-                        <FacebookIcon />
-                        <InstagramIcon />
+                        {SOCIALS.map((s, i) => {
+                          const Icon = s.icon;
+                          return (
+                            <Link key={i} href={s.href} target="_blank" rel="noopener noreferrer">
+                              <Icon className="fill-current size-5" />
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </DrawerFooter>
