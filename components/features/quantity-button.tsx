@@ -22,7 +22,7 @@ export default function QuantityButton({ variant }: { variant: "secondary" | "gh
       {quantity === 0 ? (
         <Button className="sm:text-xl font-bold flex items-center gap-2 h-11" size={"lg"} variant={variant} onClick={() => setQuantity(quantity + 1)}>
           <Handbag className="size-5" strokeWidth={2} />
-          <span>Сагсанд нэмэх</span>
+          <span>Сагслах</span>
         </Button>
       ) : (
         <div className="flex items-center gap-2 border px-1 rounded-lg bg-white">

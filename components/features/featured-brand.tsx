@@ -21,7 +21,7 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
           </div>
           <div className="grid grid-cols-2 gap-10 lg:gap-16 lg:col-span-2 col-span-3 h-fit w-full">
             <div className="col-span-2">
-              <p className="md:text-2xl font-semibold text-justify mb-7">{featured.description}</p>
+              <p className="md:text-2xl font-medium text-justify mb-7">{featured.description}</p>
             </div>
 
             {featured.products.map((product: FeaturedProduct) => (
