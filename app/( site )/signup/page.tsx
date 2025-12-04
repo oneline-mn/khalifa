@@ -49,7 +49,7 @@ export default function Page() {
         <div className="flex flex-col size-full space-y-10">
           <div className="flex justify-center gap-4 mt-10">
             <h1>Надад бүртгэлтэй хаяг бий.</h1>
-            <Link className="text-brand-orange font-bold" href={"/login"}>
+            <Link className="text-brand-orange font-bold" href={"/profile/login"}>
               Нэвтрэх
             </Link>
           </div>
