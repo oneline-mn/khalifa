@@ -238,3 +238,7 @@
 .sign-input {
   @apply bg-white border-input/15 h-12 text-base! font-medium!;
 }
+
+.mdx-li {
+  @apply ml-2 sm:ml-6 md:ml-8
+}

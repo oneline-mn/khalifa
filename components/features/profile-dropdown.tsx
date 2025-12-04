@@ -2,7 +2,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 
 import { ClipboardMinus, LogOut, User, UserRound } from "lucide-react";
 import Link from "next/link";
-import Login from "../pages/home/login";
+import Login from "./login";
 
 export default function ProfileDropDown({ login }: { login: boolean }) {
   return (
@@ -37,7 +37,7 @@ export default function ProfileDropDown({ login }: { login: boolean }) {
         <DropdownMenuSeparator className="bg-gray-600" />
         <DropdownMenuItem className="focus:bg-red-500 group">
           <LogOut className="text-white group-hover:scale-110 transition" />
-          Гарах
+          Системээс гарах
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

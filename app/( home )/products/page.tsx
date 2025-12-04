@@ -4,8 +4,8 @@ import { ChevronDown, Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import ProductCard from "@/components/shared/product-card";
-import QuantityButton from "@/components/shared/quantity-button";
+import ProductCard from "@/components/features/product-card";
+import QuantityButton from "@/components/features/quantity-button";
 import Suggestion from "@/components/shared/suggestion";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";

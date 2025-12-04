@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import PasswordInput from "@/components/shared/password-input";
-import SignContainer from "@/components/shared/sign-container";
+import SignContainer from "@/components/layout/sign-container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

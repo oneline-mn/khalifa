@@ -11,7 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import QuantityButton from "@/components/shared/quantity-button";
+import QuantityButton from "@/components/features/quantity-button";
 import Suggestion from "@/components/shared/suggestion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";

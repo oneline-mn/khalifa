@@ -2,10 +2,10 @@ import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, Drawer
 import { Button } from "@/components/ui/button";
 import { X, Handbag } from "lucide-react";
 
-import { NavCountItem } from "./nav-product-count";
+import { NavCountItem } from "../../features/nav-product-count";
 import Link from "next/link";
-import CheckoutSummary from "../pages/cart/checkout-summary";
-import { CartItem } from "../pages/cart/cart-item";
+import CheckoutSummary from "./checkout-summary";
+import { CartItem } from "./cart-item";
 
 type CartProps = {
   openCart: boolean;
