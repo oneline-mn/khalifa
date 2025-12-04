@@ -6,6 +6,7 @@ import { NavCountItem } from "../../features/nav-product-count";
 import Link from "next/link";
 import CheckoutSummary from "./checkout-summary";
 import { CartItem } from "./cart-item";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 type CartProps = {
   openCart: boolean;
@@ -20,30 +21,32 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
           <NavCountItem label="Сагс" icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />} />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="overflow-y-scroll overflow-x-hidden">
-        <DrawerHeader className="flex flex-row w-full justify-between p-0 border-b py-6! sticky top-0 bg-white">
-          <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
-          <Button variant={"naked"} size={"icon"} onClick={() => setOpenCart(false)}>
-            <X className="stroke-primary size-7" />
-          </Button>
-        </DrawerHeader>
-        <div className="divide-y divide-gray-200">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <CartItem key={i} />
-          ))}
-        </div>
-        <DrawerFooter className="border-t">
-          <CheckoutSummary
-            action={
-              <Link href="/cart/checkout" onClick={() => setOpenCart(false)}>
-                <Button className="w-full" size={"xl"} variant={"orange"}>
-                  Үргэлжлүүлэх
-                </Button>
-              </Link>
-            }
-            totalPrice={5000}
-          />
-        </DrawerFooter>
+      <DrawerContent className="p-0">
+        <ScrollArea className="h-screen w-full px-6">
+          <DrawerHeader className="flex flex-row w-full justify-between p-0 border-b py-6! sticky top-0 bg-white">
+            <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
+            <Button variant={"naked"} size={"icon"} onClick={() => setOpenCart(false)}>
+              <X className="stroke-primary size-7" />
+            </Button>
+          </DrawerHeader>
+          <div className="divide-y divide-gray-200">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <CartItem key={i} />
+            ))}
+          </div>
+          <DrawerFooter className="border-t">
+            <CheckoutSummary
+              action={
+                <Link href="/cart/checkout" onClick={() => setOpenCart(false)}>
+                  <Button className="w-full" size={"xl"} variant={"orange"}>
+                    Үргэлжлүүлэх
+                  </Button>
+                </Link>
+              }
+              totalPrice={5000}
+            />
+          </DrawerFooter>
+        </ScrollArea>
       </DrawerContent>
     </Drawer>
   );
