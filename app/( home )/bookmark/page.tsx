@@ -21,7 +21,7 @@ export default function Page() {
           src="/banner/banner-1.png"
           width={1200}
         />
-        <div className="absolute inset-0 flex items-center justify-center text-white font-serif text-6xl">Favoured Products</div>
+        <div className="absolute inset-0 flex items-center justify-center text-white font-serif text-3xl lg:text-6xl text-center">Favoured Products</div>
       </div>
       <div className="bg-primary text-white">
         <div className="container">
