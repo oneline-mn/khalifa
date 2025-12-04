@@ -27,10 +27,10 @@ export default function Marquee({ bg = 'bg-dark' }: MarqueeProps) {
             }}
             modules={[Autoplay, FreeMode]}
             slidesPerView={"auto"}
-            spaceBetween={30}
-            // autoplay={{
-            //   delay: 0,
-            // }}
+            spaceBetween={40}
+            autoplay={{
+              delay: 0,
+            }}
             loop={true}
             speed={2000}
             style={
@@ -39,8 +39,8 @@ export default function Marquee({ bg = 'bg-dark' }: MarqueeProps) {
               } as React.CSSProperties
             }>
             {Array.from({ length: 10 }).map((_, i) => (
-              <SwiperSlide key={i} className="max-w-32 flex! items-center justify-center">
-                <Image src={"/banner/banner-logo.png"} alt="brand logo" width={500} height={500} className="md:h-full object-contain" />
+              <SwiperSlide key={i} className="max-w-fit flex! items-center justify-center w-fit">
+                <Image src={"/banner/banner-logo.png"} alt="brand logo" width={500} height={500} className="h-12 md:h-full object-contain w-fit" />
               </SwiperSlide>
             ))}
           </Swiper>
