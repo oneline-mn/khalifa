@@ -19,7 +19,7 @@ export default function Page() {
           </Link>
         </div>
         {/* Form */}
-        <form action={""} className="w-full space-y-5 mt-10 max-w-md">
+        <form action={""} className="w-full space-y-3 md:space-y-5 mt-10 max-w-md">
           {/* Email */}
           <h1 className="text-3xl font-bold text-center">Бүртгэл үүсгэх</h1>
 
@@ -37,7 +37,7 @@ export default function Page() {
           {/* Confirm Password */}
           <div className="space-y-3">
             <div className="space-y-1">
-              <Label className="text-base">Нууц үг</Label>
+              <Label className="text-base">Нууц үг давтах</Label>
               <p className="text-red-600 text-xs">/ Баталгаажуулах зорилгоор өмнө оруулсан нууц үгээ дахин оруулна уу /</p>
             </div>
             <PasswordInput />

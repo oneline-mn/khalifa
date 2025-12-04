@@ -6,5 +6,5 @@ export default function SiteLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="max-h-screen overflow-hidden">{children}</div>;
+  return <div className="md:max-h-screen overflow-hidden">{children}</div>;
 }
