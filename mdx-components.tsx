@@ -11,7 +11,7 @@ const components = {
     <h1 className='text-xl font-medium mb-4' {...props}>{props.children}</h1>
   ),
   h2: ( props ) => (
-    <h2 className='font-medium'>{props.children}</h2>
+    <h2 className='font-medium text-justify'>{props.children}</h2>
   ),
   li: ( props ) => (
     <li className='font-medium pl-2'>{props.children}</li>
