@@ -2,11 +2,20 @@
 
 import React from "react";
 import { toast } from "sonner";
-import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon } from "lucide-react";
+import {
+  CircleCheckIcon,
+  InfoIcon,
+  Loader2Icon,
+  OctagonXIcon,
+  TriangleAlertIcon,
+} from "lucide-react";
 
 type ToastVariant = "default" | "success" | "info" | "warning" | "error";
 
-export function showToast(variant: ToastVariant, description?: React.ReactNode) {
+export function showToast(
+  variant: ToastVariant,
+  description?: React.ReactNode,
+) {
   const base = {
     description,
   };

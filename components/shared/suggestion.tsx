@@ -7,7 +7,9 @@ import Link from "next/link";
 export default function Suggestion() {
   return (
     <div className="container text-primary! justify flex flex-col">
-      <h1 className="text-3xl md:text-6xl uppercase font-bold text-center mb-14 md:mb-20 font-serif text-inherit">SHOP OUR SPIRITS</h1>
+      <h1 className="text-3xl md:text-6xl uppercase font-bold text-center mb-14 md:mb-20 font-serif text-inherit">
+        SHOP OUR SPIRITS
+      </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-4 mx-auto max-w-2k h-fit text-inherit gap-10">
         {PRODUCTS_LIST.slice(0, 4).map((product: Product) => {

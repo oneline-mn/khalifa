@@ -6,7 +6,11 @@ interface CheckoutSummaryProps {
   action?: React.ReactNode;
 }
 
-export default function CheckoutSummary({ totalPrice = 5000, deliveryPrice = 0, action }: CheckoutSummaryProps) {
+export default function CheckoutSummary({
+  totalPrice = 5000,
+  deliveryPrice = 0,
+  action,
+}: CheckoutSummaryProps) {
   const delivery: number = 0;
   return (
     <div className="my-10 rounded-lg bg-primary/5 px-6 py-5 text-primary font-bold space-y-8">
@@ -18,7 +22,11 @@ export default function CheckoutSummary({ totalPrice = 5000, deliveryPrice = 0, 
         <Separator className="bg-border" />
         <div className="flex justify-between items-center">
           <h1 className="opacity-60">Хүргэлт</h1>
-          <h1 className="text-xl">{(deliveryPrice === 0 || deliveryPrice === undefined) ? "Үнэгүй" : deliveryPrice + "₮"}</h1>
+          <h1 className="text-xl">
+            {deliveryPrice === 0 || deliveryPrice === undefined
+              ? "Үнэгүй"
+              : deliveryPrice + "₮"}
+          </h1>
         </div>
         <Separator className="bg-border" />
         <div className="flex justify-between items-center text-brand-orange">
@@ -26,7 +34,7 @@ export default function CheckoutSummary({ totalPrice = 5000, deliveryPrice = 0, 
           <h1 className="text-xl">{(50000 + delivery).toLocaleString()}₮</h1>
         </div>
       </div>
-     {action}
+      {action}
     </div>
   );
 }
