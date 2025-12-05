@@ -28,11 +28,18 @@ export default function Hero() {
           autoplay={{
             delay: 5000,
           }}
-          loop={true}>
+          loop={true}
+        >
           {HERO_LIST.map((image, index) => {
             return (
               <SwiperSlide key={index} className="size-full">
-                <Image src={image.src} alt="hero image" fill className="size-full object-cover" placeholder="blur" />
+                <Image
+                  src={image.src}
+                  alt="hero image"
+                  fill
+                  className="size-full object-cover"
+                  placeholder="blur"
+                />
               </SwiperSlide>
             );
           })}

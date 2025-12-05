@@ -1,4 +1,16 @@
-export function NavCountItem({ label, icon, count = 0, isMobile = false }: { label: string; icon: React.ReactNode; count?: number; isMobile?: boolean }) {
+interface NavCountItemProps {
+  label: string;
+  icon: React.ReactNode;
+  count?: number;
+  isMobile?: boolean;
+}
+
+export function NavCountItem({
+  label,
+  icon,
+  count = 0,
+  isMobile = false,
+}: NavCountItemProps) {
   return (
     <>
       {isMobile ? (
@@ -7,7 +19,9 @@ export function NavCountItem({ label, icon, count = 0, isMobile = false }: { lab
             {icon}
             <span className="text-2xl">{label}</span>
           </span>
-          <span className="bg-brand text-white rounded-full px-3 text-base">{count}</span>
+          <span className="bg-brand text-white rounded-full px-3 text-base">
+            {count}
+          </span>
         </>
       ) : (
         <>

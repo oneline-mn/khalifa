@@ -4,6 +4,6 @@ export default function useHydration() {
   return useSyncExternalStore(
     () => () => {},
     () => true,
-    () => false
+    () => false,
   );
 }

@@ -1,6 +1,11 @@
 import PasswordInput from "@/components/shared/password-input";
 import { Button } from "@/components/ui/button";
-import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { UserRound, X } from "lucide-react";
@@ -19,13 +24,23 @@ export default function Login() {
         </div>
       </DrawerTrigger>
       <DrawerContent className="h-screen overflow-y-scroll overflow-x-hidden py-4 sm:px-10">
-        <Button variant={"naked"} size={"icon"} className="absolute top-6 right-6">
+        <Button
+          variant={"naked"}
+          size={"icon"}
+          className="absolute top-6 right-6"
+        >
           <X className="stroke-primary size-7" />
         </Button>
         <DrawerTitle className="hidden">Login</DrawerTitle>
         <div className="flex flex-col h-full items-center text-base font-medium">
           <div className="flex flex-col items-center gap-10">
-            <Image src={"/logo/logo-icon.svg"} width={64} height={64} className="size-16 object-contain" alt="logo" />
+            <Image
+              src={"/logo/logo-icon.svg"}
+              width={64}
+              height={64}
+              className="size-16 object-contain"
+              alt="logo"
+            />
             <h1 className="text-3xl font-bold">Нэвтрэх хэсэг</h1>
           </div>
 
@@ -41,7 +56,10 @@ export default function Login() {
               {/* Forgot password */}
               <div className="flex items-center justify-between">
                 <Label className="text-base">Нууц үг</Label>
-                <Link href={"/profile/password_reset"} className="text-brand-orange font-semibold">
+                <Link
+                  href={"/profile/password_reset"}
+                  className="text-brand-orange font-semibold"
+                >
                   Нууц үгээ мартсан уу?
                 </Link>
               </div>
@@ -49,7 +67,12 @@ export default function Login() {
               {/* Password */}
               <PasswordInput />
             </div>
-            <Button type="submit" size={"xl"} variant={"orange"} className="w-full text-base">
+            <Button
+              type="submit"
+              size={"xl"}
+              variant={"orange"}
+              className="w-full text-base"
+            >
               Нэвтрэх
             </Button>
           </form>
@@ -62,14 +85,22 @@ export default function Login() {
             </div>
             <div className="flex justify-center gap-4">
               <h1>Хамтран ажиллах</h1>
-              <Link href={"/signup/company/"} className="text-brand-orange font-bold">
+              <Link
+                href={"/signup/company/"}
+                className="text-brand-orange font-bold"
+              >
                 Албан байгууллагаар хүсэлт илгээх
               </Link>
             </div>
             <div className="rounded-lg p-4 lg:p-5 bg-brand-orange/10">
-              <Link href={"mailto:contact@khalifa.mn"} className="justify-between text-brand-orange">
-                Албан байгууллагаар бүртгүүлэх бол дээрх хамтран ажиллах дээр даран хүсэлт илгээхээс гадна <span className="font-bold">contact@khalifa.mn</span> руу холбогдон дэлгэрэнгүй мэдээлэл
-                аваарай
+              <Link
+                href={"mailto:contact@khalifa.mn"}
+                className="justify-between text-brand-orange"
+              >
+                Албан байгууллагаар бүртгүүлэх бол дээрх хамтран ажиллах дээр
+                даран хүсэлт илгээхээс гадна{" "}
+                <span className="font-bold">contact@khalifa.mn</span> руу
+                холбогдон дэлгэрэнгүй мэдээлэл аваарай
               </Link>
             </div>
           </div>

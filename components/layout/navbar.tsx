@@ -1,6 +1,13 @@
 "use client";
 
-import { Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { useState } from "react";
@@ -9,7 +16,14 @@ import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 
-import { Handbag, Heart, LogOut, TextAlignJustify, User, X } from "lucide-react";
+import {
+  Handbag,
+  Heart,
+  LogOut,
+  TextAlignJustify,
+  User,
+  X,
+} from "lucide-react";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
 import { NavCountItem } from "../features/nav-product-count";
@@ -35,14 +49,23 @@ export default function Navbar() {
       {isHydrated && (
         <div className="bg-primary">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
-              <Link href={"/"}>
-                <Image src={"/logo/logo-white.svg"} alt="Khalifa logo" width={500} height={500} className="h-8 md:h-12 w-auto object-contain" />
-              </Link>
+            <Link href={"/"}>
+              <Image
+                src={"/logo/logo-white.svg"}
+                alt="Khalifa logo"
+                width={500}
+                height={500}
+                className="h-8 md:h-12 w-auto object-contain"
+              />
+            </Link>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
                   <li key={i}>
-                    <Link href={item.href} className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4">
+                    <Link
+                      href={item.href}
+                      className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4"
+                    >
                       <span className="text-center">{item.label}</span>
                     </Link>
                   </li>
@@ -52,8 +75,16 @@ export default function Navbar() {
             <div className="flex items-center text-sm font-semibold">
               <div className="hidden lg:flex items-center">
                 <LangSwitch />
-                <Link href={"/bookmark"} className="flex-col items-center px-4 gap-0.5 hidden sm:flex group">
-                  <NavCountItem label="Хадгалсан" icon={<Heart className="size-5 duration-150 group-hover:scale-120" />} />
+                <Link
+                  href={"/bookmark"}
+                  className="flex-col items-center px-4 gap-0.5 hidden sm:flex group"
+                >
+                  <NavCountItem
+                    label="Хадгалсан"
+                    icon={
+                      <Heart className="size-5 duration-150 group-hover:scale-120" />
+                    }
+                  />
                 </Link>
               </div>
 
@@ -66,7 +97,11 @@ export default function Navbar() {
                 <ProfileDropDown login={true} />
               </div>
 
-              <Drawer direction="right" open={openNav} onOpenChange={setOpenNav}>
+              <Drawer
+                direction="right"
+                open={openNav}
+                onOpenChange={setOpenNav}
+              >
                 <DrawerTrigger asChild className="block lg:hidden">
                   <Button className="flex flex-col items-center px-4 gap-0.5">
                     <TextAlignJustify className="size-6" />
@@ -76,9 +111,19 @@ export default function Navbar() {
                   <div className="flex items-center justify-between">
                     <DrawerHeader className="flex flex-row w-full justify-between p-0 py-6">
                       <DrawerTitle>
-                        <Image src={"/logo/logo-dark.svg"} width={200} height={50} className="object-contain h-9 object-left" alt="logo" />
+                        <Image
+                          src={"/logo/logo-dark.svg"}
+                          width={200}
+                          height={50}
+                          className="object-contain h-9 object-left"
+                          alt="logo"
+                        />
                       </DrawerTitle>
-                      <Button variant={"naked"} size={"icon"} onClick={() => setOpenNav(false)}>
+                      <Button
+                        variant={"naked"}
+                        size={"icon"}
+                        onClick={() => setOpenNav(false)}
+                      >
                         <X className="stroke-primary size-7" />
                       </Button>
                     </DrawerHeader>
@@ -87,7 +132,12 @@ export default function Navbar() {
                   <div className="flex flex-col justify-start font-bold text-2xl">
                     <div className="flex flex-col py-10">
                       {NAV_ITEMS.map((item, i) => (
-                        <Link href={item.href} key={i} className="py-2" onClick={() => setOpenNav(false)}>
+                        <Link
+                          href={item.href}
+                          key={i}
+                          className="py-2"
+                          onClick={() => setOpenNav(false)}
+                        >
                           {item.label}
                         </Link>
                       ))}
@@ -95,26 +145,53 @@ export default function Navbar() {
 
                     {/* Menu mobile actions */}
                     <div className="border-t border-brand-orange space-y-6 py-10">
-                      <Link href={"/bookmark"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
-                        <NavCountItem label="Хадгалсан" icon={<Heart className="size-6" />} isMobile />
+                      <Link
+                        href={"/bookmark"}
+                        className="flex items-center justify-between"
+                        onClick={() => setOpenNav(false)}
+                      >
+                        <NavCountItem
+                          label="Хадгалсан"
+                          icon={<Heart className="size-6" />}
+                          isMobile
+                        />
                       </Link>
 
                       {/* Cart handle on mobile */}
-                      <Drawer direction="right" open={openCart} onOpenChange={setOpenCart}>
+                      <Drawer
+                        direction="right"
+                        open={openCart}
+                        onOpenChange={setOpenCart}
+                      >
                         <DrawerTrigger asChild onClick={handleOpenCart}>
-                          <Button variant={"naked"} className="flex items-center justify-between w-full px-0 font-bold">
-                            <NavCountItem label="Сагс" icon={<Handbag className="size-6" />} isMobile />
+                          <Button
+                            variant={"naked"}
+                            className="flex items-center justify-between w-full px-0 font-bold"
+                          >
+                            <NavCountItem
+                              label="Сагс"
+                              icon={<Handbag className="size-6" />}
+                              isMobile
+                            />
                           </Button>
                         </DrawerTrigger>
                       </Drawer>
 
-                      <Link href={"/account/profile"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
+                      <Link
+                        href={"/account/profile"}
+                        className="flex items-center justify-between"
+                        onClick={() => setOpenNav(false)}
+                      >
                         <span className="flex items-center gap-2">
                           <User className="size-6" />
                           <span>Миний бүртгэл</span>
                         </span>
                       </Link>
-                      <Link href={"/account/profile"} className="flex items-center justify-between" onClick={() => setOpenNav(false)}>
+                      <Link
+                        href={"/account/profile"}
+                        className="flex items-center justify-between"
+                        onClick={() => setOpenNav(false)}
+                      >
                         <span className="flex items-center gap-2">
                           <LogOut className="size-6" />
                           <span>Системээс гарах</span>
@@ -129,7 +206,12 @@ export default function Navbar() {
                         {SOCIALS.map((s, i) => {
                           const Icon = s.icon;
                           return (
-                            <Link key={i} href={s.href} target="_blank" rel="noopener noreferrer">
+                            <Link
+                              key={i}
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
                               <Icon className="fill-current size-5" />
                             </Link>
                           );
@@ -143,9 +225,23 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className={cn(pathname === "/" || pathname === "/about" ? "flex-center bg-black gap-3 font-semibold py-2" : "hidden")}>
-        <span className={"size-7 rounded-full flex-center border border-white text-xs leading-none font-bold"}>21+</span>
-        <p className="text-xs md:text-sm lg:text-base">Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой</p>
+      <div
+        className={cn(
+          pathname === "/" || pathname === "/about"
+            ? "flex-center bg-black gap-3 font-semibold py-2"
+            : "hidden",
+        )}
+      >
+        <span
+          className={
+            "size-7 rounded-full flex-center border border-white text-xs leading-none font-bold"
+          }
+        >
+          21+
+        </span>
+        <p className="text-xs md:text-sm lg:text-base">
+          Хэтрүүлэн хэрэглэх нь таны эрүүл мэндэд хортой
+        </p>
       </div>
     </nav>
   );
