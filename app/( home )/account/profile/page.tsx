@@ -7,14 +7,25 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-x-8 gap-y-14 md:grid grid-cols-3">
       <div>
-        <h1 className="text-2xl lg:text-4xl mb-4 lg:mb-7 font-semibold leading-7 text-white">Хувийн мэдээлэл</h1>
-        <p className="text-gray-400 text-sm">Энд оруулсан мэдээллээр хүргэлт хийгдэх тул үнэн зөв бөглөнө үү! </p>
+        <h1 className="text-2xl lg:text-4xl mb-4 lg:mb-7 font-semibold leading-7 text-white">
+          Хувийн мэдээлэл
+        </h1>
+        <p className="text-gray-400 text-sm">
+          Энд оруулсан мэдээллээр хүргэлт хийгдэх тул үнэн зөв бөглөнө үү!{" "}
+        </p>
       </div>
       <div className="col-span-2">
         <form action={""} className="grid lg:grid-cols-2 gap-y-8 gap-6">
           <div className="space-y-3">
             <Label htmlFor="email">Хэрэглэгчийн цахим шуудан</Label>
-            <Input className="cursor-not-allowed" disabled id="email" required type="email" value={"soko.bbz.4@gmail.com"} />
+            <Input
+              className="cursor-not-allowed"
+              disabled
+              id="email"
+              required
+              type="email"
+              value={"soko.bbz.4@gmail.com"}
+            />
           </div>
           <div className="space-y-3">
             <Label htmlFor="tax-number">Утасны дугаар</Label>
@@ -43,22 +54,31 @@ export default function Page() {
       <Separator className="col-span-full" />
 
       <div>
-        <h1 className="text-2xl lg:text-4xl mb-4 lg:mb-7 font-semibold leading-7 text-white">Нууц үг солих </h1>
-        <p className="text-gray-400 text-sm">Аюулгүй байдлаа хангаж, нууц үгээ шинэчилнэ үү.</p>
+        <h1 className="text-2xl lg:text-4xl mb-4 lg:mb-7 font-semibold leading-7 text-white">
+          Нууц үг солих{" "}
+        </h1>
+        <p className="text-gray-400 text-sm">
+          Аюулгүй байдлаа хангаж, нууц үгээ шинэчилнэ үү.
+        </p>
       </div>
       <div className="col-span-2">
         <form className="grid gap-y-8 gap-6">
           <div className="space-y-3">
             <Label htmlFor="old-password">Хуучин нууц үг</Label>
-            <Input className="bg-amber-100" id="old-password" type="password" />
+            <Input
+              className="bg-amber-100"
+              id="old-password"
+              required
+              type="password"
+            />
           </div>
           <div className="space-y-3">
             <Label htmlFor="new-password">Шинэ нууц үг </Label>
-            <Input id="new-password" type="password" />
+            <Input id="new-password" required type="password" />
           </div>
           <div className="space-y-3">
             <Label htmlFor="new-password-again">Шинэ нууц үг давтах</Label>
-            <Input id="new-password-again" type="password" />
+            <Input id="new-password-again" required type="password" />
           </div>
           <div>
             <Button type="submit" variant={"orange"}>

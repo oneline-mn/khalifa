@@ -13,7 +13,13 @@ export default function Page() {
   return (
     <SignContainer>
       <Link className="" href={"/"}>
-        <Image alt="logo" className="h-12 object-contain" height={48} src={"/logo/logo-dark.svg"} width={300} />
+        <Image
+          alt="logo"
+          className="h-12 object-contain"
+          height={48}
+          src={"/logo/logo-dark.svg"}
+          width={300}
+        />
       </Link>
       <div className="flex flex-col h-full items-center justify-center text-base font-medium">
         {/* Form */}
@@ -23,20 +29,28 @@ export default function Page() {
           {/* Email */}
           <div className="space-y-3">
             <Label className="text-base">Имэйл хаяг</Label>
-            <Input className="sign-input" required type="email" />
+            <Input required type="email" />
           </div>
 
           {/* Password */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <Label className="text-base">Нууц үг</Label>
-              <Link className="text-brand-orange font-semibold" href={"/profile/password_reset"}>
+              <Link
+                className="text-brand-orange font-semibold"
+                href={"/profile/password_reset"}
+              >
                 Нууц үгээ мартсан уу?
               </Link>
             </div>
             <PasswordInput />
           </div>
-          <Button className="w-full text-base" size={"xl"} type="submit" variant={"orange"}>
+          <Button
+            className="w-full text-base"
+            size={"xl"}
+            type="submit"
+            variant={"orange"}
+          >
             Нэвтрэх
           </Button>
         </form>
