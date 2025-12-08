@@ -49,7 +49,7 @@ export default function Login() {
             {/* Email */}
             <div className="space-y-3">
               <Label className="text-base">Имэйл хаяг</Label>
-              <Input type="email" className="sign-input" required />
+              <Input type="email" required />
             </div>
 
             <div className="space-y-3">

@@ -17,19 +17,22 @@ export default function Page() {
             <div className="space-y-4">
               <div className="space-y-2 col-span-2 xl:col-span-1">
                 <Label className="text-xl text-primary/80">Нэр</Label>
-                <Input className="text-base! font-medium! sign-input" />
+                <Input required />
               </div>
               <div className="space-y-2 col-span-2 xl:col-span-1">
-                <Label className="text-xl text-primary/80">Утасны дугаар </Label>
-                <Input className="text-base! font-medium! sign-input" />
+                <Label className="text-xl text-primary/80">Утасны дугаар</Label>
+                <Input required />
               </div>
               <div className="space-y-2 col-span-2">
                 <Label className="text-xl text-primary/80">Хаяг</Label>
-                <Input className="text-base! font-medium! sign-input" />
+                <Input required />
               </div>
               <div className="space-y-3 col-span-full">
                 <Label className="text-xl font-bold">И-баримт</Label>
-                <RadioGroup className="flex flex-col  gap-x-10 gap-y-4" defaultValue="option-one">
+                <RadioGroup
+                  className="flex flex-col  gap-x-10 gap-y-4"
+                  defaultValue="option-one"
+                >
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem id="person" value="person" />
                     <Label className="text-sm" htmlFor="person">
@@ -59,12 +62,22 @@ export default function Page() {
           <div className="flex flex-col divide-y">
             {Array.from({ length: 4 }).map((_, i) => (
               <div className="flex items-start gap-4 py-7" key={i}>
-                <Image alt="product image" className="size-20 object-contain rounded-md " height={80} src="/wine/wine-1.png" width={80} />
+                <Image
+                  alt="product image"
+                  className="size-20 object-contain rounded-md "
+                  height={80}
+                  src="/wine/wine-1.png"
+                  width={80}
+                />
                 <div className="flex flex-col grow-0 items-start gap-2">
                   <a href="/13/">
-                    <h1 className="text-brandBlack font-bold text-xl">Glen Talloch Blended Whisky Rare &amp; Old - 0.7l</h1>
+                    <h1 className="text-brandBlack font-bold text-xl">
+                      Glen Talloch Blended Whisky Rare &amp; Old - 0.7l
+                    </h1>
                   </a>
-                  <p className="text-brand-orange font-manrope font-bold">95,000₮</p>
+                  <p className="text-brand-orange font-manrope font-bold">
+                    95,000₮
+                  </p>
                   <div className="mt-1 flex"></div>
                   <Label>1 ширхэг</Label>
                 </div>
