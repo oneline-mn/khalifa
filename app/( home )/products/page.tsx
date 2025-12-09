@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
+import CategoryGrid from "@/components/pages/product/category-grid";
 import Suggestion from "@/components/shared/suggestion";
 import {
   DropdownMenu,
@@ -11,12 +12,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { CATEGORIES } from "@/constants";
+import { getCategory } from "@/lib/categoryGet";
 import { getProducts } from "@/lib/productGet";
 
 import ProductGrid from "../../../components/pages/product/product-grid";
 
 export default async function Page() {
   const products = await getProducts();
+  const categories = await getCategory();
 
   return (
     <section>
@@ -51,17 +54,7 @@ export default async function Page() {
             >
               All spirits
             </Link>
-            {CATEGORIES.map((c) => {
-              return (
-                <Link
-                  className="px-8 py-3 capitalize font-bold lg:text-xl hover:text-brand transition text-nowrap leading-none"
-                  href={"#"}
-                  key={c.id}
-                >
-                  {c.title}
-                </Link>
-              );
-            })}
+            <CategoryGrid categories={categories} />
           </div>
         </div>
         <div>

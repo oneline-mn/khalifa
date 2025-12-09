@@ -1,8 +1,5 @@
 import { Product } from "@/constants";
-
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import { delay } from "./use-timeout";
 
 export async function getProductBySlug(slug: number) {
   const products = await getProducts();

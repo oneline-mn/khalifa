@@ -1,21 +1,22 @@
 import { Category } from "@/constants";
 import Link from "next/link";
-import { use } from "react";
 
 export default function CategoryGrid({
-  categoryPromises,
+  categories,
 }: {
-  categoryPromises: Promise<Category[]>;
+  categories: Category[];
 }) {
-  const cat = use(categoryPromises);
-
   return (
-    <Link
-      className="px-8 py-3 capitalize font-bold lg:text-xl hover:text-brand transition text-nowrap leading-none"
-      href={"#"}
-      // key={cat.id}
-    >
-      {cat.title}
-    </Link>
+    <>
+      {categories.map((c) => (
+        <Link
+          className="px-8 py-3 capitalize font-bold lg:text-xl hover:text-brand transition text-nowrap leading-none"
+          href={"#"}
+          key={c.id}
+        >
+          {c.title}
+        </Link>
+      ))}
+    </>
   );
 }
