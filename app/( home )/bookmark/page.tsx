@@ -34,7 +34,7 @@ export default function Page() {
                   key={product.id}
                   price={product.price ?? 2}
                   quantity={product.quantity}
-                  title={product.name}
+                  title={product.title}
                   url={product.url}>
                   <div className="flex gap-2">
                     <QuantityButton variant="secondary" />

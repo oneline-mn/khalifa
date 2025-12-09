@@ -1,6 +1,6 @@
+import { Minus } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import { FacebookIcon, InstagramIcon, XIcon } from "./components/shared/icons";
-import { Minus } from "lucide-react";
 import Hero1 from "./public/hero/hero-1.png";
 import Hero2 from "./public/hero/hero-2.png";
 import Hero3 from "./public/hero/hero-3.png";
@@ -23,15 +23,31 @@ export interface SocialItem {
 // SOCIALS
 // ============================
 export const SOCIALS: SocialItem[] = [
-  { label: "Khalifa Mongolia", href: "https://www.facebook.com/khalifa2024Mongolia", icon: FacebookIcon },
-  { label: "khalifamongolia", href: "https://www.instagram.com/khalifamongolia/", icon: InstagramIcon },
-  { label: "Khalifa Mongolia", href: "https://x.com/KhalifaMongolia", icon: XIcon },
+  {
+    label: "Khalifa Mongolia",
+    href: "https://www.facebook.com/khalifa2024Mongolia",
+    icon: FacebookIcon,
+  },
+  {
+    label: "khalifamongolia",
+    href: "https://www.instagram.com/khalifamongolia/",
+    icon: InstagramIcon,
+  },
+  {
+    label: "Khalifa Mongolia",
+    href: "https://x.com/KhalifaMongolia",
+    icon: XIcon,
+  },
 ];
 
 // ============================
 // HERO ITEMS
 // ============================
-export const HERO_LIST: Hero[] = [{ src: Hero1 }, { src: Hero2 }, { src: Hero3 }];
+export const HERO_LIST: Hero[] = [
+  { src: Hero1 },
+  { src: Hero2 },
+  { src: Hero3 },
+];
 export interface Hero {
   src: StaticImageData;
 }
@@ -58,6 +74,7 @@ export interface FeaturedProduct {
   id: number;
   title: string;
   description?: string;
+  category?: string;
   image: string;
   url: string;
 }
@@ -138,54 +155,55 @@ export const FEATURED_BRAND: FeaturedBrand[] = [
 // ============================
 export interface Product {
   id: number;
-  name: string;
-  category_id: number;
+  title: string;
+  category_id?: number;
+  category?: number;
   description: string;
   quantity: number;
   price?: number;
-  image: string;
+  images: Array<string>;
   url: string;
 }
 
 export const PRODUCTS_LIST: Product[] = [
   {
     id: 6,
-    name: "Signature Candle",
+    title: "Signature Candle",
     category_id: 1,
     description: "",
     quantity: 2,
     price: 55000,
-    image: "/wine/wine-2.png",
+    images: ["/wine/wine-2.png"],
     url: "/test",
   },
   {
     id: 7,
-    name: "Glen Talloch Blended Whisky Rare & Old",
+    title: "Glen Talloch Blended Whisky Rare & Old",
     category_id: 5,
     description: "",
     quantity: 0,
     price: 95000,
-    image: "/wine/wine-2.png",
+    images: ["/wine/wine-2.png"],
     url: "/test",
   },
   {
     id: 8,
-    name: "Sierra Silver",
+    title: "Sierra Silver",
     category_id: 7,
     description: "",
     quantity: 0,
     price: 82000,
-    image: "/wine/wine-2.png",
+    images: ["/wine/wine-2.png"],
     url: "/test",
   },
   {
     id: 9,
-    name: "Grand Marnier Gordon Rouge",
+    title: "Grand Marnier Gordon Rouge",
     category_id: 4,
     description: "",
     quantity: 2,
     price: 138000,
-    image: "/wine/wine-2.png",
+    images: ["/wine/wine-2.png"],
     url: "/test",
   },
 ];
@@ -264,13 +282,17 @@ export const FAQ_LIST: FAQ[] = [
     id: 3,
     question: "3. Хоёр тусдаа захиалга хийгээд нэг хүргэлтээр авч болох уу?",
     type: "ordered",
-    answer: ["Захиалга нь хүргэлтийн нэг хаяг дээр үүссэн тохиолдолд лавлах утсанд хандан хамтад нь хүргүүлэн авах боломжтой."],
+    answer: [
+      "Захиалга нь хүргэлтийн нэг хаяг дээр үүссэн тохиолдолд лавлах утсанд хандан хамтад нь хүргүүлэн авах боломжтой.",
+    ],
   },
   {
     id: 4,
     question: "4. Захиалсан бараа дутуу ирсэн бол яах вэ?",
     type: "ordered",
-    answer: ["Захиалсан барааны тoo ширхэг зөрүүтэй тохиолдолд лавлах утсанд хандах эсвэл албан ёсны цахим хуудсанд мессэж илгээн тоо ширхэгийн зөруутэй барааг нөхөн авах боломжтой."],
+    answer: [
+      "Захиалсан барааны тoo ширхэг зөрүүтэй тохиолдолд лавлах утсанд хандах эсвэл албан ёсны цахим хуудсанд мессэж илгээн тоо ширхэгийн зөруутэй барааг нөхөн авах боломжтой.",
+    ],
   },
   {
     id: 5,
@@ -279,20 +301,33 @@ export const FAQ_LIST: FAQ[] = [
     answer: (
       <div className="space-y-4">
         <div className="space-y-4">
-          <li>Таны захиалга баталгаажсаны дараа, заасан хаягт хүргэлт хийгдэнэ.</li>
+          <li>
+            Таны захиалга баталгаажсаны дараа, заасан хаягт хүргэлт хийгдэнэ.
+          </li>
           <div className="flex flex-wrap gap-2 items-center font-bold">
-            <span className="font-normal">• А бүс буюу</span> <span>( Баруун 4 Зам )</span> <Minus /> <span>( Зүүн 4 Зам )</span> <Minus /> <span>( Зайсан )</span> <Minus />
+            <span className="font-normal">• А бүс буюу</span>{" "}
+            <span>( Баруун 4 Зам )</span> <Minus /> <span>( Зүүн 4 Зам )</span>{" "}
+            <Minus /> <span>( Зайсан )</span> <Minus />
             <span>( 32 тойрог )</span>
-            <span className="font-normal">3-24 цагийн дотор</span> <span className="uppercase">үнэгүй</span>
+            <span className="font-normal">3-24 цагийн дотор</span>{" "}
+            <span className="uppercase">үнэгүй</span>
           </div>
           <div className="flex flex-wrap gap-2 items-center font-bold">
-            <span className="font-normal">• Б бүс буюу</span> <span>( Таван шар )</span> <Minus /> <span>( Атгалан )</span> <Minus /> <span>( 7 буудал )</span> <Minus />
+            <span className="font-normal">• Б бүс буюу</span>{" "}
+            <span>( Таван шар )</span> <Minus /> <span>( Атгалан )</span>{" "}
+            <Minus /> <span>( 7 буудал )</span> <Minus />
             <span>( Яармаг )</span>
             <span className="font-normal">24– 48 цагийн дотор </span>
             <span>20,000₮</span>
           </div>
         </div>
-        <Image src={"/map.png"} width={500} height={250} className="aspect-2/1" alt="delivery" />
+        <Image
+          src={"/map.png"}
+          width={500}
+          height={250}
+          className="aspect-2/1"
+          alt="delivery"
+        />
       </div>
     ),
   },
@@ -300,19 +335,26 @@ export const FAQ_LIST: FAQ[] = [
     id: 6,
     question: "6. Захиалгаас нэг барааг нь хасах гэж байгаад мартсан бол?",
     type: "ordered",
-    answer: ["• Захиалга хүргэлтэнд гараагүй байгаа тохиолдолд лавлах утсанд хандаж мэдэгдэнэ.", "• Хүргэлтэд гарсан тохиолдолд барааг жолоочид буцаан явуулах боломжтой."],
+    answer: [
+      "• Захиалга хүргэлтэнд гараагүй байгаа тохиолдолд лавлах утсанд хандаж мэдэгдэнэ.",
+      "• Хүргэлтэд гарсан тохиолдолд барааг жолоочид буцаан явуулах боломжтой.",
+    ],
   },
   {
     id: 7,
     question: "7. Бэлнээр төлбөр төлж захиалга хийж болох уу?",
     type: "ordered",
-    answer: ["Захиалгын төлбөр урьдчилан 100% төлөгдсөн тохиолдолд захиалга баталгаажиж хүргэлтэд гарна."],
+    answer: [
+      "Захиалгын төлбөр урьдчилан 100% төлөгдсөн тохиолдолд захиалга баталгаажиж хүргэлтэд гарна.",
+    ],
   },
   {
     id: 8,
     question: "8. Захиалсан бараагаа өөр бараагаар сольж болох уу?",
     type: "ordered",
-    answer: ["Худалдан авсан бараагаа буцаах болон солих боломжгүй тул та сонголтоо зөв хийнэ үү"],
+    answer: [
+      "Худалдан авсан бараагаа буцаах болон солих боломжгүй тул та сонголтоо зөв хийнэ үү",
+    ],
   },
 ];
 
