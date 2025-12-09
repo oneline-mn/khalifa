@@ -1,9 +1,11 @@
 import { Product } from "@/constants";
 import { delay } from "./use-timeout";
 
-export async function getProductBySlug(slug: number) {
-  const products = await getProducts();
-  return products.find((p) => p.id === slug);
+export async function randomSuggestion() {
+  const products = await getProducts().then((p) =>
+    p.sort(() => 0.5 - Math.random()).slice(0, 4)
+  );
+  return products;
 }
 
 export async function getProducts() {

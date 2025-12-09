@@ -3,11 +3,10 @@ import { getCategoryTitle } from "@/lib/func";
 import Link from "next/link";
 import ProductCard from "../features/product-card";
 import { Button } from "../ui/button";
-import { getProducts } from "@/lib/productGet";
+import { randomSuggestion } from "@/lib/productGet";
 
 export default async function Suggestion() {
-  const products = await getProducts();
-  const randomProducts = products.sort(() => 0.5 - Math.random()).slice(0, 4);
+  const products = await randomSuggestion();
 
   return (
     <div className="container text-primary! justify flex flex-col">
@@ -16,7 +15,7 @@ export default async function Suggestion() {
       </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-4 mx-auto max-w-2k h-fit text-inherit gap-10">
-        {randomProducts.map((product: Product) => {
+        {products.map((product: Product) => {
           return (
             <ProductCard
               category={getCategoryTitle(product.category_id)}
