@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 interface ProductCardProps {
-  image: string;
+  images?: Array<string>;
   title: string;
   category: string;
   url: string;
@@ -15,7 +15,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({
-  image,
+  images,
   title,
   category,
   url,
@@ -27,30 +27,34 @@ export default function ProductCard({
   return (
     <div className="flex flex-col">
       <Link
-        href={"/products" + url}
+        href={url}
         className="flex flex-col rounded-lg relative lg:gap-6 h-full"
       >
-        <div className="aspect-1 relative w-full overflow-hidden rounded-lg">
-          <Image
-            src={image}
-            width={900}
-            height={900}
-            alt="wine"
-            className="h-[88%] mx-auto w-auto object-contain object-center"
-          />
-          <Image
-            src={image}
-            width={900}
-            height={900}
-            alt="wine"
-            className="h-[88%] mx-auto rotate-x-180 absolute top-[88%] w-auto object-contain left-[50%] -translate-x-[50%] object-center blur-[2px] z-0"
-          />
+        <div className="aspect-square relative w-full overflow-hidden rounded-lg border-white/15 border">
+          {images && (
+            <>
+              <Image
+                src={images[0]}
+                width={900}
+                height={900}
+                alt="wine"
+                className="h-[88%] mx-auto w-auto object-contain object-center"
+              />
+              <Image
+                src={images[0]}
+                width={900}
+                height={900}
+                alt="wine"
+                className="h-[88%] mx-auto rotate-x-180 absolute top-[88%] w-auto object-contain left-[50%] -translate-x-[50%] object-center blur-[2px] z-0"
+              />
+            </>
+          )}
           <div
             className={cn(
               "absolute inset-x-0 top-[60%] bottom-0 bg-linear-to-b",
               shadow === "dark"
                 ? "from-primary/0 to-primary"
-                : "from-white/0 to-white",
+                : "from-white/0 to-white"
             )}
           ></div>
           {quantity === 0 && (
@@ -67,7 +71,7 @@ export default function ProductCard({
             </h1>
           </div>
           <h1 className="md:text-2xl font-manrope font-bold space-x-1 text-brand-orange">
-            <span>{price && price.toLocaleString()}</span>
+            <span>{price.toLocaleString()}</span>
             <span>₮</span>
           </h1>
         </div>
