@@ -1,4 +1,3 @@
-import { Product } from "@/constants";
 import { getCategoryTitle } from "@/lib/func";
 import Link from "next/link";
 import ProductCard from "../features/product-card";
@@ -15,7 +14,7 @@ export default async function Suggestion() {
       </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-4 mx-auto max-w-2k h-fit text-inherit gap-10">
-        {products.map((product: Product) => {
+        {products.map((product) => {
           return (
             <ProductCard
               category={getCategoryTitle(product.category_id)}

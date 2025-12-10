@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import CategoryGrid from "@/components/pages/product/category-grid";
+import PageLoader from "@/components/shared/page-loader";
 import Suggestion from "@/components/shared/suggestion";
 import {
   DropdownMenu,
@@ -22,7 +23,7 @@ export default async function Page() {
   const categories = await getCategory();
 
   return (
-    <section>
+    <Suspense fallback={<PageLoader dark={true} />}>
       <section className="relative">
         <div className="sticky-bottom-nav">
           <div className="flex w-full justify-between md:hidden px-5 py-3 bg-dark text-white font-bold text-xl">
@@ -89,6 +90,6 @@ export default async function Page() {
         </div>
       </section>
       <Suggestion />
-    </section>
+    </Suspense>
   );
 }

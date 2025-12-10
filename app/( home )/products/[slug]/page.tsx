@@ -2,6 +2,7 @@ import { Suspense } from "react";
 
 import QuantityButton from "@/components/features/quantity-button";
 import Gallery from "@/components/pages/product/gallery";
+import PageLoader from "@/components/shared/page-loader";
 import Suggestion from "@/components/shared/suggestion";
 import {
   Accordion,
@@ -23,13 +24,11 @@ export default async function Page({
   if (!product) return <div>Product not found</div>;
 
   return (
-    <Suspense fallback={<div>loading</div>}>
+    <Suspense fallback={<PageLoader />}>
       <section className="mx-auto max-w-lg md:max-w-[1440px] py-10 px-6 md:px-[38px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-14 md:gap-14 pb-10">
           <div className="col-span-1 w-full lg:col-span-2">
-            <Suspense fallback={<div>Loading</div>}>
-              <Gallery images={product.images} />
-            </Suspense>
+            <Gallery images={product.images} />
           </div>
           <div className="col-span-1 lg:col-span-3 space-y-6 ">
             <div className="space-y-3">
