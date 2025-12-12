@@ -21,7 +21,7 @@ export default async function Suggestion() {
               images={product.images}
               key={product.id}
               price={product.price ?? 0}
-              quantity={product.quantity}
+              stock={product.stock}
               title={product.title}
               url={`/products/${product.id}`}
               shadow="light"

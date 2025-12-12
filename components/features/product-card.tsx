@@ -11,7 +11,7 @@ interface ProductCardProps {
   price: number;
   children?: React.ReactNode;
   shadow?: "dark" | "light";
-  quantity: number;
+  stock: number;
 }
 
 export default function ProductCard({
@@ -22,7 +22,7 @@ export default function ProductCard({
   price,
   children,
   shadow = "dark",
-  quantity,
+  stock,
 }: ProductCardProps) {
   return (
     <div className="flex flex-col">
@@ -30,7 +30,7 @@ export default function ProductCard({
         href={url}
         className="flex flex-col rounded-lg relative lg:gap-6 h-full"
       >
-        <div className="aspect-square relative w-full overflow-hidden rounded-lg border-white/15 border">
+        <div className="aspect-square relative w-full overflow-hidden rounded-lg">
           {images && (
             <>
               <Image
@@ -57,7 +57,7 @@ export default function ProductCard({
                 : "from-white/0 to-white"
             )}
           ></div>
-          {quantity === 0 && (
+          {stock === 0 && (
             <div className="bg-brand-orange px-4 py-2 rounded-l-lg absolute top-3 right-0 lg:top-5 text-white font-semibold">
               Нөөц дууссан
             </div>
@@ -76,7 +76,7 @@ export default function ProductCard({
           </h1>
         </div>
       </Link>
-      {quantity !== 0 && children}
+      {stock !== 0 && children}
     </div>
   );
 }

@@ -157,12 +157,13 @@ export interface Product {
   id: number;
   title: string;
   category_id?: number;
-  category?: number;
+  category?: string;
   description: string;
-  quantity: number;
+  discountPercentage?: number;
+  stock: number;
   price?: number;
   images: Array<string>;
-  url: string;
+  url?: string;
 }
 
 export const PRODUCTS_LIST: Product[] = [
@@ -171,7 +172,7 @@ export const PRODUCTS_LIST: Product[] = [
     title: "Signature Candle",
     category_id: 1,
     description: "",
-    quantity: 2,
+    stock: 2,
     price: 55000,
     images: ["/wine/wine-2.png"],
     url: "/test",
@@ -181,7 +182,7 @@ export const PRODUCTS_LIST: Product[] = [
     title: "Glen Talloch Blended Whisky Rare & Old",
     category_id: 5,
     description: "",
-    quantity: 0,
+    stock: 0,
     price: 95000,
     images: ["/wine/wine-2.png"],
     url: "/test",
@@ -191,7 +192,7 @@ export const PRODUCTS_LIST: Product[] = [
     title: "Sierra Silver",
     category_id: 7,
     description: "",
-    quantity: 0,
+    stock: 0,
     price: 82000,
     images: ["/wine/wine-2.png"],
     url: "/test",
@@ -201,7 +202,7 @@ export const PRODUCTS_LIST: Product[] = [
     title: "Grand Marnier Gordon Rouge",
     category_id: 4,
     description: "",
-    quantity: 2,
+    stock: 2,
     price: 138000,
     images: ["/wine/wine-2.png"],
     url: "/test",
