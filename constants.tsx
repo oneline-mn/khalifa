@@ -1,9 +1,19 @@
 import { Minus } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { FacebookIcon, InstagramIcon, XIcon } from "./components/shared/icons";
 import Hero1 from "./public/hero/hero-1.png";
 import Hero2 from "./public/hero/hero-2.png";
 import Hero3 from "./public/hero/hero-3.png";
+import {
+  Bank,
+  Category,
+  FAQ,
+  FeaturedProduct,
+  FooterItem,
+  Hero,
+  Product,
+  SocialItem,
+} from "./types";
 
 // ============================
 // NAVIGATION ITEMS
@@ -13,11 +23,6 @@ export const NAV_ITEMS = [
   { label: "Бүтээгдэхүүн", href: "/products" },
   { label: "Бидний тухай", href: "/about" },
 ];
-export interface SocialItem {
-  label: string;
-  href: string;
-  icon: React.ComponentType<{ className?: string }>;
-}
 
 // ============================
 // SOCIALS
@@ -48,17 +53,10 @@ export const HERO_LIST: Hero[] = [
   { src: Hero2 },
   { src: Hero3 },
 ];
-export interface Hero {
-  src: StaticImageData;
-}
 
 // ============================
 // FOOTER ITEMS
 // ============================
-export interface FooterItem {
-  label: string;
-  href: string;
-}
 
 export const FOOTER_ITEMS: FooterItem[] = [
   { label: "Түгээмэл асуулт, хариулт", href: "/faq" },
@@ -69,15 +67,6 @@ export const FOOTER_ITEMS: FooterItem[] = [
   { label: "Нууцлалын бодлого", href: "/privacy_policy" },
   { label: "Ерөнхий үйлчилгээний нөхцөл", href: "/terms_and_conditions" },
 ];
-
-export interface FeaturedProduct {
-  id: number;
-  title: string;
-  description?: string;
-  category?: string;
-  image: string;
-  url: string;
-}
 
 export interface FeaturedBrand {
   id: number;
@@ -153,18 +142,6 @@ export const FEATURED_BRAND: FeaturedBrand[] = [
 // ============================
 // PRODUCTS
 // ============================
-export interface Product {
-  id: number;
-  title: string;
-  category_id?: number;
-  category?: string;
-  description: string;
-  discountPercentage?: number;
-  stock: number;
-  price?: number;
-  images: Array<string>;
-  url?: string;
-}
 
 export const PRODUCTS_LIST: Product[] = [
   {
@@ -212,10 +189,6 @@ export const PRODUCTS_LIST: Product[] = [
 // ============================
 // CATEGORIES
 // ============================
-export interface Category {
-  id: number;
-  title: string;
-}
 
 export const CATEGORIES: Category[] = [
   { id: 1, title: "gift set" },
@@ -250,12 +223,6 @@ export const ABOUT = [
 // ============================
 // FAQ
 // ============================
-export interface FAQ {
-  id: number;
-  question: string;
-  answer: string[] | React.ReactNode;
-  type: "ordered" | "custom";
-}
 
 export const FAQ_LIST: FAQ[] = [
   {
@@ -358,11 +325,6 @@ export const FAQ_LIST: FAQ[] = [
     ],
   },
 ];
-
-export interface Bank {
-  name: string;
-  image: string;
-}
 
 export const PAYMENT_LIST: Bank[] = [
   { name: "qPay wallet", image: "/logo/banks/qpay.svg" },

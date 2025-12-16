@@ -2,10 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import {
-  FeaturedBrand as FeaturedBrandType,
-  FeaturedProduct,
-} from "@/constants";
+import { FeaturedBrand as FeaturedBrandType, FeaturedProduct } from "@/types";
 
 interface FeaturedBrandProps {
   featured: FeaturedBrandType;

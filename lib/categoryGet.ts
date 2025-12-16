@@ -1,4 +1,4 @@
-import { Category } from "@/constants";
+import { Category } from "@/types";
 import { delay } from "./use-timeout";
 
 export async function getCategory() {

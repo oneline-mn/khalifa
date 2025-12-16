@@ -27,7 +27,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link href="/favicon.ico" rel="icon" sizes="any" />
-        <link href="/icon?<generated>" rel="icon" sizes="<generated>" type="image/<generated>" />
+        <link
+          href="/icon?<generated>"
+          rel="icon"
+          sizes="<generated>"
+          type="image/<generated>"
+        />
       </head>
       <body className={`${ysabeauInfant.className} antialiased`}>
         {children}
