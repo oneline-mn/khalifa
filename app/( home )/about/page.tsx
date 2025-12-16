@@ -18,7 +18,7 @@ export default function Page() {
         <h1 className="font-serif text-4xl md:text-[80px] md:leading-normal text-center font-semibold">
           Khalifa Beverage
         </h1>
-        <p className="font-medium md:text-xl md:leading-normal text-center text-justify">
+        <p className="font-medium md:text-xl md:leading-normal text-justify">
           Халифа компани нь 2023 оноос эхлэн шингэн хүнсний шилдэг брэндүүдийг
           европын орнуудын үйлдвэрээс нь албан ёсны эрхтэйгээр монголын зах
           зээлд нэвтрүүлэн ажиллаж байна. Хүссэн бүтээгдэхүүнээ захиалан, түргэн

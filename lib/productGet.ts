@@ -1,9 +1,9 @@
-import { Product } from "@/constants";
+import { Product } from "@/types";
 import { delay } from "./use-timeout";
 
 export async function randomSuggestion() {
   const products = await getProducts().then((p) =>
-    p.sort(() => 0.5 - Math.random()).slice(0, 4)
+    p.sort(() => 0.5 - Math.random()).slice(0, 4),
   );
   return products;
 }
