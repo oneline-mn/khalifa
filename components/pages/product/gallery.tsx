@@ -1,6 +1,6 @@
 "use client";
 
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -8,14 +8,14 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { cn } from "@/lib/utils";
-import type { Swiper as SwiperType } from "swiper";
 
 export default function Gallery({ images }: { images: Array<string> }) {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-  const [activeThumb, setActiveThumb] = useState<number | null>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<null | SwiperType>(null);
+  const [activeThumb, setActiveThumb] = useState<null | number>(null);
 
   return (
     <div className="space-y-5">
@@ -52,15 +52,15 @@ export default function Gallery({ images }: { images: Array<string> }) {
         watchSlidesProgress={true}
       >
         {images.map((img, i) => (
-          <SwiperSlide key={i} className={cn("overflow-visible!")}>
+          <SwiperSlide className={cn("overflow-visible!")} key={i}>
             <Image
               alt="asd"
-              onClick={() => setActiveThumb(i)}
               className={cn(
                 i === activeThumb && "border-2 border-brand-orange",
                 "cursor-pointer w-full aspect-square rounded-md object-cover"
               )}
               height={100}
+              onClick={() => setActiveThumb(i)}
               src={img}
               width={100}
             />

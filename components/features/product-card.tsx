@@ -1,51 +1,52 @@
-import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+import { cn } from "@/lib/utils";
+
 interface ProductCardProps {
-  images?: Array<string>;
-  title: string;
   category: string;
-  url: string;
-  price: number;
   children?: React.ReactNode;
+  images?: Array<string>;
+  price: number;
   shadow?: "dark" | "light";
   stock: number;
+  title: string;
+  url: string;
 }
 
 export default function ProductCard({
-  images,
-  title,
   category,
-  url,
-  price,
   children,
+  images,
+  price,
   shadow = "dark",
   stock,
+  title,
+  url,
 }: ProductCardProps) {
   return (
     <div className="flex flex-col">
       <Link
-        href={url}
         className="flex flex-col rounded-lg relative lg:gap-6 h-full"
+        href={url}
       >
         <div className="aspect-square relative w-full overflow-hidden rounded-lg">
           {images && (
             <>
               <Image
-                src={images[0]}
-                width={900}
-                height={900}
                 alt="wine"
                 className="h-[88%] mx-auto w-auto object-contain object-center"
-              />
-              <Image
+                height={900}
                 src={images[0]}
                 width={900}
-                height={900}
+              />
+              <Image
                 alt="wine"
                 className="h-[88%] mx-auto rotate-x-180 absolute top-[88%] w-auto object-contain left-[50%] -translate-x-[50%] object-center blur-[2px] z-0"
+                height={900}
+                src={images[0]}
+                width={900}
               />
             </>
           )}

@@ -1,3 +1,7 @@
+import { ChevronDown } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -5,12 +9,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
-import { ChevronDown } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
 
 export default function LangSwitch() {
-  const [lang, setLang] = useState<"mn" | "en">("mn");
+  const [lang, setLang] = useState<"en" | "mn">("mn");
 
   return (
     <DropdownMenu>
@@ -18,11 +19,11 @@ export default function LangSwitch() {
         <button className="flex-col items-center px-4 gap-0.5 flex group cursor-pointer group">
           <div className="h-6 flex">
             <Image
-              src={cn("/lang/" + lang + ".png")}
-              width={24}
-              height={20}
               alt="en"
               className="object-contain group-hover:scale-110 transition"
+              height={20}
+              src={cn("/lang/" + lang + ".png")}
+              width={24}
             />
           </div>
           <div className="flex items-center">
@@ -31,17 +32,17 @@ export default function LangSwitch() {
           </div>
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-fit font-bold" align="center">
+      <DropdownMenuContent align="center" className="w-fit font-bold">
         <DropdownMenuItem
           className="flex items-center gap-2"
           onClick={() => setLang("mn")}
         >
           <Image
-            src={cn("/lang/mn.png")}
-            width={24}
-            height={20}
             alt="en"
             className="object-contain"
+            height={20}
+            src={cn("/lang/mn.png")}
+            width={24}
           />
           Mongolian ( MN )
         </DropdownMenuItem>
@@ -50,11 +51,11 @@ export default function LangSwitch() {
           onClick={() => setLang("en")}
         >
           <Image
-            src={cn("/lang/en.png")}
-            width={24}
-            height={20}
             alt="en"
             className="object-contain"
+            height={20}
+            src={cn("/lang/en.png")}
+            width={24}
           />
           English ( EN )
         </DropdownMenuItem>

@@ -5,9 +5,9 @@ import { Heart } from "lucide-react";
 import ProductCard from "@/components/features/product-card";
 import QuantityButton from "@/components/features/quantity-button";
 import { Button } from "@/components/ui/button";
+import { Product } from "@/constants";
 import { getCategoryTitle } from "@/lib/func";
 import { showToast } from "@/lib/use-toast";
-import { Product } from "@/constants";
 
 export default function ProductGrid({ products }: { products: Product[] }) {
   return products.map((product) => (

@@ -1,22 +1,6 @@
 "use client";
 
 import {
-  Drawer,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { useState } from "react";
-import { NAV_ITEMS, SOCIALS } from "@/constants";
-import Image from "next/image";
-
-import { usePathname } from "next/navigation";
-
-import {
   Handbag,
   Heart,
   LogOut,
@@ -24,21 +8,37 @@ import {
   User,
   X,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+
+import {
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { NAV_ITEMS, SOCIALS } from "@/constants";
 import useHydration from "@/lib/use-hydration";
 import { cn } from "@/lib/utils";
+
 import { NavCountItem } from "../features/nav-product-count";
-import Cart from "../pages/cart/cart";
 import ProfileDropDown from "../features/profile-dropdown";
+import Cart from "../pages/cart/cart";
 import LangSwitch from "../shared/lang-switch";
+import { Button } from "../ui/button";
 
 export default function Navbar() {
   const [openCart, setOpenCart] = useState(false);
   const [openNav, setOpenNav] = useState(false);
 
-  const handleOpenCart = () => {
+  function handleOpenCart() {
     setOpenCart(true);
     setOpenNav(false);
-  };
+  }
 
   const isHydrated = useHydration();
 
@@ -51,11 +51,11 @@ export default function Navbar() {
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-2k p-5 lg:py-5 lg:px-10">
             <Link href={"/"}>
               <Image
-                src={"/logo/logo-white.svg"}
                 alt="Khalifa logo"
-                width={500}
-                height={500}
                 className="h-8 md:h-12 w-auto object-contain"
+                height={500}
+                src={"/logo/logo-white.svg"}
+                width={500}
               />
             </Link>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
@@ -63,8 +63,8 @@ export default function Navbar() {
                 {NAV_ITEMS.map((item, i) => (
                   <li key={i}>
                     <Link
-                      href={item.href}
                       className="flex flex-col items-center transition-colors ease-in-out duration hover:text-brand px-4"
+                      href={item.href}
                     >
                       <span className="text-center">{item.label}</span>
                     </Link>
@@ -76,14 +76,14 @@ export default function Navbar() {
               <div className="hidden lg:flex items-center">
                 <LangSwitch />
                 <Link
-                  href={"/bookmark"}
                   className="flex-col items-center px-4 gap-0.5 hidden sm:flex group"
+                  href={"/bookmark"}
                 >
                   <NavCountItem
-                    label="Хадгалсан"
                     icon={
                       <Heart className="size-5 duration-150 group-hover:scale-120" />
                     }
+                    label="Хадгалсан"
                   />
                 </Link>
               </div>
@@ -99,8 +99,8 @@ export default function Navbar() {
 
               <Drawer
                 direction="right"
-                open={openNav}
                 onOpenChange={setOpenNav}
+                open={openNav}
               >
                 <DrawerTrigger asChild className="block lg:hidden">
                   <Button className="flex flex-col items-center px-4 gap-0.5">
@@ -112,17 +112,17 @@ export default function Navbar() {
                     <DrawerHeader className="flex flex-row w-full justify-between p-0 py-6">
                       <DrawerTitle>
                         <Image
+                          alt="logo"
+                          className="object-contain h-9 object-left"
+                          height={50}
                           src={"/logo/logo-dark.svg"}
                           width={200}
-                          height={50}
-                          className="object-contain h-9 object-left"
-                          alt="logo"
                         />
                       </DrawerTitle>
                       <Button
-                        variant={"naked"}
-                        size={"icon"}
                         onClick={() => setOpenNav(false)}
+                        size={"icon"}
+                        variant={"naked"}
                       >
                         <X className="stroke-primary size-7" />
                       </Button>
@@ -133,9 +133,9 @@ export default function Navbar() {
                     <div className="flex flex-col py-10">
                       {NAV_ITEMS.map((item, i) => (
                         <Link
+                          className="py-2"
                           href={item.href}
                           key={i}
-                          className="py-2"
                           onClick={() => setOpenNav(false)}
                         >
                           {item.label}
@@ -146,40 +146,40 @@ export default function Navbar() {
                     {/* Menu mobile actions */}
                     <div className="border-t border-brand-orange space-y-6 py-10">
                       <Link
-                        href={"/bookmark"}
                         className="flex items-center justify-between"
+                        href={"/bookmark"}
                         onClick={() => setOpenNav(false)}
                       >
                         <NavCountItem
-                          label="Хадгалсан"
                           icon={<Heart className="size-6" />}
                           isMobile
+                          label="Хадгалсан"
                         />
                       </Link>
 
                       {/* Cart handle on mobile */}
                       <Drawer
                         direction="right"
-                        open={openCart}
                         onOpenChange={setOpenCart}
+                        open={openCart}
                       >
                         <DrawerTrigger asChild onClick={handleOpenCart}>
                           <Button
-                            variant={"naked"}
                             className="flex items-center justify-between w-full px-0 font-bold"
+                            variant={"naked"}
                           >
                             <NavCountItem
-                              label="Сагс"
                               icon={<Handbag className="size-6" />}
                               isMobile
+                              label="Сагс"
                             />
                           </Button>
                         </DrawerTrigger>
                       </Drawer>
 
                       <Link
-                        href={"/account/profile"}
                         className="flex items-center justify-between"
+                        href={"/account/profile"}
                         onClick={() => setOpenNav(false)}
                       >
                         <span className="flex items-center gap-2">
@@ -188,8 +188,8 @@ export default function Navbar() {
                         </span>
                       </Link>
                       <Link
-                        href={"/account/profile"}
                         className="flex items-center justify-between"
+                        href={"/account/profile"}
                         onClick={() => setOpenNav(false)}
                       >
                         <span className="flex items-center gap-2">
@@ -207,10 +207,10 @@ export default function Navbar() {
                           const Icon = s.icon;
                           return (
                             <Link
-                              key={i}
                               href={s.href}
-                              target="_blank"
+                              key={i}
                               rel="noopener noreferrer"
+                              target="_blank"
                             >
                               <Icon className="fill-current size-5" />
                             </Link>
@@ -229,7 +229,7 @@ export default function Navbar() {
         className={cn(
           pathname === "/" || pathname === "/about"
             ? "flex-center bg-black gap-3 font-semibold py-2"
-            : "hidden",
+            : "hidden"
         )}
       >
         <span

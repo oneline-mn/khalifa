@@ -1,3 +1,4 @@
+import PasswordInput from "@/components/shared/password-input";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,23 +26,24 @@ export default function Page() {
               required
               type="email"
               value={"soko.bbz.4@gmail.com"}
+              variant={"dark"}
             />
           </div>
           <div className="space-y-3">
             <Label htmlFor="tax-number">Утасны дугаар</Label>
-            <Input id="tax-number" required type="text" />
+            <Input id="tax-number" required type="text" variant={"dark"} />
           </div>
           <div className="space-y-3">
             <Label htmlFor="name">Нэр</Label>
-            <Input id="name" required type="text" />
+            <Input id="name" required type="text" variant={"dark"} />
           </div>
           <div className="space-y-3">
             <Label htmlFor="tax-number">Татвар төлөгчийн дугаар</Label>
-            <Input id="tax-number" required type="text" />
+            <Input id="tax-number" required type="text" variant={"dark"} />
           </div>
           <div className="col-span-full space-y-3">
             <Label htmlFor="address">Хаяг </Label>
-            <Input id="address" required type="text" />
+            <Input id="address" required type="text" variant={"dark"} />
           </div>
           <div>
             <Button type="submit" variant={"orange"}>
@@ -65,20 +67,34 @@ export default function Page() {
         <form className="grid gap-y-8 gap-6">
           <div className="space-y-3">
             <Label htmlFor="old-password">Хуучин нууц үг</Label>
-            <Input
-              className="bg-amber-100"
+            {/* <Input
+
+            /> */}
+            <PasswordInput
+              className="bg-amber-100 text-black"
               id="old-password"
               required
               type="password"
+              variant={"dark"}
             />
           </div>
           <div className="space-y-3">
             <Label htmlFor="new-password">Шинэ нууц үг </Label>
-            <Input id="new-password" required type="password" />
+            <Input
+              id="new-password"
+              required
+              type="password"
+              variant={"dark"}
+            />
           </div>
           <div className="space-y-3">
             <Label htmlFor="new-password-again">Шинэ нууц үг давтах</Label>
-            <Input id="new-password-again" required type="password" />
+            <Input
+              id="new-password-again"
+              required
+              type="password"
+              variant={"dark"}
+            />
           </div>
           <div>
             <Button type="submit" variant={"orange"}>

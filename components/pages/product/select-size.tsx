@@ -1,8 +1,9 @@
 "use client";
 
+import React, { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import React, { useState } from "react";
 
 export default function SelectSize({ size }: { size: Array<number> }) {
   const [activeSize, setActiveSize] = useState<number>(0);

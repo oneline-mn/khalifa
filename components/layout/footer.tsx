@@ -1,8 +1,10 @@
-import { FOOTER_ITEMS, NAV_ITEMS, SOCIALS } from "@/constants";
-import { Separator } from "../ui/separator";
-import Link from "next/link";
-import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+
+import { FOOTER_ITEMS, NAV_ITEMS, SOCIALS } from "@/constants";
+
+import { Separator } from "../ui/separator";
 
 export default function Footer() {
   return (
@@ -11,21 +13,21 @@ export default function Footer() {
         <Separator />
         <div className="flex items-center justify-between">
           <Image
-            src={"/logo/logo-white.svg"}
             alt="Khalifa logo"
-            width={200}
-            height={100}
             className="h-12 object-contain"
+            height={100}
+            src={"/logo/logo-white.svg"}
+            width={200}
           />
           <div className="flex items-center gap-3 lg:hidden">
             {SOCIALS.map((social, i) => {
               const Icon = social.icon;
               return (
                 <Link
-                  key={i}
                   href={social.href}
-                  target="_blank"
+                  key={i}
                   rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <Icon className="fill-current size-5" />
                 </Link>
@@ -36,8 +38,8 @@ export default function Footer() {
         <div className="grid grid-cols-4 md:grid-cols-7 text-sm lg:text-base font-semibold font-manrope gap-y-6">
           <div className="col-span-full md:col-span-2 flex flex-col">
             <Link
-              href={"tel:+97675990007"}
               className="flex items-center gap-2 group py-2.5"
+              href={"tel:+97675990007"}
             >
               <Phone className="size-5" />
               <span className="text-white/60 group-hover-float">
@@ -45,8 +47,8 @@ export default function Footer() {
               </span>
             </Link>
             <Link
-              href={"mailto:contact@khalifa.mn"}
               className="flex items-center gap-2 group py-0.5"
+              href={"mailto:contact@khalifa.mn"}
             >
               <Mail className="size-5" />
               <span className="text-white/60 group-hover-float">
@@ -58,9 +60,9 @@ export default function Footer() {
             {NAV_ITEMS.map((item, i) => {
               return (
                 <Link
-                  key={i}
-                  href={item.href}
                   className="text-inherit hover:text-white hover-float py-2.5"
+                  href={item.href}
+                  key={i}
                 >
                   <span>{item.label}</span>
                 </Link>
@@ -71,9 +73,9 @@ export default function Footer() {
             {FOOTER_ITEMS.map((item, i) => {
               return (
                 <Link
-                  key={i}
-                  href={item.href}
                   className="text-inherit hover:text-white hover-float py-2.5"
+                  href={item.href}
+                  key={i}
                 >
                   {item.label}
                 </Link>
@@ -85,11 +87,11 @@ export default function Footer() {
               const Icon = social.icon;
               return (
                 <Link
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-2 group py-2.5"
+                  href={social.href}
+                  key={i}
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
                   <Icon className="fill-current size-5" />
                   <span className="group-hover-float">{social.label}</span>
