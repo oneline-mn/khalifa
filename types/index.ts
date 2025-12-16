@@ -53,3 +53,14 @@ export interface Bank {
   name: string;
   image: string;
 }
+
+export interface FeaturedBrand {
+  id: number;
+  banner: {
+    image: string;
+    logo: string;
+  };
+  title: string;
+  description: string;
+  products: FeaturedProduct[];
+}

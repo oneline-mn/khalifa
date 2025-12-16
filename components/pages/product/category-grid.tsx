@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Category } from "@/constants";
+import { Category } from "@/types";
 
 export default function CategoryGrid({
   categories,
