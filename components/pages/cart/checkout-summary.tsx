@@ -1,15 +1,15 @@
 import { Separator } from "@/components/ui/separator";
 
 interface CheckoutSummaryProps {
-  totalPrice: number;
-  deliveryPrice?: number;
   action?: React.ReactNode;
+  deliveryPrice?: number;
+  totalPrice: number;
 }
 
 export default function CheckoutSummary({
-  totalPrice = 5000,
-  deliveryPrice = 0,
   action,
+  deliveryPrice = 0,
+  totalPrice = 5000,
 }: CheckoutSummaryProps) {
   const delivery: number = 0;
   return (

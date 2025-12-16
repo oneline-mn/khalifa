@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { Autoplay, FreeMode } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
+
 import useHydration from "@/lib/use-hydration";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface MarqueeProps {
@@ -20,18 +21,18 @@ export default function Marquee({ bg = "bg-dark" }: MarqueeProps) {
       <div className="flex items-center mx-auto h-20 md:h-36 overflow-hidden py-4">
         {isHydrated && (
           <Swiper
+            autoplay={{
+              delay: 0,
+            }}
             className="h-full w-screen pointer-events-none swiper-marquee"
             freeMode={{
               enabled: true,
               momentum: false,
             }}
+            loop={true}
             modules={[Autoplay, FreeMode]}
             slidesPerView={"auto"}
             spaceBetween={40}
-            autoplay={{
-              delay: 0,
-            }}
-            loop={true}
             speed={2000}
             style={
               {
@@ -41,15 +42,15 @@ export default function Marquee({ bg = "bg-dark" }: MarqueeProps) {
           >
             {Array.from({ length: 10 }).map((_, i) => (
               <SwiperSlide
-                key={i}
                 className="max-w-fit flex! items-center justify-center w-fit"
+                key={i}
               >
                 <Image
-                  src={"/banner/banner-logo.png"}
                   alt="brand logo"
-                  width={500}
-                  height={500}
                   className="h-12 md:h-full object-contain w-auto"
+                  height={500}
+                  src={"/banner/banner-logo.png"}
+                  width={500}
                 />
               </SwiperSlide>
             ))}

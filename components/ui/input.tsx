@@ -10,6 +10,7 @@ const inputVariants = cva(
       variant: {
         default: "bg-white border-input/15",
         orange: "bg-brand-orange text-primary-foreground hover:bg-primary/90",
+        dark: "bg-input border-white/15",
       },
       size: {
         sm: "h-8 px-2 text-xs",
@@ -21,7 +22,7 @@ const inputVariants = cva(
       variant: "default",
       size: "md",
     },
-  },
+  }
 );
 
 function Input({

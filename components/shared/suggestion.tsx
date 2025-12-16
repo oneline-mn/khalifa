@@ -1,8 +1,10 @@
-import { getCategoryTitle } from "@/lib/func";
 import Link from "next/link";
+
+import { getCategoryTitle } from "@/lib/func";
+import { randomSuggestion } from "@/lib/productGet";
+
 import ProductCard from "../features/product-card";
 import { Button } from "../ui/button";
-import { randomSuggestion } from "@/lib/productGet";
 
 export default async function Suggestion() {
   const products = await randomSuggestion();
@@ -21,10 +23,10 @@ export default async function Suggestion() {
               images={product.images}
               key={product.id}
               price={product.price ?? 0}
+              shadow="light"
               stock={product.stock}
               title={product.title}
               url={`/products/${product.id}`}
-              shadow="light"
             />
           );
         })}

@@ -1,10 +1,11 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import {
   FeaturedBrand as FeaturedBrandType,
   FeaturedProduct,
 } from "@/constants";
-import Image from "next/image";
-import Link from "next/link";
 
 interface FeaturedBrandProps {
   featured: FeaturedBrandType;
@@ -15,18 +16,18 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
     <section className="bg-primary">
       <div className="relative">
         <Image
-          src={featured.banner.image}
-          width={1200}
-          height={600}
           alt={featured.title}
           className="w-full h-auto min-h-[180px] object-center object-cover"
+          height={600}
+          src={featured.banner.image}
+          width={1200}
         />
         <Image
-          src={featured.banner.logo}
-          width={180}
-          height={90}
           alt={featured.title}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-18 md:h-45 w-auto object-contain"
+          height={90}
+          src={featured.banner.logo}
+          width={180}
         />
       </div>
       <div className="container text-white">
@@ -54,20 +55,20 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
 }
 
 function FeaturedProductCard({
-  url,
+  description,
   image,
   title,
-  description,
+  url,
 }: FeaturedProduct) {
   return (
     <div className="flex flex-col gap-6">
-      <Link href={"/products" + url} className="relative">
+      <Link className="relative" href={"/products" + url}>
         <Image
-          src={image}
-          width={900}
-          height={900}
           alt={title}
           className="w-full aspect-9/10"
+          height={900}
+          src={image}
+          width={900}
         />
       </Link>
       <div className="flex flex-col gap-4 text-white justify-between h-full">
