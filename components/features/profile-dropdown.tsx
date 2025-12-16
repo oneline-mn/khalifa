@@ -23,7 +23,7 @@ export default function ProfileDropDown({ login }: { login: boolean }) {
             href={"/profile"}
           >
             <UserRound className="size-5 duration-150 group-hover:scale-120" />
-            <span>Миний бүртгэл</span>
+            <span>Бүртгэл</span>
           </Link>
         ) : (
           <Login />

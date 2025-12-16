@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import { Autoplay, FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import useHydration from "@/lib/use-hydration";

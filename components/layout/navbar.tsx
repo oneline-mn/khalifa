@@ -58,7 +58,7 @@ export default function Navbar() {
                 width={500}
               />
             </Link>
-            <div className="hidden justify-between items-center w-full lg:flex lg:w-auto">
+            <div className="hidden justify-between items-center w-full xl:flex xl:w-auto">
               <ul className="flex font-semibold justify-center items-center">
                 {NAV_ITEMS.map((item, i) => (
                   <li key={i}>
@@ -102,7 +102,7 @@ export default function Navbar() {
                 onOpenChange={setOpenNav}
                 open={openNav}
               >
-                <DrawerTrigger asChild className="block lg:hidden">
+                <DrawerTrigger asChild className="block xl:hidden">
                   <Button className="flex flex-col items-center px-4 gap-0.5">
                     <TextAlignJustify className="size-6" />
                   </Button>
@@ -184,7 +184,7 @@ export default function Navbar() {
                       >
                         <span className="flex items-center gap-2">
                           <User className="size-6" />
-                          <span>Миний бүртгэл</span>
+                          <span>Бүртгэл</span>
                         </span>
                       </Link>
                       <Link
@@ -229,7 +229,7 @@ export default function Navbar() {
         className={cn(
           pathname === "/" || pathname === "/about"
             ? "flex-center bg-black gap-3 font-semibold py-2"
-            : "hidden"
+            : "hidden",
         )}
       >
         <span

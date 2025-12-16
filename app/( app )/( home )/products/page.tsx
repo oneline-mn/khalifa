@@ -16,7 +16,7 @@ import { CATEGORIES } from "@/constants";
 import { getCategory } from "@/lib/categoryGet";
 import { getProducts } from "@/lib/productGet";
 
-import ProductGrid from "../../../components/pages/product/product-grid";
+import ProductGrid from "../../../../components/pages/product/product-grid";
 
 export default async function Page() {
   const products = await getProducts();

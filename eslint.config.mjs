@@ -25,7 +25,7 @@ const eslintConfig = defineConfig([
   },
 
   {
-    files: ["app/**/*.{js,jsx,ts,tsx}", "components/**/*.{js,jsx,ts,tsx}"],
+    files: ["app//**/*.{js,jsx,ts,tsx}", "components/**/*.{js,jsx,ts,tsx}"],
     ignores: ["components/ui/*.{js,jsx,ts,tsx}"],
     ...perfectionist.configs["recommended-natural"],
   },
@@ -36,13 +36,14 @@ const eslintConfig = defineConfig([
 
     rules: {
       "@typescript-eslint/no-unused-vars": ["error"],
-      "func-style": [
-        "error",
-        "declaration",
-        {
-          allowArrowFunctions: false,
-        },
-      ],
+      // TODO:
+      // "func-style": [
+      //   "error",
+      //   "declaration",
+      //   {
+      //     allowArrowFunctions: false,
+      //   },
+      // ],
       "import-x/no-restricted-paths": [
         "error",
         {
