@@ -1,10 +1,9 @@
-import React from "react";
-
+import React from 'react'
 
 export default function SiteLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  return <div className="md:max-h-screen overflow-hidden">{children}</div>;
+  return <div className="md:max-h-screen overflow-hidden">{children}</div>
 }

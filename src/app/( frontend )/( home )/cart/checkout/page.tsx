@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import CheckoutSummary from "@/components/pages/cart/checkout-summary";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import CheckoutSummary from '@/components/pages/cart/checkout-summary'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 export default function Page() {
   return (
@@ -88,7 +88,7 @@ export default function Page() {
           <CheckoutSummary
             action={
               <Link href="/cart/payment">
-                <Button className="w-full" size={"xl"} variant={"orange"}>
+                <Button className="w-full" size={'xl'} variant={'orange'}>
                   Төлбөр төлөх
                 </Button>
               </Link>
@@ -98,5 +98,5 @@ export default function Page() {
         </div>
       </div>
     </section>
-  );
+  )
 }

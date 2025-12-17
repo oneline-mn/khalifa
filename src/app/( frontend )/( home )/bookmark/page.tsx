@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import ProductGrid from "@/components/pages/product/product-grid";
-import { getProducts } from "@/lib/productGet";
+import ProductGrid from '@/components/pages/product/product-grid'
+import { getProducts } from '@/lib/productGet'
 
 export default async function Page() {
-  const products = await getProducts();
+  const products = await getProducts()
 
   return (
     <section>
@@ -29,5 +29,5 @@ export default async function Page() {
         </div>
       </div>
     </section>
-  );
+  )
 }

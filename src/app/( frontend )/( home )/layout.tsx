@@ -4,7 +4,7 @@ import Footer from '@/components/layout/footer'
 import Navbar from '@/components/layout/navbar'
 
 export default function HomeLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode
 }>) {

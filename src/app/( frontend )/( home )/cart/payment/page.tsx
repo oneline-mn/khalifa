@@ -28,7 +28,9 @@ export default function Page() {
       </div>
       <div className="container flex-col lg:flex-row flex py-10! ">
         <div className="max-w-md mx-auto pb-5 lg:pb-0 lg:pr-16">
-          <h3 className="mb-5 md:mb-10 text-2xl font-semibold text-center">QR код уншуулах:</h3>
+          <h3 className="mb-5 md:mb-10 text-2xl font-semibold text-center">
+            QR код уншуулах:
+          </h3>
           <div className="flex items-center justify-center">
             <div className="size-60 bg-gray-200"></div>
           </div>
@@ -45,7 +47,9 @@ export default function Page() {
           </Button>
         </div>
         <div className="w-full pt-5 lg:pt-0 lg:pl-16 border-t lg:border-l space-y-10">
-          <h1 className="text-center text-2xl font-bold">Банкны апп -р төлөх:</h1>
+          <h1 className="text-center text-2xl font-bold">
+            Банкны апп -р төлөх:
+          </h1>
 
           {isHydrated && (
             <div className="flex flex-wrap justify-center">
@@ -74,10 +78,11 @@ export default function Page() {
         <div className="container py-6! flex items-start gap-3">
           <Info className="size-8" />
           <p className="text-base font-medium">
-            Төлбөр төлөгдсөний дараа захиалга баталгаажих ба та бүх төрлийн банкны аппликейшныг
-            ашиглан OR кодыг уншуулах эсвэл дараах банкны апп -уудаар нэвтрэн төлбөр төлөх
-            боломжтой. Төлбөр төлөгдсөний дараа хуудас автоматаар солигдохгүй бол гүйлгээ шалгах
-            товчийг дарна уу.{' '}
+            Төлбөр төлөгдсөний дараа захиалга баталгаажих ба та бүх төрлийн
+            банкны аппликейшныг ашиглан OR кодыг уншуулах эсвэл дараах банкны
+            апп -уудаар нэвтрэн төлбөр төлөх боломжтой. Төлбөр төлөгдсөний дараа
+            хуудас автоматаар солигдохгүй бол гүйлгээ шалгах товчийг дарна
+            уу.{' '}
           </p>
         </div>
       </div>

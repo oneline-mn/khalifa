@@ -1,15 +1,13 @@
-import React from "react";
+import React from 'react'
 
 export default function HomeLayout({
-  children,
+  children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <section className="bg-primary text-white">
-      <div className="container space-y-10">
-        {children}
-      </div>
+      <div className="container space-y-10">{children}</div>
     </section>
-  );
+  )
 }

@@ -1,27 +1,27 @@
-import { Suspense } from "react";
+import { Suspense } from 'react'
 
-import QuantityButton from "@/components/features/quantity-button";
-import Gallery from "@/components/pages/product/gallery";
-import PageLoader from "@/components/shared/page-loader";
-import Suggestion from "@/components/shared/suggestion";
+import QuantityButton from '@/components/features/quantity-button'
+import Gallery from '@/components/pages/product/gallery'
+import PageLoader from '@/components/shared/page-loader'
+import Suggestion from '@/components/shared/suggestion'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
-import { getProducts } from "@/lib/productGet";
+  AccordionTrigger
+} from '@/components/ui/accordion'
+import { Separator } from '@/components/ui/separator'
+import { getProducts } from '@/lib/productGet'
 
 export default async function Page({
-  params,
+  params
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>
 }) {
-  const { slug } = await params;
-  const products = await getProducts();
-  const product = products.find((p) => p.id === Number(slug));
-  if (!product) return <div>Product not found</div>;
+  const { slug } = await params
+  const products = await getProducts()
+  const product = products.find((p) => p.id === Number(slug))
+  if (!product) return <div>Product not found</div>
 
   return (
     <Suspense fallback={<PageLoader />}>
@@ -98,5 +98,5 @@ export default async function Page({
         <Suggestion />
       </section>
     </Suspense>
-  );
+  )
 }

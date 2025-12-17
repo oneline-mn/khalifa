@@ -18,10 +18,11 @@ export default function Page() {
           Khalifa Beverage
         </h1>
         <p className="font-medium md:text-xl md:leading-normal text-justify">
-          Халифа компани нь 2023 оноос эхлэн шингэн хүнсний шилдэг брэндүүдийг европын орнуудын
-          үйлдвэрээс нь албан ёсны эрхтэйгээр монголын зах зээлд нэвтрүүлэн ажиллаж байна. Хүссэн
-          бүтээгдэхүүнээ захиалан, түргэн шуурхай, найдвартай хүргүүлэн авах хүргэлтийн шинэлэг
-          инновацыг хувь хүмүүс болон албан байгууллагуудад санал болгож бөөний үнээр хүргэхийг
+          Халифа компани нь 2023 оноос эхлэн шингэн хүнсний шилдэг брэндүүдийг
+          европын орнуудын үйлдвэрээс нь албан ёсны эрхтэйгээр монголын зах
+          зээлд нэвтрүүлэн ажиллаж байна. Хүссэн бүтээгдэхүүнээ захиалан, түргэн
+          шуурхай, найдвартай хүргүүлэн авах хүргэлтийн шинэлэг инновацыг хувь
+          хүмүүс болон албан байгууллагуудад санал болгож бөөний үнээр хүргэхийг
           зорин ажиллаж байна.
         </p>
       </section>
@@ -41,10 +42,14 @@ export default function Page() {
               {ABOUT.map((info, index) => {
                 return (
                   <div
-                    className={index === ABOUT.length - 1 ? 'flow-dot-last' : 'flow-dot'}
+                    className={
+                      index === ABOUT.length - 1 ? 'flow-dot-last' : 'flow-dot'
+                    }
                     key={info.id}
                   >
-                    <h2 className="text-xl font-bold md:text-4xl">{info.title}</h2>
+                    <h2 className="text-xl font-bold md:text-4xl">
+                      {info.title}
+                    </h2>
                     <p className="text-sm md:text-xl md:leading-normal text-justify mb-8 md:mb-20 font-medium">
                       {info.description}
                     </p>
