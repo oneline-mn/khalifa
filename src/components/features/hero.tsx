@@ -18,7 +18,7 @@ export default function Hero() {
       {isHydrated && (
         <Swiper
           autoplay={{
-            delay: 5000,
+            delay: 5000
           }}
           className="h-full"
           loop={true}
@@ -27,7 +27,7 @@ export default function Hero() {
             clickable: true,
             renderBullet: (index, className) => {
               return `<span class="${className} custom-bullet"></span>`
-            },
+            }
           }}
           slidesPerView={1}
         >

@@ -12,7 +12,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
+  DrawerTrigger
 } from '@/components/ui/drawer'
 import { NAV_ITEMS, SOCIALS } from '@/lib/constants'
 import useHydration from '@/lib/use-hydration'
@@ -74,7 +74,9 @@ export default function Navbar() {
                   href={'/bookmark'}
                 >
                   <NavCountItem
-                    icon={<Heart className="size-5 duration-150 group-hover:scale-120" />}
+                    icon={
+                      <Heart className="size-5 duration-150 group-hover:scale-120" />
+                    }
                     label="Хадгалсан"
                   />
                 </Link>
@@ -90,7 +92,11 @@ export default function Navbar() {
               </div>
 
               {/* Login button*/}
-              <Drawer direction="right" onOpenChange={setOpenNav} open={openNav}>
+              <Drawer
+                direction="right"
+                onOpenChange={setOpenNav}
+                open={openNav}
+              >
                 <DrawerTrigger asChild className="block xl:hidden">
                   <Button className="flex flex-col items-center px-4 gap-0.5">
                     <TextAlignJustify className="size-6" />
@@ -108,7 +114,11 @@ export default function Navbar() {
                           width={200}
                         />
                       </DrawerTitle>
-                      <Button onClick={() => setOpenNav(false)} size={'icon'} variant={'naked'}>
+                      <Button
+                        onClick={() => setOpenNav(false)}
+                        size={'icon'}
+                        variant={'naked'}
+                      >
                         <X className="stroke-primary size-7" />
                       </Button>
                     </DrawerHeader>
@@ -143,7 +153,11 @@ export default function Navbar() {
                       </Link>
 
                       {/* Cart handle on mobile */}
-                      <Drawer direction="right" onOpenChange={setOpenCart} open={openCart}>
+                      <Drawer
+                        direction="right"
+                        onOpenChange={setOpenCart}
+                        open={openCart}
+                      >
                         <DrawerTrigger asChild onClick={handleOpenCart}>
                           <Button
                             className="flex items-center justify-between w-full px-0 font-bold"
@@ -187,7 +201,12 @@ export default function Navbar() {
                         {SOCIALS.map((s, i) => {
                           const Icon = s.icon
                           return (
-                            <Link href={s.href} key={i} rel="noopener noreferrer" target="_blank">
+                            <Link
+                              href={s.href}
+                              key={i}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
                               <Icon className="fill-current size-5" />
                             </Link>
                           )
@@ -197,13 +216,6 @@ export default function Navbar() {
                   </DrawerFooter>
                 </DrawerContent>
               </Drawer>
-
-              {/*<SignInButton
-                setOpenCart={setOpenCart}
-                openCart={openCart}
-                setOpenNav={setOpenNav}
-                openNav={openNav}
-              />*/}
             </div>
           </div>
         </div>
@@ -212,7 +224,7 @@ export default function Navbar() {
         className={cn(
           pathname === '/' || pathname === '/about'
             ? 'flex-center bg-black gap-3 font-semibold py-2'
-            : 'hidden',
+            : 'hidden'
         )}
       >
         <span

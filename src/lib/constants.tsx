@@ -1,5 +1,14 @@
 import { FacebookIcon, InstagramIcon, XIcon } from '@/components/shared/icons'
-import { Bank, Category, FAQ, FeaturedBrand, FooterItem, Hero, Product, SocialItem } from '@/types'
+import {
+  Bank,
+  Category,
+  FAQ,
+  FeaturedBrand,
+  FooterItem,
+  Hero,
+  Product,
+  SocialItem,
+} from '@/types'
 import { Minus } from 'lucide-react'
 import Image from 'next/image'
 import Hero1 from '../../public/hero/hero-1.png'
@@ -39,7 +48,11 @@ export const SOCIALS: SocialItem[] = [
 // ============================
 // HERO ITEMS
 // ============================
-export const HERO_LIST: Hero[] = [{ src: Hero1 }, { src: Hero2 }, { src: Hero3 }]
+export const HERO_LIST: Hero[] = [
+  { src: Hero1 },
+  { src: Hero2 },
+  { src: Hero3 },
+]
 
 // ============================
 // FOOTER ITEMS
@@ -245,23 +258,33 @@ export const FAQ_LIST: FAQ[] = [
     answer: (
       <div className="space-y-4">
         <div className="space-y-4">
-          <li>Таны захиалга баталгаажсаны дараа, заасан хаягт хүргэлт хийгдэнэ.</li>
+          <li>
+            Таны захиалга баталгаажсаны дараа, заасан хаягт хүргэлт хийгдэнэ.
+          </li>
           <div className="flex flex-wrap gap-2 items-center font-bold">
-            <span className="font-normal">• А бүс буюу</span> <span>( Баруун 4 Зам )</span>{' '}
-            <Minus /> <span>( Зүүн 4 Зам )</span> <Minus /> <span>( Зайсан )</span> <Minus />
+            <span className="font-normal">• А бүс буюу</span>{' '}
+            <span>( Баруун 4 Зам )</span> <Minus /> <span>( Зүүн 4 Зам )</span>{' '}
+            <Minus /> <span>( Зайсан )</span> <Minus />
             <span>( 32 тойрог )</span>
             <span className="font-normal">3-24 цагийн дотор</span>{' '}
             <span className="uppercase">үнэгүй</span>
           </div>
           <div className="flex flex-wrap gap-2 items-center font-bold">
-            <span className="font-normal">• Б бүс буюу</span> <span>( Таван шар )</span> <Minus />{' '}
-            <span>( Атгалан )</span> <Minus /> <span>( 7 буудал )</span> <Minus />
+            <span className="font-normal">• Б бүс буюу</span>{' '}
+            <span>( Таван шар )</span> <Minus /> <span>( Атгалан )</span>{' '}
+            <Minus /> <span>( 7 буудал )</span> <Minus />
             <span>( Яармаг )</span>
             <span className="font-normal">24– 48 цагийн дотор </span>
             <span>20,000₮</span>
           </div>
         </div>
-        <Image src={'/map.png'} width={500} height={250} className="aspect-2/1" alt="delivery" />
+        <Image
+          src={'/map.png'}
+          width={500}
+          height={250}
+          className="aspect-2/1"
+          alt="delivery"
+        />
       </div>
     ),
   },
@@ -286,7 +309,9 @@ export const FAQ_LIST: FAQ[] = [
     id: 8,
     question: '8. Захиалсан бараагаа өөр бараагаар сольж болох уу?',
     type: 'ordered',
-    answer: ['Худалдан авсан бараагаа буцаах болон солих боломжгүй тул та сонголтоо зөв хийнэ үү'],
+    answer: [
+      'Худалдан авсан бараагаа буцаах болон солих боломжгүй тул та сонголтоо зөв хийнэ үү',
+    ],
   },
 ]
 

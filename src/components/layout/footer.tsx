@@ -2,7 +2,6 @@ import { Mail, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-// import { FOOTER_ITEMS, NAV_ITEMS, SOCIALS } from '@/constants'
 import { FOOTER_ITEMS, NAV_ITEMS, SOCIALS } from '@/lib/constants'
 
 import { Separator } from '../ui/separator'

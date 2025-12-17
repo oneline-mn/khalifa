@@ -1,6 +1,5 @@
 import { headers as getHeaders } from 'next/headers.js'
 import { getPayload } from 'payload'
-import { fileURLToPath } from 'url'
 
 import FeaturedBrand from '@/components/features/featured-brand'
 import Hero from '@/components/features/hero'
@@ -15,13 +14,9 @@ export default async function Home() {
   const payload = await getPayload({ config: payloadConfig })
   const { user } = await payload.auth({ headers })
 
-  console.log(user)
-  const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
-
   return (
     <div className="home">
-      {!user && <h1>Log hiigeegu bnshu.</h1>}
-      {user && <h1>Welcome back, {user.email}</h1>}
+      {user && <h1 className="text-center">Logged, {user.email}</h1>}
       <Hero />
       <Marquee />
       {FEATURED_BRAND.map((brand) => (
