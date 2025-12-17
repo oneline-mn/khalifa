@@ -1,7 +1,7 @@
-import Image from 'next/image'
-
 import Marquee from '@/components/shared/marquee'
 import { ABOUT } from '@/lib/constants'
+import Image from 'next/image'
+
 export default function Page() {
   return (
     <div className="relative overflow-hidden">

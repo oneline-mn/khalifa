@@ -1,7 +1,8 @@
 {
-  "name": "khalifa-payload-transfer",
+  "name": "khalifa",
   "version": "1.0.0",
-  "description": "A blank template to get started with Payload 3.0",
+  "private": true,
+  "description": "Khalifa with Payload",
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@10.22.0",
