@@ -1,3 +1,5 @@
+import nextVitals from 'eslint-config-next/core-web-vitals'
+import nextTs from 'eslint-config-next/typescript'
 import { FlatCompat } from '@eslint/eslintrc'
 import js from '@eslint/js'
 import { importX } from 'eslint-plugin-import-x'
@@ -28,8 +30,12 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = defineConfig([
-  ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  // Override default ignores of eslint-config-next and node modules.
+  ...nextVitals,
+  ...nextTs,
+
+  // ATTENTION:
+  // ...compat.extends('next/core-web-vitals', 'next/typescript'),
+
   {
     ignores: [
       ...defaultESLintIgnores,
