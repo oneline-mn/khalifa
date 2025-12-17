@@ -1,32 +1,30 @@
-import { Handbag, X } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Handbag, X } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
   Drawer,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { CartProps } from "@/types/cart";
+} from '@/components/ui/drawer'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { CartProps } from '@/types/cart'
 
-import { NavCountItem } from "../../features/nav-product-count";
-import { CartItem } from "./cart-item";
-import CheckoutSummary from "./checkout-summary";
+import { NavCountItem } from '../../features/nav-product-count'
+import { CartItem } from './cart-item'
+import CheckoutSummary from './checkout-summary'
 
 export default function Cart({ openCart, setOpenCart }: CartProps) {
-  const item = [1, 1, 1, 1, 11];
+  const item = [1, 1, 1, 1, 11]
   return (
     <Drawer direction="right" onOpenChange={setOpenCart} open={openCart}>
       <DrawerTrigger asChild>
         <Button className="flex flex-col items-center px-4 py-0 gap-0.5 group w-fit">
           <NavCountItem
-            icon={
-              <Handbag className="size-5 duration-150 group-hover:scale-120" />
-            }
+            icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />}
             label="Сагс"
           />
         </Button>
@@ -34,11 +32,7 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
       <DrawerContent className="p-0 h-screen">
         <DrawerHeader className="flex flex-row w-full justify-between border-b py-6! sticky top-0 bg-white">
           <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
-          <Button
-            onClick={() => setOpenCart(false)}
-            size={"icon"}
-            variant={"naked"}
-          >
+          <Button onClick={() => setOpenCart(false)} size={'icon'} variant={'naked'}>
             <X className="stroke-primary size-7" />
           </Button>
         </DrawerHeader>
@@ -58,7 +52,7 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
             ) : (
               <>
                 {item.map((asd, i) => {
-                  return <CartItem key={i} />;
+                  return <CartItem key={i} />
                 })}
               </>
             )}
@@ -67,7 +61,7 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
           <CheckoutSummary
             action={
               <Link href="/cart/checkout" onClick={() => setOpenCart(false)}>
-                <Button className="w-full" size={"xl"} variant={"orange"}>
+                <Button className="w-full" size={'xl'} variant={'orange'}>
                   Үргэлжлүүлэх
                 </Button>
               </Link>
@@ -77,5 +71,5 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
         </ScrollArea>
       </DrawerContent>
     </Drawer>
-  );
+  )
 }
