@@ -1,5 +1,5 @@
-import { ClipboardMinus, LogOut, User, UserRound } from "lucide-react";
-import Link from "next/link";
+import { ClipboardMinus, LogOut, User, UserRound } from 'lucide-react'
+import Link from 'next/link'
 
 import {
   DropdownMenu,
@@ -8,10 +8,10 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  DropdownMenuTrigger
+} from '@/components/ui/dropdown-menu'
 
-import Login from "./login";
+import Login from './login'
 
 export default function ProfileDropDown({ login }: { login: boolean }) {
   return (
@@ -20,7 +20,7 @@ export default function ProfileDropDown({ login }: { login: boolean }) {
         {login ? (
           <Link
             className="flex-col items-center px-4 gap-0.5 hidden sm:flex group"
-            href={"/profile"}
+            href={'/profile'}
           >
             <UserRound className="size-5 duration-150 group-hover:scale-120" />
             <span>Бүртгэл</span>
@@ -40,15 +40,15 @@ export default function ProfileDropDown({ login }: { login: boolean }) {
         </DropdownMenuItem>
         <DropdownMenuSeparator className="bg-gray-600" />
         <DropdownMenuGroup>
-          <Link className="group" href={"/account/profile"}>
+          <Link className="group" href={'/account/profile'}>
             <DropdownMenuItem>
-              <User className="text-white group-hover:scale-110 transition" />{" "}
+              <User className="text-white group-hover:scale-110 transition" />{' '}
               Хувийн мэдээлэл
             </DropdownMenuItem>
           </Link>
-          <Link className="group" href={"/account/orders"}>
+          <Link className="group" href={'/account/orders'}>
             <DropdownMenuItem>
-              <ClipboardMinus className="text-white group-hover:scale-110 transition" />{" "}
+              <ClipboardMinus className="text-white group-hover:scale-110 transition" />{' '}
               Захиалгын мэдээлэл
             </DropdownMenuItem>
           </Link>
@@ -60,5 +60,5 @@ export default function ProfileDropDown({ login }: { login: boolean }) {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  );
+  )
 }

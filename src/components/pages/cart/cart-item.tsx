@@ -1,6 +1,6 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import QuantityButton from "@/components/features/quantity-button";
+import QuantityButton from '@/components/features/quantity-button'
 
 export function CartItem() {
   return (
@@ -23,5 +23,5 @@ export function CartItem() {
         <QuantityButton variant="ghost" />
       </div>
     </div>
-  );
+  )
 }

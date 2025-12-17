@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { Button } from "@/components/ui/button";
-import { FeaturedBrand as FeaturedBrandType, FeaturedProduct } from "@/types";
+import { Button } from '@/components/ui/button'
+import { FeaturedBrand as FeaturedBrandType, FeaturedProduct } from '@/types'
 
 interface FeaturedBrandProps {
-  featured: FeaturedBrandType;
+  featured: FeaturedBrandType
 }
 
 export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
@@ -48,18 +48,18 @@ export default function FeaturedBrand({ featured }: FeaturedBrandProps) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 function FeaturedProductCard({
   description,
   image,
   title,
-  url,
+  url
 }: FeaturedProduct) {
   return (
     <div className="flex flex-col gap-6">
-      <Link className="relative" href={"/products" + url}>
+      <Link className="relative" href={'/products' + url}>
         <Image
           alt={title}
           className="w-full aspect-9/10"
@@ -75,12 +75,12 @@ function FeaturedProductCard({
           </h1>
           <p className="text md:text-xl leading-normal mb-6">{description}</p>
         </div>
-        <Link href={"/products" + url}>
+        <Link href={'/products' + url}>
           <Button className="hover:bg-gray-200 hover:text-primary rounded font-bold text-sm px-10 py-5 border">
             Дэлгэрэнгүй
           </Button>
         </Link>
       </div>
     </div>
-  );
+  )
 }

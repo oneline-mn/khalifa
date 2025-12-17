@@ -23,7 +23,12 @@ export default function Footer() {
             {SOCIALS.map((social, i) => {
               const Icon = social.icon
               return (
-                <Link href={social.href} key={i} rel="noopener noreferrer" target="_blank">
+                <Link
+                  href={social.href}
+                  key={i}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <Icon className="fill-current size-5" />
                 </Link>
               )
@@ -32,16 +37,23 @@ export default function Footer() {
         </div>
         <div className="grid grid-cols-4 md:grid-cols-7 text-sm lg:text-base font-semibold font-manrope gap-y-6">
           <div className="col-span-full md:col-span-2 flex flex-col">
-            <Link className="flex items-center gap-2 group py-2.5" href={'tel:+97675990007'}>
+            <Link
+              className="flex items-center gap-2 group py-2.5"
+              href={'tel:+97675990007'}
+            >
               <Phone className="size-5" />
-              <span className="text-white/60 group-hover-float">+976 7599-0007</span>
+              <span className="text-white/60 group-hover-float">
+                +976 7599-0007
+              </span>
             </Link>
             <Link
               className="flex items-center gap-2 group py-0.5"
               href={'mailto:contact@khalifa.mn'}
             >
               <Mail className="size-5" />
-              <span className="text-white/60 group-hover-float">contact@khalifa.mn</span>
+              <span className="text-white/60 group-hover-float">
+                contact@khalifa.mn
+              </span>
             </Link>
           </div>
           <div className="col-span-2 flex flex-col text-nowrap text-white/60">

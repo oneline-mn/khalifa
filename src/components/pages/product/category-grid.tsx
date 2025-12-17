@@ -1,23 +1,23 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-import { Category } from "@/types";
+import { Category } from '@/types'
 
 export default function CategoryGrid({
-  categories,
+  categories
 }: {
-  categories: Category[];
+  categories: Category[]
 }) {
   return (
     <>
       {categories.map((c) => (
         <Link
           className="px-8 py-3 capitalize font-bold lg:text-xl hover:text-brand transition text-nowrap leading-none"
-          href={"#"}
+          href={'#'}
           key={c.id}
         >
           {c.title}
         </Link>
       ))}
     </>
-  );
+  )
 }

@@ -8,7 +8,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 
 import EN from '../../../public/lang/en.png'
@@ -37,12 +37,30 @@ export default function LangSwitch() {
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center" className="w-fit font-bold">
-        <DropdownMenuItem className="flex items-center gap-2" onClick={() => setLang('mn')}>
-          <Image alt="en" className="object-contain" height={20} src={MN} width={24} />
+        <DropdownMenuItem
+          className="flex items-center gap-2"
+          onClick={() => setLang('mn')}
+        >
+          <Image
+            alt="en"
+            className="object-contain"
+            height={20}
+            src={MN}
+            width={24}
+          />
           Mongolian ( MN )
         </DropdownMenuItem>
-        <DropdownMenuItem className="flex items-center gap-2" onClick={() => setLang('en')}>
-          <Image alt="en" className="object-contain" height={20} src={EN} width={24} />
+        <DropdownMenuItem
+          className="flex items-center gap-2"
+          onClick={() => setLang('en')}
+        >
+          <Image
+            alt="en"
+            className="object-contain"
+            height={20}
+            src={EN}
+            width={24}
+          />
           English ( EN )
         </DropdownMenuItem>
       </DropdownMenuContent>

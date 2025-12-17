@@ -1,17 +1,17 @@
-import { Separator } from "@/components/ui/separator";
+import { Separator } from '@/components/ui/separator'
 
 interface CheckoutSummaryProps {
-  action?: React.ReactNode;
-  deliveryPrice?: number;
-  totalPrice: number;
+  action?: React.ReactNode
+  deliveryPrice?: number
+  totalPrice: number
 }
 
 export default function CheckoutSummary({
   action,
   deliveryPrice = 0,
-  totalPrice = 5000,
+  totalPrice = 5000
 }: CheckoutSummaryProps) {
-  const delivery: number = 0;
+  const delivery: number = 0
   return (
     <div className="my-10 rounded-lg bg-primary/5 px-6 py-5 text-primary font-bold space-y-8">
       <div className="space-y-3">
@@ -24,8 +24,8 @@ export default function CheckoutSummary({
           <h1 className="opacity-60">Хүргэлт</h1>
           <h1 className="text-xl">
             {deliveryPrice === 0 || deliveryPrice === undefined
-              ? "Үнэгүй"
-              : deliveryPrice + "₮"}
+              ? 'Үнэгүй'
+              : deliveryPrice + '₮'}
           </h1>
         </div>
         <Separator className="bg-border" />
@@ -36,5 +36,5 @@ export default function CheckoutSummary({
       </div>
       {action}
     </div>
-  );
+  )
 }

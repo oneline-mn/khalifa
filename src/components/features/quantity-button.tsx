@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { Handbag, Minus, Plus } from "lucide-react";
-import React, { useState } from "react";
+import { Handbag, Minus, Plus } from 'lucide-react'
+import React, { useState } from 'react'
 
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
+import { Button } from '../ui/button'
+import { Input } from '../ui/input'
 
 export default function QuantityButton({
-  variant,
+  variant
 }: {
-  variant: "ghost" | "secondary";
+  variant: 'ghost' | 'secondary'
 }) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(0)
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const value = parseInt(e.target.value);
+    const value = parseInt(e.target.value)
     if (!isNaN(value) && value >= 0) {
-      setQuantity(value);
-    } else if (e.target.value === "") {
-      setQuantity(0);
+      setQuantity(value)
+    } else if (e.target.value === '') {
+      setQuantity(0)
     }
   }
 
@@ -28,7 +28,7 @@ export default function QuantityButton({
         <Button
           className="sm:text-xl font-bold flex items-center gap-2 h-11"
           onClick={() => setQuantity(quantity + 1)}
-          size={"lg"}
+          size={'lg'}
           variant={variant}
         >
           <Handbag className="size-5" strokeWidth={2} />
@@ -39,8 +39,8 @@ export default function QuantityButton({
           <Button
             className="text-primary"
             onClick={() => setQuantity(quantity - 1)}
-            size={"icon-sm"}
-            variant={"ghost"}
+            size={'icon-sm'}
+            variant={'ghost'}
           >
             <Minus />
           </Button>
@@ -51,13 +51,13 @@ export default function QuantityButton({
           />
           <Button
             onClick={() => setQuantity(quantity + 1)}
-            size={"icon-sm"}
-            variant={"ghost"}
+            size={'icon-sm'}
+            variant={'ghost'}
           >
             <Plus />
           </Button>
         </div>
       )}
     </>
-  );
+  )
 }

@@ -8,7 +8,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
+  DrawerTrigger
 } from '@/components/ui/drawer'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { CartProps } from '@/types/cart'
@@ -24,7 +24,9 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
       <DrawerTrigger asChild>
         <Button className="flex flex-col items-center px-4 py-0 gap-0.5 group w-fit">
           <NavCountItem
-            icon={<Handbag className="size-5 duration-150 group-hover:scale-120" />}
+            icon={
+              <Handbag className="size-5 duration-150 group-hover:scale-120" />
+            }
             label="Сагс"
           />
         </Button>
@@ -32,7 +34,11 @@ export default function Cart({ openCart, setOpenCart }: CartProps) {
       <DrawerContent className="p-0 h-screen">
         <DrawerHeader className="flex flex-row w-full justify-between border-b py-6! sticky top-0 bg-white">
           <DrawerTitle className="text-3xl font-bold">Миний сагс</DrawerTitle>
-          <Button onClick={() => setOpenCart(false)} size={'icon'} variant={'naked'}>
+          <Button
+            onClick={() => setOpenCart(false)}
+            size={'icon'}
+            variant={'naked'}
+          >
             <X className="stroke-primary size-7" />
           </Button>
         </DrawerHeader>

@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export default function SelectSize({ size }: { size: Array<number> }) {
-  const [activeSize, setActiveSize] = useState<number>(0);
+  const [activeSize, setActiveSize] = useState<number>(0)
 
   return (
     <>
@@ -15,18 +15,18 @@ export default function SelectSize({ size }: { size: Array<number> }) {
         return (
           <Button
             className={cn(
-              activeSize === i && "border border-brand-orange",
-              "font-bold"
+              activeSize === i && 'border border-brand-orange',
+              'font-bold'
             )}
             key={i}
             onClick={() => setActiveSize(i)}
-            size={"lg"}
-            variant={"outline"}
+            size={'lg'}
+            variant={'outline'}
           >
             {s}L
           </Button>
-        );
+        )
       })}
     </>
-  );
+  )
 }

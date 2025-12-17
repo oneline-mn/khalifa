@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export default function SignContainer({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <section className="h-screen">
@@ -12,5 +12,5 @@ export default function SignContainer({
       </div>
       <div className="size-full bg-accent hidden lg:block"></div>
     </section>
-  );
+  )
 }

@@ -2,7 +2,7 @@ import { cn } from '@/lib/utils'
 
 export function FacebookIcon({
   className,
-  size,
+  size
 }: {
   className?: string
   color?: string
@@ -29,7 +29,7 @@ export function FacebookIcon({
 }
 export function InstagramIcon({
   className,
-  size,
+  size
 }: {
   className?: string
   color?: string
@@ -50,7 +50,14 @@ export function InstagramIcon({
   )
 }
 
-export function XIcon({ className, size }: { className?: string; color?: string; size?: string }) {
+export function XIcon({
+  className,
+  size
+}: {
+  className?: string
+  color?: string
+  size?: string
+}) {
   return (
     <svg
       className={cn('fill-primary size-6', className, size)}

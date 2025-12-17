@@ -1,15 +1,15 @@
 interface NavCountItemProps {
-  count?: number;
-  icon: React.ReactNode;
-  isMobile?: boolean;
-  label: string;
+  count?: number
+  icon: React.ReactNode
+  isMobile?: boolean
+  label: string
 }
 
 export function NavCountItem({
   count = 0,
   icon,
   isMobile = false,
-  label,
+  label
 }: NavCountItemProps) {
   return (
     <>
@@ -37,5 +37,5 @@ export function NavCountItem({
         </>
       )}
     </>
-  );
+  )
 }

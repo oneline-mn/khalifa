@@ -1,18 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 interface ProductCardProps {
-  category: string;
-  children?: React.ReactNode;
-  images?: Array<string>;
-  price: number;
-  shadow?: "dark" | "light";
-  stock: number;
-  title: string;
-  url: string;
+  category: string
+  children?: React.ReactNode
+  images?: Array<string>
+  price: number
+  shadow?: 'dark' | 'light'
+  stock: number
+  title: string
+  url: string
 }
 
 export default function ProductCard({
@@ -20,10 +20,10 @@ export default function ProductCard({
   children,
   images,
   price,
-  shadow = "dark",
+  shadow = 'dark',
   stock,
   title,
-  url,
+  url
 }: ProductCardProps) {
   return (
     <div className="flex flex-col">
@@ -52,10 +52,10 @@ export default function ProductCard({
           )}
           <div
             className={cn(
-              "absolute inset-x-0 top-[60%] bottom-0 bg-linear-to-b",
-              shadow === "dark"
-                ? "from-primary/0 to-primary"
-                : "from-white/0 to-white"
+              'absolute inset-x-0 top-[60%] bottom-0 bg-linear-to-b',
+              shadow === 'dark'
+                ? 'from-primary/0 to-primary'
+                : 'from-white/0 to-white'
             )}
           ></div>
           {stock === 0 && (
@@ -79,5 +79,5 @@ export default function ProductCard({
       </Link>
       {stock !== 0 && children}
     </div>
-  );
+  )
 }

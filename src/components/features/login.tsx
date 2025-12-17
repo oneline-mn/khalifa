@@ -5,7 +5,12 @@ import { useState } from 'react'
 
 import PasswordInput from '@/components/shared/password-input'
 import { Button } from '@/components/ui/button'
-import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTitle,
+  DrawerTrigger
+} from '@/components/ui/drawer'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
@@ -53,7 +58,10 @@ export default function Login() {
               {/* Forgot password */}
               <div className="flex items-center justify-between">
                 <Label className="text-base">Нууц үг</Label>
-                <Link className="text-brand-orange font-semibold" href={'/profile/password_reset'}>
+                <Link
+                  className="text-brand-orange font-semibold"
+                  href={'/profile/password_reset'}
+                >
                   Нууц үгээ мартсан уу?
                 </Link>
               </div>
@@ -61,7 +69,12 @@ export default function Login() {
               {/* Password */}
               <PasswordInput />
             </div>
-            <Button className="w-full text-base" size={'xl'} type="submit" variant={'orange'}>
+            <Button
+              className="w-full text-base"
+              size={'xl'}
+              type="submit"
+              variant={'orange'}
+            >
               Нэвтрэх
             </Button>
           </form>
@@ -74,7 +87,10 @@ export default function Login() {
             </div>
             <div className="flex justify-center gap-4">
               <h1>Хамтран ажиллах</h1>
-              <Link className="text-brand-orange font-bold" href={'/signup/company/'}>
+              <Link
+                className="text-brand-orange font-bold"
+                href={'/signup/company/'}
+              >
                 Албан байгууллагаар хүсэлт илгээх
               </Link>
             </div>
@@ -83,9 +99,10 @@ export default function Login() {
                 className="justify-between text-brand-orange"
                 href={'mailto:contact@khalifa.mn'}
               >
-                Албан байгууллагаар бүртгүүлэх бол дээрх хамтран ажиллах дээр даран хүсэлт илгээхээс
-                гадна <span className="font-bold">contact@khalifa.mn</span> руу холбогдон
-                дэлгэрэнгүй мэдээлэл аваарай
+                Албан байгууллагаар бүртгүүлэх бол дээрх хамтран ажиллах дээр
+                даран хүсэлт илгээхээс гадна{' '}
+                <span className="font-bold">contact@khalifa.mn</span> руу
+                холбогдон дэлгэрэнгүй мэдээлэл аваарай
               </Link>
             </div>
           </div>

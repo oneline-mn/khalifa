@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
+import { Eye, EyeOff } from 'lucide-react'
+import { useState } from 'react'
 
-import { Input } from "../ui/input";
+import { Input } from '../ui/input'
 
 export default function PasswordInput({ ...props }) {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
   return (
     <div className="relative h-fit">
       <Input
         className={props.className}
         required
-        type={show ? "text" : "password"}
+        type={show ? 'text' : 'password'}
         {...props}
       />
       <div
@@ -23,5 +23,5 @@ export default function PasswordInput({ ...props }) {
         {show ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
       </div>
     </div>
-  );
+  )
 }
