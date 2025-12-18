@@ -1,7 +1,6 @@
 import { Suspense } from 'react'
 
 import QuantityButton from '@/components/features/quantity-button'
-import Gallery from '@/components/pages/product/gallery'
 import PageLoader from '@/components/shared/page-loader'
 import Suggestion from '@/components/shared/suggestion'
 import {
@@ -11,16 +10,56 @@ import {
   AccordionTrigger
 } from '@/components/ui/accordion'
 import { Separator } from '@/components/ui/separator'
-import { getProducts } from '@/lib/productGet'
+import configPromise from '@payload-config'
+import { draftMode } from 'next/headers'
+import { getPayload } from 'payload'
+
+const queryProductBySlug = async ({ slug }: { slug: string }) => {
+  const { isEnabled: draft } = await draftMode()
+
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'products',
+    depth: 3,
+    draft,
+    limit: 1,
+    overrideAccess: draft,
+    pagination: false,
+    where: {
+      and: [
+        {
+          slug: {
+            equals: slug
+          }
+        },
+        ...(draft ? [] : [{ _status: { equals: 'published' } }])
+      ]
+    }
+  })
+
+  return result.docs?.[0] || null
+}
 
 export default async function Page({
   params
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: number }>
 }) {
   const { slug } = await params
-  const products = await getProducts()
-  const product = products.find((p) => p.id === Number(slug))
+
+  const payload = await getPayload({ config: configPromise })
+
+  const result = await payload.find({
+    collection: 'products',
+    where: {}
+  })
+
+  // const product = p.docs.find((p) => p.id === Number(slug))
+
+  // TODO:
+  const product = result.docs[0]
+  console.log(product)
   if (!product) return <div>Product not found</div>
 
   return (
@@ -28,7 +67,7 @@ export default async function Page({
       <section className="mx-auto max-w-lg md:max-w-[1440px] py-10 px-6 md:px-[38px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-14 md:gap-14 pb-10">
           <div className="col-span-1 w-full lg:col-span-2">
-            <Gallery images={product.images} />
+            {/* <Gallery images={product.images} /> */}
           </div>
           <div className="col-span-1 lg:col-span-3 space-y-6 ">
             <div className="space-y-3">

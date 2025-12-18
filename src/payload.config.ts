@@ -8,7 +8,9 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { GetPlatformProxyOptions } from 'wrangler'
 
+import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
+import { Products } from './collections/Products'
 import { Users } from './collections/Users'
 // import migrations from './db/migrations'
 
@@ -30,7 +32,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname)
     }
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Categories, Products],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

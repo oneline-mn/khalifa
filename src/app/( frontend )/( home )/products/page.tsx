@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Suspense } from 'react'
 
-import CategoryGrid from '@/components/pages/product/category-grid'
 import PageLoader from '@/components/shared/page-loader'
 import Suggestion from '@/components/shared/suggestion'
 import {
@@ -12,15 +11,22 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { getCategory } from '@/lib/categoryGet'
 import { CATEGORIES } from '@/lib/constants'
-import { getProducts } from '@/lib/productGet'
+import configPromise from '@payload-config'
 
+import { getPayload } from 'payload'
 import ProductGrid from '../../../../components/pages/product/product-grid'
 
 export default async function Page() {
-  const products = await getProducts()
-  const categories = await getCategory()
+  const payload = await getPayload({ config: configPromise })
+
+  let products = await payload.find({
+    collection: 'products'
+  })
+
+  let productsList = products.docs
+
+  console.log(products.docs)
 
   return (
     <Suspense fallback={<PageLoader dark={true} />}>
@@ -55,7 +61,7 @@ export default async function Page() {
             >
               All spirits
             </Link>
-            <CategoryGrid categories={categories} />
+            {/* <CategoryGrid categories={categories} /> */}
           </div>
         </div>
         <div>
@@ -82,7 +88,7 @@ export default async function Page() {
                     ></div>
                   ))}
                 >
-                  <ProductGrid products={products} />
+                  <ProductGrid products={productsList} />
                 </Suspense>
               </div>
             </div>
