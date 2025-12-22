@@ -27,19 +27,20 @@ export interface FeaturedProduct {
 export interface Product {
   id: number
   title: string
-  category_id?: number
-  category?: string
+  category?: {
+    name: string
+  }
   description: string
   discountPercentage?: number
   stock: number
   price?: number
-  images: Array<string>
+  // images: Array<string>
   url?: string
 }
 
 export interface Category {
   id: number
-  title: string
+  name: string
 }
 
 export interface FAQ {

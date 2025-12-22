@@ -11,8 +11,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { CATEGORIES } from '@/lib/constants'
 import configPromise from '@payload-config'
+
+import CategoryGrid from '@/components/pages/product/category-grid'
 
 import { getPayload } from 'payload'
 import ProductGrid from '../../../../components/pages/product/product-grid'
@@ -21,13 +22,12 @@ export default async function Page() {
   const payload = await getPayload({ config: configPromise })
 
   let products = await payload.find({
-    collection: 'products'
+    collection: 'products',
+    depth: 1
   })
-
-  let productsList = products.docs
-
-  console.log(products.docs)
-
+  let categories = await payload.find({
+    collection: 'categories'
+  })
   return (
     <Suspense fallback={<PageLoader dark={true} />}>
       <section className="relative">
@@ -42,11 +42,11 @@ export default async function Page() {
                 </div>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="mt-3">
-                {CATEGORIES.map((c) => {
+                {categories.docs.map((c) => {
                   return (
                     <DropdownMenuItem className="group flex-center" key={c.id}>
                       <div className="capitalize py-2 font-bold text-xl group-hover:text-brand transition text-nowrap leading-none">
-                        {c.title}
+                        {c.name}
                       </div>
                     </DropdownMenuItem>
                   )
@@ -61,7 +61,7 @@ export default async function Page() {
             >
               All spirits
             </Link>
-            {/* <CategoryGrid categories={categories} /> */}
+            <CategoryGrid categories={categories.docs} />
           </div>
         </div>
         <div>
@@ -88,7 +88,7 @@ export default async function Page() {
                     ></div>
                   ))}
                 >
-                  <ProductGrid products={productsList} />
+                  <ProductGrid products={products.docs} />
                 </Suspense>
               </div>
             </div>

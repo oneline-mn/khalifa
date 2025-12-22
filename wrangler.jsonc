@@ -11,6 +11,15 @@
     // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
     // "global_fetch_strictly_public",
   ],
+  // "hyperdrive": [
+  //   {
+  //     // Bind to the Hyperdrive
+  //     "binding": "HYPERDRIVE",
+
+  //     // Hyperdrive ID uuseh
+  //     "id": "<YOUR_HYPERDRIVE_ID>",
+  //   }
+  // ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

@@ -15,7 +15,7 @@ export default function CategoryGrid({
           href={'#'}
           key={c.id}
         >
-          {c.title}
+          {c.name}
         </Link>
       ))}
     </>

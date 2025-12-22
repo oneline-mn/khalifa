@@ -5,15 +5,17 @@ import { Heart } from 'lucide-react'
 import ProductCard from '@/components/features/product-card'
 import QuantityButton from '@/components/features/quantity-button'
 import { Button } from '@/components/ui/button'
-import { getCategoryTitle } from '@/lib/func'
 import { showToast } from '@/lib/use-toast'
-import { Product } from '@/types'
+import { Product } from '@/payload-types'
 
 export default function ProductGrid({ products }: { products: Product[] }) {
   return products.map((product) => (
     <ProductCard
-      category={getCategoryTitle(product.category_id)}
-      images={product.images}
+      category={
+        typeof product.category === 'object' && product.category !== null
+          ? product.category.name
+          : 'Unknown'
+      }
       key={product.id}
       price={product.price ?? 1}
       stock={product.stock}
