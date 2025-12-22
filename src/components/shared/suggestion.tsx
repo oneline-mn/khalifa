@@ -1,9 +1,7 @@
 import Link from 'next/link'
 
-import { getCategoryTitle } from '@/lib/func'
 import { randomSuggestion } from '@/lib/productGet'
 
-import ProductCard from '../features/product-card'
 import { Button } from '../ui/button'
 
 export default async function Suggestion() {
@@ -16,7 +14,7 @@ export default async function Suggestion() {
       </h1>
 
       <div className="grid grid-cols-2 md:grid-cols-4 mx-auto max-w-2k h-fit text-inherit gap-10">
-        {products.map((product) => {
+        {/* {products.map((product) => {
           return (
             <ProductCard
               category={getCategoryTitle(product.category_id)}
@@ -29,7 +27,7 @@ export default async function Suggestion() {
               url={`/products/${product.id}`}
             />
           )
-        })}
+        })} */}
       </div>
       <div className="flex justify-center w-full mt-16">
         <Link href="/products">
