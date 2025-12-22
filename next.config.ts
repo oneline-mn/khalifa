@@ -1,22 +1,29 @@
-import createMDX from "@next/mdx";
-import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
+import { withPayload } from '@payloadcms/next/withPayload'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  output: "standalone",
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Your Next.js config here
+  webpack: (webpackConfig: any) => {
+    webpackConfig.resolve.extensionAlias = {
+      '.cjs': ['.cts', '.cjs'],
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+    }
+
+    return webpackConfig
+  },
+
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
   images: {
     // ATTENTION: MOCK
-    domains: ["cdn.dummyjson.com"],
+    domains: ['cdn.dummyjson.com'],
   },
-  typescript: {
-    tsconfigPath: "./tsconfig.json",
-  },
-};
+}
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
-});
+})
 
-export default withMDX(nextConfig);
+export default withPayload(withMDX(nextConfig))
